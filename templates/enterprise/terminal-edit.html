@@ -1,0 +1,69 @@
+<div class="main">
+	<!--面包屑导航-->
+	<div ncy-breadcrumb></div>
+	<!--正文-->
+	<div class="terminal-detail newcreat">
+		<div class="col-md-12 col-xs-12 content">
+			<section>
+				<h3>基本信息</h3>
+                <div class="col-sm-12">
+					<div class="form-group has-feedback">
+						<label>部门</label>
+						<input class="form-control input-feedback" type="text" id="departmentName" readonly="readonly" />
+					</div>
+                	<div class="form-group has-feedback">
+						<label>责任人</label>
+						<input class="form-control input-feedback" type="text" id="liable" />
+						<span class="help-block"></span>
+					</div>
+					<div class="form-group has-feedback">
+						<label>ip地址</label>
+					    <input class="form-control input-feedback" type="text" id="ip" />
+					    <span class="help-block"></span>
+					</div>
+					<div class="form-group has-feedback">
+						<label>物理MAC地址</label>
+						<input class="form-control input-feedback" type="text" id="mac" />
+						<span class="help-block"></span>
+					</div>
+					<div class="form-group has-feedback">
+						<label>sn码</label>
+						<input class="form-control input-feedback" type="text" id="sn" />
+						<span class="help-block"></span>
+					</div>
+					<div class="form-group has-feedback">
+						<label>操作系统</label>
+					    <input class="form-control input-feedback" type="text" id="os" />
+					    <span class="help-block"></span>
+					</div>
+					<div class="form-group has-feedback">
+						<label>版本号</label>
+						<input class="form-control input-feedback" type="text" id="ver" />
+						<span class="help-block"></span>
+					</div>
+					<div class="form-group has-feedback">
+						<label>硬盘</label>
+					    <input class="form-control input-feedback" type="text" id="hd" />
+					    <span class="help-block"></span>
+					</div>
+					<div class="form-group">
+						<label></label>
+						<button type="button" class="btn btn-default submit" ng-click="submitTerminalInfo()">提交</button>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h3>硬件资产</h3>
+                <div class="col-sm-12 hardware">
+                	<div ng-include="'templates/enterprise/terminal-hardware-info.html'"></div>
+				</div>
+			</section>
+			<section>
+				<h3>软件资产</h3>
+                <stable>
+			    	<terminal-detail-software></terminal-detail-software>
+			    </stable>
+			</section>
+		</div>
+	</div>
+</div>

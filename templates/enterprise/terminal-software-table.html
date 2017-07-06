@@ -1,0 +1,157 @@
+<div>
+<div class="col-md-12 col-xs-12 lab">
+    <ul id="software-lab">
+        <li class="active" ng-click="stable.softwareHref($event,1)">正在运行的程序</li>
+        <li ng-click="stable.softwareHref($event,2)">正在运行的服务</li>
+        <li ng-click="stable.softwareHref($event,3)">已安装的软件</li>
+        <li ng-click="stable.softwareHref($event,4)">补丁</li>
+    </ul>
+</div>
+<div class="col-md-12 col-xs-12 content">
+	<article ng-if="stable.softwareType === 1">
+		<table class="table table-striped">
+			<thead>
+				<tr class="tr-title">
+					<th>名称</th>
+					<th>描述</th>
+					<th>全路径</th>
+					<th>公司名称</th>
+					<th ng-if="stable.disableModify!=='allow'">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+                <tr ng-repeat="row in stable.tableData">
+					<td>
+						<span class="name" ng-click="stable.softwareInputShow($event)">{{row.name}}</span>
+						<input type="text" ng-model="row.name" ng-blur="stable.softwareInputHide($event)" />
+					</td>
+					<td>
+						<span class="description" ng-click="stable.softwareInputShow($event)">{{row.description}}</span>
+						<input type="text" ng-model="row.description" ng-blur="stable.softwareInputHide($event)" />
+					</td>
+					<td>
+						<span class="fullpath" ng-click="stable.softwareInputShow($event)">{{row.fullpath}}</span>
+						<input type="text" ng-model="row.fullpath" ng-blur="stable.softwareInputHide($event)" />
+					</td>
+					<td>
+						<span class="company" ng-click="stable.softwareInputShow($event)">{{row.company}}</span>
+						<input type="text" ng-model="row.company" ng-blur="stable.softwareInputHide($event)" />
+					</td>
+					<td ng-if="stable.disableModify!=='allow'"><a ng-href="#" ng-click="stable.softwareUpdate($event,row.id)">修改</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</article>
+	<article ng-if="stable.softwareType === 2">
+		<table class="table table-striped">
+			<thead>
+			<tr class="tr-title">
+				<th>名称</th>
+				<th>描述</th>
+				<th>全路径</th>
+				<th>状态</th>
+				<th>公司名称</th>
+				<th ng-if="stable.disableModify!=='allow'">操作</th>
+			</tr>
+			</thead>
+			<tbody>
+                <tr ng-repeat="row in stable.tableData">
+                	<td>
+						<span class="name" ng-click="stable.softwareInputShow($event)">{{row.name}}</span>
+						<input type="text" ng-model="row.name" ng-blur="stable.softwareInputHide($event)" />
+					</td>
+					<td>
+						<span class="description" ng-click="stable.softwareInputShow($event)">{{row.description}}</span>
+						<input type="text" ng-model="row.description" ng-blur="stable.softwareInputHide($event)" />
+					</td>
+					<td>
+						<span class="fullpath" ng-click="stable.softwareInputShow($event)">{{row.fullpath}}</span>
+						<input type="text" ng-model="row.fullpath" ng-blur="stable.softwareInputHide($event)" />
+					</td>
+					<td>
+						<span class="status" ng-click="stable.softwareInputShow($event)">{{row.status}}</span>
+						<input type="text" ng-model="row.status" ng-blur="stable.softwareInputHide($event)" />
+					</td>
+					<td>
+						<span class="company" ng-click="stable.softwareInputShow($event)">{{row.company}}</span>
+						<input type="text" ng-model="row.company" ng-blur="stable.softwareInputHide($event)" />
+					</td>
+					<td ng-if="stable.disableModify!=='allow'"><a ng-href="#" ng-click="stable.softwareUpdate($event,row.id)">修改</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</article>
+	<article ng-if="stable.softwareType === 3">
+		<table class="table table-striped">
+			<thead>
+			<tr class="tr-title">
+				<th>名称</th>
+				<th>发布者</th>
+				<th>安装时间</th>
+				<th>大小</th>
+				<th>版本</th>
+				<th ng-if="stable.disableModify!=='allow'">操作</th>
+			</tr>
+			</thead>
+			<tbody>
+                <tr ng-repeat="row in stable.tableData">
+                	<td>
+						<span class="name" ng-click="stable.softwareInputShow($event)">{{row.name}}</span>
+						<input type="text" ng-model="row.name" ng-blur="stable.softwareInputHide($event)" />
+					</td>
+					<td>
+						<span class="publisher" ng-click="stable.softwareInputShow($event)">{{row.publisher}}</span>
+						<input type="text" ng-model="row.publisher" ng-blur="stable.softwareInputHide($event)" />
+					</td>
+					<td>
+						<span class="installAt" ng-click="stable.softwareInputShow($event)">{{row.installAt}}</span>
+						<input type="text" ng-model="row.installAt" ng-blur="stable.softwareInputHide($event)" />
+					</td>
+					<td>
+						<span class="softSize" ng-click="stable.softwareInputShow($event)">{{row.softSize}}</span>
+						<input type="text" ng-model="row.softSize" ng-blur="stable.softwareInputHide($event)" />
+					</td>
+					<td>
+						<span class="ver" ng-click="stable.softwareInputShow($event)">{{row.ver}}</span>
+						<input type="text" ng-model="row.ver" ng-blur="stable.softwareInputHide($event)" />
+					</td>
+					<td ng-if="stable.disableModify!=='allow'"><a ng-href="#" ng-click="stable.softwareUpdate($event,row.id)">修改</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</article>
+	<article ng-if="stable.softwareType === 4">
+		<table class="table table-striped">
+			<thead>
+			<tr class="tr-title">
+				<th>名称</th>
+				<th>描述</th>
+				<th>重要性</th>
+				<th>安装时间</th>
+				<th ng-if="stable.disableModify!=='allow'">操作</th>
+			</tr>
+			</thead>
+			<tbody>
+                <tr ng-repeat="row in stable.tableData">
+                	<td>
+						<span class="name" ng-click="stable.softwareInputShow($event)">{{row.name}}</span>
+						<input type="text" ng-model="row.name" ng-blur="stable.softwareInputHide($event)" />
+					</td>
+					<td>
+						<span class="status" ng-bind-html="row.status|trustHtml"></span>
+					</td>
+					<td>
+						<span class="significance" ng-click="stable.softwareInputShow($event)">{{row.significance}}</span>
+						<input type="text" ng-model="row.significance" ng-blur="stable.softwareInputHide($event)" />
+					</td>
+					<td>
+						<span class="installAt" ng-click="stable.softwareInputShow($event)">{{row.installAt}}</span>
+						<input type="text" ng-model="row.installAt" ng-blur="stable.softwareInputHide($event)" />
+					</td>
+					<td ng-if="stable.disableModify!=='allow'"><a ng-href="#" ng-click="stable.softwareUpdate($event,row.id)">修改</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</article>
+</div>
+</div>

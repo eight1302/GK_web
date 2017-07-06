@@ -1,0 +1,131 @@
+<div class="main">
+	<!--面包屑导航-->
+	<div ncy-breadcrumb></div>
+	<!--正文-->
+	<div class="main-body">
+		<div class="col-md-12 col-xs-12 stab">
+			<ul>
+				<li><a ng-href="#" ng-click="stabClient()">客户端</a></li>
+				<li><a ng-href="#" ng-click="stabTerminal()">终端管理</a></li>
+				<li class="active"><a ng-href="#" ng-click="stabWhitelist()">白名单管理</a></li>
+			</ul>
+		</div>
+
+		<div class="titel-config">
+			<span>自动保护设置</span>
+			<span class="btn-on-box" ng-click="autoProtect()">
+		        <input type="checkbox" id="btn-wl-01" class="btn-on">
+		        <label for="btn-wl-01"></label>
+	        </span>
+			<span>OFF/ON</span>
+		</div>
+
+		<section>
+			<div class="configaddress">保护设置</div>
+			<div class="row">
+				<div class="col-md-12 col-xs-12 table-config">
+					<table class="table" id="all-protect">
+						<thead>
+						<tr class="tr-title">
+							<th style="width:30%;">保护项</th>
+							<th>是否开启</th>
+						</tr>
+						</thead>
+						<tbody>
+						    <tr>
+								<td>应用程序保护</td>
+							    <td>
+								    <span class="btn-on-box">
+			                            <input type="checkbox" id="btn-wl-02" class="btn-on">
+			                            <label for="btn-wl-02"></label>
+		                            </span>
+							    </td>
+						    </tr>
+							<tr>
+								<td>外设保护</td>
+							    <td>
+								    <span class="btn-on-box">
+			                            <input type="checkbox" id="btn-wl-03" class="btn-on">
+			                            <label for="btn-wl-03"></label>
+		                            </span>
+							    </td>
+						    </tr>
+						    <tr>
+								<td>完整性保护</td>
+							    <td>
+								    <span class="btn-on-box">
+			                            <input type="checkbox" id="btn-wl-04" class="btn-on">
+			                            <label for="btn-wl-04"></label>
+		                            </span>
+							    </td>
+						    </tr>
+						    <tr>
+								<td>自身保护</td>
+							    <td>
+								    <span class="btn-on-box">
+			                            <input type="checkbox" id="btn-wl-05" class="btn-on">
+			                            <label for="btn-wl-05"></label>
+		                            </span>
+							    </td>
+						    </tr>
+						    <tr>
+								<td>证书验证</td>
+							    <td>
+								    <span class="btn-on-box">
+			                            <input type="checkbox" id="btn-wl-06" class="btn-on">
+			                            <label for="btn-wl-06"></label>
+		                            </span>
+							    </td>
+						    </tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="configaddress">常规设置</div>
+			<div class="row">
+				<div class="col-md-12 col-xs-12 table-config">
+					<table class="table">
+						<thead>
+						<tr class="tr-title">
+							<th style="width:30%">设置项</th>
+							<th></th>
+						</tr>
+						</thead>
+						<tbody>
+						    <tr>
+								<td>工作模式</td>
+							    <td>
+								    <div class="radio radio-inline">
+			                            <label>
+			                              <input type="radio" id="work-mode-0" name="workMode" value="0">
+			                              保护模式
+			                            </label>
+			                        </div>
+			                        <div class="radio radio-inline">
+			                            <label>
+			                              <input type="radio" id="work-mode-1" name="workMode" value="1">
+			                              审计模式
+			                            </label>
+			                        </div>
+			                        <div class="radio radio-inline">
+			                            <label>
+			                              <input type="radio" id="work-mode-2" name="workMode" value="2" checked>
+			                              无模式
+			                            </label>
+			                        </div>
+							    </td>
+						    </tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+			
+
+		<div class="submit-box">
+			<button type="button" class="btn btn-default pull-right" ng-click="submitWhitelist()">提交</button>
+		</div>
+	</div>
+</div>

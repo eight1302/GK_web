@@ -1,0 +1,113 @@
+<div id="whitelist">
+    <table class="table table-hover table-striped stable-list" ng-if="stable.table_view === 'list'">
+        <tr>
+            <th st-sort="id"><input type="checkbox" id="selectAllData" /></th>
+            <th>终端名称</th>
+            <th ng-show="stable.colsVal.ip">ip地址</th>
+            <th ng-show="stable.colsVal.mac">mac</th>
+            <th ng-show="stable.colsVal.sn">sn码</th>
+            <th ng-show="stable.colsVal.os">操作系统</th>
+            <th ng-show="stable.colsVal.ver">版本号</th>
+            <th ng-show="stable.colsVal.cer">信息标识</th>
+            <th ng-show="stable.colsVal.hd">硬盘</th>
+            <th ng-show="stable.colsVal.clientNode">终端标识</th>
+        </tr>
+        <tr id="stable-{{row.id}}" ng-repeat="row in stable.tableData">
+            <td><input type="checkbox" value="{{row.clientNode}}" name="sign" /></td>
+            <td><a ui-sref="terminal-hardware({'id':row.id})">{{row.deviceName}}</a></td>
+            <td ng-show="stable.colsVal.ip">{{row.ip}}</td>
+            <td ng-show="stable.colsVal.mac">{{row.mac}}</td>
+            <td ng-show="stable.colsVal.sn">{{row.sn}}</td>
+            <td ng-show="stable.colsVal.os">{{row.os}}</td>
+            <td ng-show="stable.colsVal.ver">{{row.ver}}</td>
+            <td ng-show="stable.colsVal.cer">{{row.cer}}</td>
+            <td ng-show="stable.colsVal.hd">{{row.hd}}</td>
+            <td ng-show="stable.colsVal.clientNode">{{row.clientNode}}</td>
+        </tr>
+    </table>
+    <div class="table stable-plain" ng-if="stable.table_view === 'plain'">
+        <input type="checkbox" id="selectAllData" class="selectAllData" />
+        <div id="stable-{{row.id}}" class="stable-plain-child" ng-repeat="row in stable.tableData">
+            <div class="stable-plain-merge-checkbox">
+                <input type="checkbox" value="{{row.id}}" name="mergeSign" />
+                <span class="fa fa-check"></span>
+            </div>
+            <dl class="current" ng-if="row.isOnline === '在线'">
+                <dt>
+                    <i class="fa fa-tv"></i>
+                    <input type="checkbox" value="{{row.id}}" name="sign" />
+                </dt>
+                <dd>
+                    <h5><a ui-sref="terminal-hardware({'id':row.id})">{{row.deviceName}}</a></h5>
+                    <p ng-show="stable.colsVal.ip">
+                        ip地址:<span>{{row.ip}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.mac">
+                        mac:<span>{{row.mac}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.sn">
+                        sn码:<span>{{row.sn}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.os">
+                        操作系统:<span title="{{row.os}}">{{row.os}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.ver">
+                        版本号:<span>{{row.ver}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.cer">
+                        信息标识:<span>{{row.cer}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.hd">
+                        硬盘:<span title="{{row.hd}}">{{row.hd}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.clientNode">
+                        终端标识:<span title="{{row.clientNode}}">{{row.clientNode}}</span>
+                    </p>
+
+                    <div class="dl-btn">
+                        <a ng-href="#" class="fa fa-edit" title="编辑" ng-click="stable.toolbar_edit(row.id)"></a>
+                        <a ng-href="#" class="fa fa-trash" title="删除" ng-click="stable.toolbar_delete($event,row.id)"></a>
+                    </div>
+                </dd>
+            </dl>
+            <dl ng-if="row.isOnline === '离线'">
+                <dt>
+                    <i class="fa fa-tv"></i>
+                    <input type="checkbox" value="{{row.id}}" name="sign" />
+                </dt>
+                <dd>
+                    <h5><a ui-sref="terminal-hardware({'id':row.id})">{{row.deviceName}}</a></h5>
+                    <p ng-show="stable.colsVal.ip">
+                        ip地址:<span>{{row.ip}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.mac">
+                        mac:<span>{{row.mac}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.sn">
+                        sn码:<span>{{row.sn}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.os">
+                        操作系统:<span title="{{row.os}}">{{row.os}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.ver">
+                        版本号:<span>{{row.ver}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.cer">
+                        信息标识:<span>{{row.cer}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.hd">
+                        硬盘:<span title="{{row.hd}}">{{row.hd}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.clientNode">
+                        终端标识:<span title="{{row.clientNode}}">{{row.clientNode}}</span>
+                    </p>
+
+                    <div class="dl-btn">
+                        <a ng-href="#" class="fa fa-edit" title="编辑" ng-click="stable.toolbar_edit(row.id)"></a>
+                        <a ng-href="#" class="fa fa-trash" title="删除" ng-click="stable.toolbar_delete($event,row.id)"></a>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>

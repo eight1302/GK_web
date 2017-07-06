@@ -1,0 +1,82 @@
+<div class="main">
+    <!--面包屑导航-->
+    <div ncy-breadcrumb></div>
+    <!--正文-->
+    <div class="madecreat">
+        <div class="col-md-12 col-xs-12 content">
+            <section>
+                    <h5>基本信息</h5>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>名称</label>
+                            <input class="form-control" type="text" ng-model="whitelistName" />
+                        </div>
+                        <div class="form-group">
+                            <label>描述</label>
+                            <textarea class="form-control" ng-model="whitelistDesc"></textarea>
+                        </div>
+                    </div>
+            </section>
+            <div class="clear"></div>
+            <section>
+                <h5>添加白名单</h5>
+                <div class="col-sm-12">
+                    <div class="form-group box-event" style="overflow:hidden;">
+                        <label style="float:left;">已添加的终端</label>
+                        <ul class="form-control" id="selTerminalList">
+                            
+                        </ul>
+                        <button class="btn btn-info" ng-click="selTerminal()" style="display:block;margin-bottom:5px;">选择</button>
+                        <button class="btn btn-info" ng-click="removeTerminal()">移除</button>
+                    </div>
+                    <div class="form-group">
+                    	<label></label>
+                        <div class="radio box-event">
+                            <label>
+                              <input type="radio" name="whitelistType" value="0" checked>
+                              系统盘
+                            </label>
+                        </div>
+                        <div class="radio box-event">
+                            <label>
+                              <input type="radio" name="whitelistType" value="1">
+                              全盘
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="clear"></div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label></label>
+                    <button type="button" class="btn btn-default submit" ng-click="submitWhitelist()">提交</button>
+                    <button type="reset" class="btn btn-default" ng-click="backList()">返回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/ng-template" id="myModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title">请选择终端</h3>
+    </div>
+    <div class="modal-body">
+        <treecontrol class="tree-classic"
+                     tree-model="dataForTheTree" options="treeOptions">
+                <span ng-click="selDepartment($event)">部门: {{node.departmentName}}</span>
+                <ul style="display:none;">
+                    <li class="client-li" ng-repeat="item in node.linkClientList" data-item="{{item}}" data-departmentId="{{node.id}}" ng-click="selClientId($event,item)">
+                        <input type="checkbox" value="{{item.clientId}}" data-deviceName="{{item.deviceName}}" style="margin-right:5px;" ng-if="!item.isCheck" />
+                        <input type="checkbox" value="{{item.clientId}}" data-deviceName="{{item.deviceName}}" style="margin-right:5px;" ng-if="item.isCheck" checked="checked" />
+                        终端: {{item.deviceName}}
+                    </li>
+                 </ul>
+        </treecontrol>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="modalOk()" >确认</button>
+        <button class="btn btn-warning" type="button" ng-click="modalCancel()">取消</button>
+    </div>
+</script>

@@ -1,0 +1,110 @@
+<div class="main">
+    <!--面包屑导航-->
+    <div ncy-breadcrumb></div>
+    <!--正文-->
+    <div class="main-body">
+        <div class="col-md-12 col-xs-12 stab">
+            <ul>
+                <li class="active"><a ng-href="#">网络设置</a></li>
+                <li><a ui-sref="system-timeset">时间设置</a></li>
+                <li><a ui-sref="system-email">邮件设置</a></li>
+            </ul>
+        </div>
+
+        <div class="network-edit">
+            <div class="col-md-12 col-xs-12 content">
+                <section>
+                    <form name="networkCard">
+                        <h3>网络设置</h3>
+                        <div class="row nerwork-hr">
+                            <div class="col-sm-1 sed-title">
+                                网络配置
+                            </div>
+                            <div class="col-sm-11">
+                                <div class="form-group has-feedback">
+                                    <label>名称</label>
+                                    <select class="form-control" ng-options="item.id as item.name for item in networks"
+                                            ng-selected="item.id===initcard" ng-change="networkCardSet()"
+                                            ng-model="initcard">
+                                    </select>
+                                    <span class="help-block"></span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <label>MAC</label>
+                                    <input class="form-control input-feedback" type="text" value="00:0C:29:5D:04:4C"
+                                           disabled ng-model="currentCard.mac"/>
+                                    <span class="help-block"></span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <label>IP</label>
+                                    <input class="form-control input-feedback" name="ip" validation-ip="ip" type="text"
+                                           value="192.168.1.100" ng-model="currentCard.ip" ng-model-options="{updateOn:'blur'}"/>
+                                    <span ng-show="networkCard.ip.$error.ip" class="help-block">* 请输入有效的ip地址</span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <label>掩码</label>
+                                    <input class="form-control input-feedback" name="mask" validation-ip="mask"
+                                           type="text" value="255.255.255.0" ng-model="currentCard.mask" ng-model-options="{updateOn:'blur'}"/>
+                                    <span ng-show="networkCard.mask.$error.mask" class="help-block">* 请输入有效的子网掩码</span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <label>网关</label>
+                                    <input class="form-control input-feedback" name="gateway" validation-ip="gateway"
+                                           type="text" value="255.255.255.0" ng-model="currentCard.gateway" ng-model-options="{updateOn:'blur'}"/>
+                                    <span ng-show="networkCard.gateway.$error.gateway"
+                                          class="help-block">* 请输入有效的网关</span>
+                                </div>
+                                <div class="form-group">
+                                    <label></label>
+                                    <button type="reset" class="btn btn-default btn-dns" ng-click="stateGo({id:currentCard.id})">高级设置
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1 sed-title">
+                                DNS服务
+                            </div>
+                            <div class="col-sm-11">
+                                <div class="form-group has-feedback">
+                                    <input type="radio" id="address-dns-01" class="address-dns" name="address-dns"
+                                           ng-value="0" ng-model="dnsSetting" ng-click="isShowDnsInfo()"/>
+                                    <label for="address-dns-01" class="dns-label"></label>
+                                    自动获取DNS服务器地址
+                                    <span class="help-block"></span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <input type="radio" id="address-dns-02" class="address-dns" name="address-dns"
+                                           ng-value="1" ng-model="dnsSetting" ng-click="isShowDnsInfo()"/>
+                                    <label for="address-dns-02" class="dns-label"></label>
+                                    使用下面的DNS服务器地址
+                                    <span class="help-block"></span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <label>首选DNS服务器</label>
+                                    <input class="form-control input-feedback" name="server" validation-ip="server"
+                                           type="text" ng-disabled="dnsSetting==0" ng-model="dnsServer.server" ng-model-options="{updateOn:'blur'}"/>
+                                    <span ng-show="networkCard.server.$error.server"
+                                          class="help-block">* 请输入有效的DNS服务器地址</span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <label>备用DNS服务器</label>
+                                    <input class="form-control input-feedback" name="reserver" validation-ip="reserver"
+                                           type="text" ng-disabled="dnsSetting==0" ng-model="dnsServer.reserveServer" ng-model-options="{updateOn:'blur'}"/>
+                                    <span ng-show="networkCard.reserver.$error.reserver" class="help-block">* 请输入有效的DNS备用服务器地址</span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+            <div class="submit-box">
+                <button type="button" class="btn btn-default pull-right" ng-click="submitSettings(!networkCard.ip.$error.ip&&!networkCard.mask.$error.mask&&!networkCard.gateway.$error.gateway&&!networkCard.server.$error.server&&!networkCard.reserver.$error.reserver)">提交</button>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>

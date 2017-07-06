@@ -1,0 +1,24 @@
+<!-- FILTER -->
+<div class="row stable-filter">
+    <div class="col-md-12 col-xs-12">
+        <div ng-repeat="filterItem in stable.filterOptions" class="filter-item">
+            <div class="filter-item-group" ng-if="filterItem.input==='select'">
+                <span>{{filterItem.display}} </span>
+                <div class="filter-item-dropdown">
+                    <select id="stable_filterItem_{{filterItem.name}}" ng-model="filterItem.value" ng-options="option.text for option in filterItem.options track by option.value" st-search="{{filterItem.name}}">
+                    </select>
+                </div>
+            </div>
+            <div class="filter-item-group" ng-if="filterItem.input==='date'">
+                
+            </div>
+            <div class="filter-item-group" ng-if="filterItem.input==='text'">
+                <span>{{filterItem.display}} </span>
+                <div class="filter-item-dropdown">
+                    <input type="text" ng-model="filterItem.value" />
+                </div>
+            </div>
+        </div>
+        <button ng-if="stable.filter_save" type="button" class="btn btn-primary" ng-click="stable.filter_save()">保存</button>
+    </div>
+</div>

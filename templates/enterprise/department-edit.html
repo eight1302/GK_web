@@ -1,0 +1,63 @@
+<div class="main">
+    <!--面包屑导航-->
+    <div ncy-breadcrumb></div>
+    <!--正文-->
+    <div class="department-edit newcreat">
+        <div class="col-md-12 col-xs-12 content">
+            <section>
+                <h3>基本信息</h3>
+                <div class="col-sm-12">
+                    <div class="form-group has-feedback">
+                        <label>名称</label>
+                        <input class="form-control input-feedback" type="text" id="departmentName" ng-readonly="isreadonly"/>
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="form-group" ng-if="isParent !== true">
+                        <label>上级部门</label>
+                        <select class="form-control" id="parentId">
+                            <option ng-repeat="row in department" value="{{row.id}}">{{row.departmentName}}</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>策略</h3>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>安全策略</label>
+                        <select class="form-control" id="policyId">
+                            <option ng-repeat="row in policys" value="{{row.id}}">{{row.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>继承方式</label>
+                        <input type="checkbox" id="inheritUp">&nbsp;
+                        <span>阻止从上级继承</span>&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" id="inheritDow">&nbsp;
+                        <span>强制下级继承</span>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>其他信息</h3>
+                <div class="col-sm-12">
+                    <div class="form-group has-feedback">
+                        <label>地址</label>
+                        <input class="form-control input-feedback" type="text" id="address" />
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label>描述</label>
+                        <textarea class="form-control input-feedback" type="text" id="description"></textarea>
+                    </div>
+                </div>
+            </section>
+            <section style="border: none;">
+                <div class="form-group">
+                    <label></label>
+                    <button type="button" class="btn btn-default submit" ng-click="submitdepartmentupdate()">提交</button>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

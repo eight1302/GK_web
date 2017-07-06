@@ -1,0 +1,74 @@
+<div>
+    <!--列表-->
+    <div class="row" ng-if="stable.table_view === 'list'">
+        <div class="col-md-12 col-xs-12 table-report">
+            <table class="table">
+                <thead>
+                <tr class="tr-title">
+                    <th><i class="fa fa-list"></i></th>
+                    <th ng-show="stable.colsVal.sName">名称</th>
+                    <th ng-show="stable.colsVal.sTyps">部门</th>
+                    <th ng-show="stable.colsVal.ip">IP</th>
+                    <th ng-show="stable.colsVal.asset">资产</th>
+                    <th ng-show="stable.colsVal.operate">操作</th>
+                </tr>
+                </thead>
+                <tbody  ng-if="stable.tableData" >
+                <tr ng-repeat="item in stable.tableData track by $index">
+                    <td><i class="fa fa-object-group"></i></td>
+                    <td ng-show="stable.colsVal.sName">{{item.sName?item.sName:'暂无'}}<i class="fa fa-camera" ng-if="item.sTyps===1" ng-click="reTable.createSnap(item,$event)"></i></td>
+                    <td ng-show="stable.colsVal.sTyps">{{item.dpm?item.dpm:'正在获取中...'}}</td>
+                    <td ng-show="stable.colsVal.ip">{{item.ip?item.ip:'暂无'}}</td>
+                    <td ng-show="stable.colsVal.asset">
+                        <p>时间：{{item.createAt?item.createAt:'未知'|date:'yyyy-MM-dd hh:mm:ss'}}</p>
+                        <p>操作系统: {{item.os?item.os:'暂无'}}/ 主机名：{{item.deviceName?item.deviceName:'暂无'}} /描述：{{item.description?item.description:'暂无'}}</p>
+                        <p>服务：<i class="numberbox color-network">{{item.resolved.service?item.resolved.service:'暂无'}}</i> /  进程：<i class="numberbox color-software">{{item.resolved.progress?item.resolved.progress:'暂无'}}</i>/  软件：<i class="numberbox color-patch">{{item.resolved.app?item.resolved.app:'暂无'}}</i>/  补丁：<i class="numberbox color-patch">{{item.resolved.patch?item.resolved.patch:'暂无'}}</i></p>
+                    </td>
+                    <td ng-show="stable.colsVal.operate">{{item.sStatus!==undefined?item.sStatus?'已读':'未读':'未知'}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--卡片-->
+    <div class="row card-report" ng-if="stable.table_view==='plain'">
+        <div class="col-md-3 col-xs-6 cardbox" ng-repeat="item in stable.tableData track by $index">
+            <section ng-class="item.sTyps===1?'clearfix':'clearfix catchSight'">
+                <div ng-click="reTable.stateGo(item.id)">
+                    <i class="fa fa-object-group fa-big"></i>
+                    <dl>
+                        <dt>{{item.sName?item.sName:'暂无'}}<i ng-if="item.sTyps===2" class="fa fa-camera"></i></dt>
+                        <dd>部门：{{item.dpm?item.dpm:'正在获取中...'}}</dd>
+                        <dd>IP：{{item.ip?item.ip:'暂无'}}</dd>
+                    </dl>
+                    <button ng-if="item.sTyps===1" ng-click="reTable.createSnap(item,$event)"><i class="fa fa-camera"></i></button>
+                </div>
+                <div class="box-cover {{boxStatus}}" ng-if="item.sStatus===1" ng-init="boxStatus=(item.sStatus===1)?'box-show':'box-hide'">
+                    <div class="box-cover-center">
+                        <strong>正在扫描<span class="dotting"></span></strong>
+                        <progress></progress>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script type="text/ng-template" id="reports_asset_createsnapshot">
+        <div class="report-popup">
+            <div class="report-popup-title">
+                <a href="#" class="fa fa-times" ng-click="cancel()"></a>
+                创建设备快照
+            </div>
+            <div class="row report-popup-content">
+                <div class="form-group has-feedback">
+                    <label style="width:180px;">您将会为该设备创建快照: </label>
+                    <!--<input class="form-control input-feedback" type="text" ng-model="clientId"  />-->
+                    <span style="display:block;color:#65acf2;font-size:18px;font-weight:bold;">{{clientInfo.deviceName}}</span>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-default submit btn-ok" ng-click="ok()">确定</button>
+                    <button type="reset" class="btn btn-default" ng-click="cancel()">取消</button>
+                </div>
+            </div>
+        </div>
+    </script>
+</div>

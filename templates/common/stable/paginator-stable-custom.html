@@ -1,0 +1,24 @@
+<!-- PAGINATION -->
+<div class="row pagination-custom">
+    <div class="text-right col-xs-12">
+        <uib-pagination ng-model="currentPage"
+                        boundary-links="false"
+                        total-items="totalItemCount"
+                        items-per-page="stItemsByPage"
+                        max-size="1"
+                        template-url="pagination-custom.html"
+                        ng-change="selectPage(currentPage)"
+                ></uib-pagination>
+    </div>
+</div>
+<script type="text/ng-template" id="pagination-custom.html">
+    <ul class="pagination">
+        <li style="" class="">{{totalItems}}条信息，共{{totalPages}}页</li>
+        <li style="" class="">转到 <input ng-model="go2Page"/><a href ng-click="selectPage(go2Page, $event)" class="pagination-goto">GO</a></li>
+        <li ng-if="::boundaryLinks" ng-class="{disabled: noPrevious()||ngDisabled}" class="pagination-first"><a href ng-click="selectPage(1, $event)">{{::getText('first')}}</a></li>
+        <li ng-if="::directionLinks" ng-class="{disabled: noPrevious()||ngDisabled}" class="pagination-prev"><a href ng-click="selectPage(page - 1, $event)" class="pagination-prev-a"><i class="fa fa-play fa-rotate-180"></i></a></li>
+        <li ng-repeat="page in pages track by $index" ng-class="{active: page.active,disabled: ngDisabled&&!page.active}" class="pagination-page"><a href ng-click="selectPage(page.number, $event)">{{page.text}}</a></li>
+        <li ng-if="::directionLinks" ng-class="{disabled: noNext()||ngDisabled}" class="pagination-next"><a href ng-click="selectPage(page + 1, $event)"><i class="fa fa-play"></i></a></li>
+        <li ng-if="::boundaryLinks" ng-class="{disabled: noNext()||ngDisabled}" class="pagination-last"><a href ng-click="selectPage(totalPages, $event)">{{::getText('last')}}</a></li>
+    </ul>
+</script>

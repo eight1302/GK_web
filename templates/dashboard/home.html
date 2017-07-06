@@ -1,0 +1,16 @@
+<div class="dashboard-container" id="dashboard-container">
+    <div class="dashboard-nav">
+        <div ng-include="'templates/dashboard/nav.html'"></div>
+    </div>
+    <div class="dashboard-top-main">
+        <section class="shunter-alert">
+            <div ng-repeat="alert in app.alerts" class="angular-animate fade-out-right altfont">
+                <uib-alert type="{{alert.type}}" close="app.closeAlert($index)">{{alert.content}}</uib-alert>
+            </div>
+        </section>
+        <div class="dashboard-top" ng-include="'templates/dashboard/top.html'"></div>
+        <div class="dashboard-main" ng-scrollable="{scrollX:'none',scrollY:'right'}">
+        	<main ui-view></main>
+        </div>
+     </div>
+</div>

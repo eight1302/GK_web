@@ -1,0 +1,50 @@
+<div class="main">
+    <!--面包屑导航-->
+    <div ncy-breadcrumb></div>
+    <!--正文-->
+    <div class="main-body">
+        <div class="network-edit">
+            <div class="col-md-12 col-xs-12 content">
+                <section>
+                    <h3>基本信息</h3>
+                    <div class="col-sm-12">
+                        <div class="form-group has-feedback" id="userName">
+                            <label>用户名</label>
+                            <input class="form-control input-feedback" type="text" placeholder="无" ng-model="userName" />
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="form-group has-feedback" id="userName">
+                            <label>昵称</label>
+                            <input class="form-control input-feedback" type="text" placeholder="无" ng-model="nickName" />
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="form-group has-feedback" id="oldPwd">
+                            <label>旧密码</label>
+                            <input class="form-control input-feedback" type="password" placeholder="请输入旧密码" ng-model="oldPwd" maxlength="20" />
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="form-group has-feedback" id="newPwd">
+                            <label>新密码</label>
+                            <input class="form-control input-feedback" type="password" placeholder="请输入新密码" ng-model="newPwd" maxlength="20" />
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="form-group has-feedback" id="confirmPwd">
+                            <label>确认密码</label>
+                            <input class="form-control input-feedback" type="password" placeholder="请确认密码" ng-model="confirmPwd" maxlength="20" />
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                </section>
+                <section style="border: 0 !important;">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label></label>
+                            <button type="button" class="btn btn-default submit" ng-click="submitUser()">提交</button>
+                            <button type="reset" class="btn btn-default" ng-click="backList()">返回</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

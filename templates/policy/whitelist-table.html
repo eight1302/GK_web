@@ -1,0 +1,87 @@
+<div id="whitelistTable">
+    <input type="hidden" id="pageCurrent" />
+    <input type="hidden" id="pageNumber" />
+    <input type="hidden" id="pageSearch" />
+    <div class="table stable-plain">
+        <input type="checkbox" id="selectAllData" class="selectAllData" />
+        <div id="stable-{{row.id}}" class="stable-plain-child" ng-repeat="row in stable.tableData">
+            <div class="child-box">
+                <input type="hidden" value="{{dontDetele}}" name="dontDetele" ng-init="dontDetele=row.dontDetele?1:0" />
+                <input type="checkbox" value="{{row.id}}" name="sign" />
+                <i class="fa fa-file-text-o"></i>
+                <span class="title"><a ng-href="#" ng-click="stable.goDetail(row.id)">{{row.name}}</a></span>
+                <div class="box-btn">
+                    <a ng-href="#" class="fa fa-edit" title="编辑" ng-click="stable.toolbar_edit(row.id)"></a>
+                    <a ng-href="#" class="fa fa-trash" title="删除" ng-click="stable.toolbar_delete(row.id)"></a>
+                </div>
+                <div class="box-cover {{boxStatus}}" ng-init="boxStatus=(row.status===1)?'box-show':'box-hide'">
+                    <!--
+                    <div class="box-cover-center">
+                        <progress value="40" max="100"></progress>
+                    </div>
+                    -->
+                    <div class="box-cover-center">
+                        <strong>正在扫描<span class="dotting"></span></strong>
+                        <progress></progress>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/ng-template" id="myModalImport.html">
+        <div class="modal-header">
+            <h3 class="modal-title">新建白名单</h3>
+        </div>
+        <div class="modal-body">
+            <form id="nocheckImportForm" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>白名单名称：</label>
+                    <input type="text" class="form-control" id="importWhitelistName" name="newWhiteName" />
+                </div>
+                <div class="form-group">
+                    <input type="file" id="nocheckImportFormFile" name="file" />
+                </div>
+                <div class="form-group">
+                    <div class="radio" style="display:inline-block;margin-right:50px;">
+                        <label>
+                          <input type="radio" name="scMethod" value="0" style="margin-top:1px;" checked>
+                          系统盘
+                        </label>
+                    </div>
+                    <div class="radio" style="display:inline-block;">
+                        <label>
+                          <input type="radio" name="scMethod" value="1" style="margin-top:1px;">
+                          全盘
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">确定</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">关闭</button>
+        </div>
+    </script>
+    <script type="text/ng-template" id="myModalImport2.html">
+        <div class="modal-header">
+            <h3 class="modal-title">导入白名单</h3>
+        </div>
+        <div class="modal-body">
+            <form id="checkImportForm" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>将被导入数据的白名单：</label>
+                    <p>{{checkImportFormNames}}</p>
+                    <input type="hidden" id="checkImportFormIds" name="ids" />
+                </div>
+                <div class="form-group">
+                    <input type="file" id="checkImportFormFile" name="file" />
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">确定</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">关闭</button>
+        </div>
+    </script>
+</div>

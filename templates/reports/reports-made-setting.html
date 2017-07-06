@@ -1,0 +1,72 @@
+<div class="main">
+    <!--面包屑导航-->
+    <div ncy-breadcrumb></div>
+    <!--正文-->
+    <div class="madecreat">
+        <div class="col-md-12 col-xs-12 content">
+            <section>
+                    <h5>基本信息</h5>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>模板列表</label>
+                            <select class="form-control" id="tplList">
+                                <option></option>
+                                <option ng-repeat="option in tplOptions" value="{{option.id}}">{{option.title}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>标题</label>
+                            <input class="form-control" type="text" ng-model="tplTitle" />
+                        </div>
+                        <div class="form-group" style="padding-left: 260px;">
+                            若没有合适模板，请点击<a ng-href="#" ng-click="createTpl()">新建模板</a>
+                        </div>
+                    </div>
+            </section>
+            <div class="clear"></div>
+            <section>
+                <h5>定制设置</h5>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="setWatermark" ng-click="setWatermark($event)" checked />加水印</label>
+                        </div>
+                    </div>
+                    <div class="form-group" id="tplWatermarkContent">
+                        <label>水印内容</label>
+                        <input class="form-control" type="text" ng-model="tplWatermark" />
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="setEmail" ng-click="setEmail($event)" checked />邮件发送</label>
+                        </div>
+                    </div>
+                    <div class="row" id="tplEmailContent">
+                        <div class="form-group">
+                            <label>邮件地址</label>
+                            <input class="form-control" type="text" ng-model="tplEmail" />
+                        </div>
+                        <!--
+                        <div class="form-group">
+                            <label>SMTP地址</label>
+                            <input class="form-control" type="text" ng-model="tplSMTP" />
+                        </div>
+                        <div class="form-group">
+                            <label>端口</label>
+                            <input class="form-control" type="text" ng-model="tplPort" />
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </section>
+            <div class="clear"></div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label></label>
+                    <button type="button" class="btn btn-default submit" ng-click="submitTpl()">提交</button>
+                    <button type="reset" class="btn btn-default">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

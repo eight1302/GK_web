@@ -1,0 +1,56 @@
+<div id="reportsMadeTable">
+	<div class="col-md-12 col-xs-12 table-network" ng-if="stable.table_view === 'list'">
+		<table class="table">
+			<thead>
+				<tr class="tr-title">
+                    <th><input type="checkbox" id="selectAllData" ng-click="stable.selectInvert($event)" /></th>
+                    <th>用户名</th>
+                    <th>昵称</th>
+                    <th>是否锁定</th>
+                    <th>最后登录时间</th>
+                    <th>操作</th>
+                </tr>
+			</thead>
+			<tbody>
+				<tr id="stable-{{row.id}}" ng-repeat="row in stable.tableData">
+		            <td><input type="checkbox" value="{{row.id}}" name="sign" /></td>
+		            <td>{{row.userName}}</td>
+		            <td>{{row.nickName}}</td>
+		            <td>{{row.locked}}</td>
+		            <td>{{row.lastLogin}}</td>
+		            <td>
+		                <a ng-href="#" ng-click="stable.toolbar_edit(row.id)">编辑</a>
+		                <a ng-href="#" ng-click="stable.toolbar_delete(row.id)">删除</a>
+		            </td>
+		        </tr>
+			</tbody>
+		</table>
+	</div>
+    <div class="table stable-plain" ng-if="stable.table_view === 'plain'">
+        <input type="checkbox" id="selectAllData" class="selectAllData" />
+        <div id="stable-{{row.id}}" class="stable-plain-child" ng-repeat="row in stable.tableData">
+            <dl class="current">
+                <dt>
+                    <i class="fa fa-user"></i>
+                    <input type="checkbox" value="{{row.id}}" name="sign" />
+                </dt>
+                <dd>
+                    <h5>{{row.userName}}</h5>
+                    <p>
+                        昵称:<span>{{row.nickName}}</span>
+                    </p>
+                    <p>
+                        是否锁定:<span>{{row.locked}}</span>
+                    </p>
+                    <p>
+                        最后登录时间:<span>{{row.lastLogin}}</span>
+                    </p>
+                    <div class="dl-btn">
+                        <a ng-href="#" class="fa fa-edit" title="编辑" ng-click="stable.toolbar_edit(row.id)"></a>
+                        <a ng-href="#" class="fa fa-trash" title="删除" ng-click="stable.toolbar_delete(row.id)"></a>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>

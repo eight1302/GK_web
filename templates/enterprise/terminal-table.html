@@ -1,0 +1,259 @@
+<div id="terminalList">
+    <input type="hidden" id="pageCurrent" />
+    <input type="hidden" id="pageNumber" />
+    <input type="hidden" id="pageSearch" />
+    <table class="table table-hover table-striped stable-list" ng-if="stable.table_view === 'list'">
+        <tr>
+            <th><input type="checkbox" id="selectAllData" ng-click="stable.selectInvert($event)" /></th>
+            <th>终端名称</th>
+            <th>ip地址</th>
+            <th ng-show="stable.colsVal.mac">mac</th>
+            <th ng-show="stable.colsVal.sn">sn码</th>
+            <th>操作系统</th>
+            <th>版本号</th>
+            <th ng-show="stable.colsVal.cer">信息标识</th>
+            <th ng-show="stable.colsVal.hd">硬盘</th>
+            <th ng-show="stable.colsVal.clientNode">终端标识</th>
+            <th>终端类型</th>
+            <th ng-show="stable.colsVal.isReg">是否需要注册</th>
+            <th ng-show="stable.colsVal.clientStatus">终端状态</th>
+            <th>是否在线</th>
+            <th>是否安装客户端</th>
+            <th>部门</th>
+            <th>标签</th>
+            <th>策略</th>
+            <th ng-show="stable.colsVal.createAt">创建时间</th>
+            <th ng-show="stable.colsVal.updateAt">更新时间</th>
+            <th ng-show="stable.colsVal.createUser">创建人</th>
+            <th ng-show="stable.colsVal.updateUser">更新人</th>
+            <th>操作</th>
+        </tr>
+        <tr id="stable-{{row.id}}" class="stable-plain-child-{{row.clientNode}}" ng-repeat="row in stable.tableData">
+            <td><input type="checkbox" value="{{row.id}}" name="sign" /></td>
+            <td><a class="stable-deviceName" ui-sref="terminal-hardware({'id':row.id})">{{row.deviceName}}</a></td>
+            <td class="stable-ip">{{row.ip}}</td>
+            <td class="stable-mac" ng-show="stable.colsVal.mac">{{row.mac}}</td>
+            <td class="stable-sn" ng-show="stable.colsVal.sn">{{row.sn}}</td>
+            <td class="stable-os">{{row.os}}</td>
+            <td class="stable-ver">{{row.ver}}</td>
+            <td class="stable-cer" ng-show="stable.colsVal.cer">{{row.cer}}</td>
+            <td class="stable-hd" ng-show="stable.colsVal.hd">{{row.hd}}</td>
+            <td class="stable-clientNode" ng-show="stable.colsVal.clientNode">{{row.clientNode}}</td>
+            <td class="stable-clientType">{{row.clientType}}</td>
+            <td class="stable-isReg" ng-show="stable.colsVal.isReg">{{row.isReg}}</td>
+            <td class="stable-clientStatus" ng-show="stable.colsVal.clientStatus">{{row.clientStatus}}</td>
+            <td class="stable-isOnline">{{row.isOnline}}</td>
+            <td class="stable-ifInstall">{{row.ifInstall}}</td>
+            <td class="stable-department">{{row.department}}</td>
+            <td class="stable-label">{{row.label}}</td>
+            <td class="stable-policy" title="{{row.policy}}">{{row.policy}}</td>
+            <td class="stable-createAt" ng-show="stable.colsVal.createAt">{{row.createAt}}</td>
+            <td class="stable-updateAt" ng-show="stable.colsVal.updateAt">{{row.updateAt}}</td>
+            <td class="stable-createUser" ng-show="stable.colsVal.createUser">{{row.createUser}}</td>
+            <td class="stable-updateUser" ng-show="stable.colsVal.updateUser">{{row.updateUser}}</td>
+            <td>
+                <a ng-href="#" ng-click="stable.toolbar_edit(row.id)">编辑</a>
+                <a ng-href="#" ng-click="stable.toolbar_delete(row.id)">删除</a>
+            </td>
+        </tr>
+    </table>
+    <div class="table stable-plain" ng-if="stable.table_view === 'plain'">
+        <input type="checkbox" id="selectAllData" class="selectAllData" />
+        <div id="stable-{{row.id}}" class="stable-plain-child stable-plain-child-{{row.clientNode}}" ng-repeat="row in stable.tableData">
+            <dl class="current" ng-if="row.isOnline === '在线'">
+                <dt>
+                    <i class="normal-online" ng-if="row.clientType!=='未知终端'"></i>
+                    <i class="unknow-online" ng-if="row.clientType==='未知终端'"></i>
+                    <input type="checkbox" value="{{row.id}}" name="sign" />
+                </dt>
+                <dd>
+                    <h5><a class="stable-deviceName" ui-sref="terminal-hardware({'id':row.id})">{{row.deviceName}}</a></h5>
+                    <p>
+                        ip地址:<span class="stable-ip">{{row.ip}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.mac">
+                        mac:<span class="stable-mac">{{row.mac}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.sn">
+                        sn码:<span class="stable-sn">{{row.sn}}</span>
+                    </p>
+                    <p>
+                        操作系统:<span class="stable-os" title="{{row.os}}">{{row.os}}</span>
+                    </p>
+                    <p>
+                        版本号:<span class="stable-ver">{{row.ver}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.cer">
+                        信息标识:<span class="stable-cer">{{row.cer}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.hd">
+                        硬盘:<span class="stable-hd" title="{{row.hd}}">{{row.hd}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.clientNode">
+                        终端标识:<span class="stable-clientNode" title="{{row.clientNode}}">{{row.clientNode}}</span>
+                    </p>
+                    <p>
+                        终端类型:<span class="stable-clientType">{{row.clientType}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.isReg">
+                        是否需要注册:<span class="stable-isReg">{{row.isReg}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.clientStatus">
+                        终端状态:<span class="stable-clientStatus">{{row.clientStatus}}</span>
+                    </p>
+                    <p>
+                        是否在线:<span class="stable-online is-online">{{row.isOnline}}</span>
+                    </p>
+                    <p>
+                        是否安装客户端:<span class="stable-ifInstall">{{row.ifInstall}}</span>
+                    </p>
+                    <p>
+                        部门:<span class="stable-department">{{row.department}}</span>
+                    </p>
+                    <p>
+                        标签:<span class="stable-label">{{row.label}}</span>
+                    </p>
+                    <p>
+                        策略:<span class="stable-policy" title="{{row.policy}}">{{row.policy}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.createAt">
+                        创建时间:<span class="stable-createAt">{{row.createAt}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.updateAt">
+                        更新时间:<span class="stable-updateAt">{{row.updateAt}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.createUser">
+                        创建人:<span class="stable-createUser">{{row.createUser}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.updateUser">
+                        更新人:<span class="stable-updateUser">{{row.updateUser}}</span>
+                    </p>
+                    <div class="dl-btn">
+                        <a ng-href="#" class="fa fa-edit" title="编辑" ng-click="stable.toolbar_edit(row.id)"></a>
+                        <a ng-href="#" class="fa fa-trash" title="删除" ng-click="stable.toolbar_delete(row.id)"></a>
+                    </div>
+                </dd>
+                <div class="box-cover {{boxStatus}}" ng-init="boxStatus=(row.ifInstall===3)?'box-show':'box-hide'">
+                    <div class="box-cover-center">
+                        <strong>正在卸载<span class="dotting"></span></strong>
+                        <progress></progress>
+                    </div>
+                </div>
+            </dl>
+            <dl ng-if="row.isOnline === '离线'">
+                <dt>
+                    <i class="normal-offline" ng-if="row.clientType!=='未知终端'"></i>
+                    <i class="unknow-offline" ng-if="row.clientType==='未知终端'"></i>
+                    <input type="checkbox" value="{{row.id}}" name="sign" />
+                </dt>
+                <dd>
+                    <h5><a class="stable-deviceName" ui-sref="terminal-hardware({'id':row.id})">{{row.deviceName}}</a></h5>
+                    <p>
+                        ip地址:<span class="stable-ip">{{row.ip}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.mac">
+                        mac:<span class="stable-mac">{{row.mac}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.sn">
+                        sn码:<span class="stable-sn">{{row.sn}}</span>
+                    </p>
+                    <p>
+                        操作系统:<span class="stable-os" title="{{row.os}}">{{row.os}}</span>
+                    </p>
+                    <p>
+                        版本号:<span class="stable-ver">{{row.ver}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.cer">
+                        信息标识:<span class="stable-cer">{{row.cer}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.hd">
+                        硬盘:<span class="stable-hd" title="{{row.hd}}">{{row.hd}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.clientNode">
+                        终端标识:<span class="stable-clientNode" title="{{row.clientNode}}">{{row.clientNode}}</span>
+                    </p>
+                    <p>
+                        终端类型:<span class="stable-clientType">{{row.clientType}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.isReg">
+                        是否需要注册:<span class="stable-isReg">{{row.isReg}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.clientStatus">
+                        终端状态:<span class="stable-clientStatus">{{row.clientStatus}}</span>
+                    </p>
+                    <p>
+                        是否在线:<span class="stable-online is-online">{{row.isOnline}}</span>
+                    </p>
+                    <p>
+                        是否安装客户端:<span class="stable-ifInstall">{{row.ifInstall}}</span>
+                    </p>
+                    <p>
+                        部门:<span class="stable-department">{{row.department}}</span>
+                    </p>
+                    <p>
+                        标签:<span class="stable-label">{{row.label}}</span>
+                    </p>
+                    <p>
+                        策略:<span class="stable-policy" title="{{row.policy}}">{{row.policy}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.createAt">
+                        创建时间:<span class="stable-createAt">{{row.createAt}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.updateAt">
+                        更新时间:<span class="stable-updateAt">{{row.updateAt}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.createUser">
+                        创建人:<span class="stable-createUser">{{row.createUser}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.updateUser">
+                        更新人:<span class="stable-updateUser">{{row.updateUser}}</span>
+                    </p>
+                    <div class="dl-btn">
+                        <a ng-href="#" class="fa fa-edit" title="编辑" ng-click="stable.toolbar_edit(row.id)"></a>
+                        <a ng-href="#" class="fa fa-trash" title="删除" ng-click="stable.toolbar_delete(row.id)"></a>
+                    </div>
+                </dd>
+                <div class="box-cover {{boxStatus}}" ng-init="boxStatus=(row.ifInstall===3)?'box-show':'box-hide'">
+                    <div class="box-cover-center">
+                        <strong>正在卸载<span class="dotting"></span></strong>
+                        <progress></progress>
+                    </div>
+                </div>
+            </dl>
+        </div>
+    </div>
+
+    <script type="text/ng-template" id="myModalMerge.html">
+        <div class="modal-header">
+            <h3 class="modal-title">请选择合并的主终端</h3>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label>主终端：</label>
+                <select class="form-control" id="mergeMaster">
+                    <option ng-repeat="item in mergeOptions" value="{{item.clientId}}">{{item.deviceName}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="okMerge()">确定</button>
+            <button class="btn btn-warning" type="button" ng-click="cancelMerge()">关闭</button>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="myModal.html">
+        <div class="modal-header">
+            <h3 class="modal-title">请选择绑定部门</h3>
+        </div>
+        <div class="modal-body">
+            <treecontrol class="tree-classic"
+                         tree-model="dataForTheTree" options="treeOptions">
+                <span ng-click="selDepartmentId(node.id)">部门: {{node.departmentName}}</span>
+            </treecontrol>
+        </div>
+        <div class="modal-footer" style="text-align:center;">
+            <button class="btn btn-primary" type="button" ng-click="ok()" >确认</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
+        </div>
+    </script>
+</div>

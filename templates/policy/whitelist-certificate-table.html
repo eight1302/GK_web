@@ -1,0 +1,58 @@
+<div id="whitelistTable">
+<div class="col-md-12 col-xs-12 content">
+	<article>
+		<table class="table table-striped">
+			<thead>
+				<tr class="tr-title">
+					<th><input type="checkbox" id="selectAllData" ng-click="stable.selectInvert($event)" /></th>
+					<th>主题</th>
+					<th>颁布者</th>
+					<th>到期日期</th>
+					<th ng-if="stable.disableModify!=='allow'">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+                <tr ng-repeat="row in stable.tableData" id="stable-{{row.id}}">
+                	<td><input type="checkbox" value="{{row.id}}" name="sign" /></td>
+					<td>
+						<span class="subject" ng-click="stable.inputShow($event)">{{row.subject}}</span>
+						<input type="text" ng-model="row.subject" ng-blur="stable.inputHide($event)" />
+					</td>
+					<td>
+						<span class="issuer" ng-click="stable.inputShow($event)">{{row.issuer}}</span>
+						<input type="text" ng-model="row.issuer" ng-blur="stable.inputHide($event)" />
+					</td>
+					<td>
+						<span class="date" ng-click="stable.inputShow($event)">{{row.date}}</span>
+						<input type="text" ng-model="row.date" ng-blur="stable.inputHide($event)" />
+					</td>
+					<td ng-if="stable.disableModify!=='allow'"><a ng-href="#" ng-click="stable.dataUpdate($event,row.id)">修改</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</article>
+</div>
+<script type="text/ng-template" id="myModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title">添加证书</h3>
+    </div>
+    <div class="modal-body" id="myModalBody">
+        <div class="form-group">
+        	<label>主题</label>
+        	<input class="form-control subject" type="text" />
+        </div>
+        <div class="form-group">
+        	<label>颁布者</label>
+        	<input class="form-control issuer" type="text" />
+        </div>
+        <div class="form-group">
+        	<label>到期日期</label>
+        	<input class="form-control date" type="text" />
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="modalOk()">确定</button>
+        <button class="btn btn-warning" type="button" ng-click="modalCancel()">关闭</button>
+    </div>
+</script>
+</div>

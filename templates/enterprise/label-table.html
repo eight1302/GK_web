@@ -1,0 +1,38 @@
+<div class="labelTable">
+    <table class="table table-hover table-striped stable-list" ng-if="stable.table_view === 'list'">
+        <tr>
+            <th st-sort="id"><input type="checkbox" id="selectAllData" /></th>
+            <th>名称</th>
+            <th>策略</th>
+            <th>描述</th>
+            <th>修改</th>
+        </tr>
+        <tr id="stable-{{row.id}}" class="stable-plain-child-{{row.clientNode}}" ng-repeat="row in stable.tableData">
+            <td><input type="checkbox" value="{{row.id}}" name="sign" /></td>
+            <td class="stable-labelName">{{row.labelName}}</td>
+            <td class="stable-policyName">{{row.policyName}}</td>
+            <td class="stable-labelDescribe" title="{{row.labelDescribe}}"><p>{{row.labelDescribe}}</p></td>
+            <td> <a ng-href="#" class="fa fa-edit" title="编辑" style="text-decoration:none;" ng-click="stable.toolbar_edit(row.id)"></a></td>
+        </tr>
+    </table>
+    <div class="row card-report" ng-if="stable.table_view === 'plain'">
+        <div id="stable-{{row.id}}" class="col-md-3 col-xs-12 cardbox1" ng-repeat="row in stable.tableData">
+            <section>
+                <input type="checkbox" value="{{row.id}}" name="sign" />
+                <div class="col-xs-12 labeldis">
+                    <div class="col-xs-4 lt">
+                        <span class="fa fa-tv fa-big"></span>
+                    </div>
+                   <div class="col-xs-8 rt">
+                       <h5>{{row.labelName}}</h5>
+                       <dd>策略：{{row.policyName}}</dd>
+                   </div>
+                </div>
+                <div class="dl-btn">
+                    <a ng-href="#" class="fa fa-edit" title="编辑" style="text-decoration:none;" ng-click="stable.toolbar_edit(row.id)"></a>
+                    <a ng-if="row.a !== 1" ng-href="#" class="fa fa-trash" title="删除" style="text-decoration:none;" ng-click="stable.toolbar_delete(row.id)"></a>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

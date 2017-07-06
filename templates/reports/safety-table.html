@@ -1,0 +1,41 @@
+
+    <div class="row">
+        <div class="col-md-12 col-xs-12 table-report">
+            <table class="table">
+                <thead>
+                <tr class="tr-title">
+                    <th ng-show="stable.colsVal.status">已读/未读</th>
+                    <th ng-show="stable.colsVal.eventLevel">事件等级</th>
+                    <th ng-show="stable.colsVal.eventType">事件类型</th>
+                    <th ng-show="stable.colsVal.time">时间</th>
+                    <th ng-show="stable.colsVal.terminal">终端</th>
+                    <th ng-show="stable.colsVal.ip">IP</th>
+                    <th ng-show="stable.colsVal.content">内容</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in stable.tableData" ng-click="safetyList.stateGo({id:item.eventId})">
+                    <td ng-show="stable.colsVal.status">{{item.status?'已读':'未读'}}</td>
+                    <td ng-show="stable.colsVal.eventLevel">{{item.eventLevel?item.eventLevel:'未知'}}</td>
+                    <td ng-show="stable.colsVal.eventType">{{item.eventType?item.eventType:'未知' | transEvtType}}</td>
+                    <td ng-show="stable.colsVal.time">{{item.createTime?item.createTime:'未知'|date:'yyyy-MM-dd hh:mm:ss'}}</td>
+                    <td ng-show="stable.colsVal.terminal">{{item.clientName?item.clientName:'未知'}}</td>
+                    <td ng-show="stable.colsVal.ip">{{item.sourceIp?item.sourceIp:'未知'}}</td>
+                    <td ng-show="stable.colsVal.content">{{item.description?item.description:'未知'}}</td>
+                </tr>
+                <!--<tr ng-repeat="stable.tableData" ng-click="safetyList.stateGo({id:1})">
+                    <td>2016-08-29 15.31.31</td>
+                    <td>退出网络</td>
+                    <td>KNBJ-D00859A</td>
+                    <td>192.168.100.33</td>
+                    <td>&#45;&#45;</td>
+                    <td>default-vlan</td>
+                    <td>&#45;&#45;</td>
+                    <td class="font-green"><i class="fa fa-check-circle-o"></i>成功</td>
+                    <td>&#45;&#45;</td>
+                </tr>-->
+
+                </tbody>
+            </table>
+        </div>
+    </div>

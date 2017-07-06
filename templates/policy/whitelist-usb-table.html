@@ -1,0 +1,66 @@
+<div id="whitelistTable">
+<div class="col-md-12 col-xs-12 content">
+	<article>
+		<table class="table table-striped">
+			<thead>
+				<tr class="tr-title">
+					<th><input type="checkbox" id="selectAllData" ng-click="stable.selectInvert($event)" /></th>
+					<th>名称</th>
+					<th>硬件ID</th>
+					<th>实例ID</th>
+					<th ng-if="stable.disableModify!=='allow'">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+                <tr ng-repeat="row in stable.tableData" id="stable-{{row.id}}">
+                	<td><input type="checkbox" value="{{row.id}}" name="sign" /></td>
+					<td>
+						<span class="deviceDesc" ng-click="stable.inputShow($event)">{{row.deviceDesc}}</span>
+						<input type="text" ng-model="row.deviceDesc" ng-blur="stable.inputHide($event)" />
+					</td>
+					<td>
+						<span class="hardwareId" ng-click="stable.inputShow($event)">{{row.hardwareId}}</span>
+						<input type="text" ng-model="row.hardwareId" ng-blur="stable.inputHide($event)" />
+					</td>
+					<td>
+						<span class="instanceId" ng-click="stable.inputShow($event)">{{row.instanceId}}</span>
+						<input type="text" ng-model="row.instanceId" ng-blur="stable.inputHide($event)" />
+					</td>
+					<td ng-if="stable.disableModify!=='allow'"><a ng-href="#" ng-click="stable.dataUpdate($event,row.id)">修改</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</article>
+</div>
+<script type="text/ng-template" id="myModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title">添加USB</h3>
+    </div>
+    <div class="modal-body" id="myModalBody">
+        <div class="form-group">
+        	<label>名称</label>
+        	<input class="form-control friendlyName" type="text" />
+        </div>
+        <div class="form-group">
+        	<label>描述</label>
+        	<input class="form-control deviceDesc" type="text" />
+        </div>
+        <div class="form-group">
+        	<label>硬件标识</label>
+        	<input class="form-control hardwareId" type="text" />
+        </div>
+        <div class="form-group">
+        	<label>实例标识</label>
+        	<input class="form-control instanceId" type="text" />
+        </div>
+        <div class="form-group">
+        	<label>驱动</label>
+        	<input class="form-control driver" type="text" />
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="modalOk()">确定</button>
+        <button class="btn btn-warning" type="button" ng-click="modalCancel()">关闭</button>
+    </div>
+</script>
+</div>

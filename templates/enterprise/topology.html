@@ -1,0 +1,316 @@
+<div class="main madecreat">
+	<!--面包屑导航-->
+	<div ncy-breadcrumb></div>
+	<!--正文-->
+	<div class="main-body body-terminal">
+		<div class="chart-box">
+			<section>
+				<div class="col-md-1 col-xs-1 os" ng-mouseover="system=true" ng-mouseout="system=false">
+					<a popover-placement="bottom-left" popover-animation="true" popover-append-to-body="false" popover-trigger="none" popover-is-open="system" uib-popover-template="'os.html'" title="操作系统分类">
+						<span class="glyphicon glyphicon-th-large"  title="操作系统"></span>
+					</a>
+				</div>
+				<div class="form-group" style="float: right;">
+					<button type="button" ng-click="load()">刷新</button>
+					<button type="button" ng-click="adddepentment()">新增部门</button>
+					<button type="button" ng-click="addclient()">新增终端</button>
+				</div>
+				<div id="myDiagramDiv"></div>
+
+			</section>
+
+		</div>
+	</div>
+</div>
+<!--系统分类-->
+<script type="text/ng-template" id="os.html">
+	<div class="os_cog">
+		<ul>
+			<li><div class="os1" style="background: #8BCDED;"></div><p>XP专业(32)</p></li>
+			<li><div class="os2" style="background: #84D747;"></div><p>XP专业(64)</p></li>
+			<li><div class="os3" style="background: #9795E0;"></div><p>win7旗舰(32)</p></li>
+			<li><div class="os4" style="background: #9D9A34;"></div><p>win7旗舰(64)</p></li>
+			<li><div class="os5" style="background: #E538AE;"></div><p>win7专业(32)</p></li>
+			<li><div class="os6" style="background: #C5139D;"></div><p>win7专业(64)</p></li>
+			<li><div class="os7" style="background: #7CA7EA;"></div><p>win10企业(32)</p></li>
+			<li><div class="os8" style="background: #444DB4;"></div><p>win10企业(64)</p></li>
+			<li><div class="os9" style="background: #4185F4;"></div><p>win10旗舰(32)</p></li>
+			<li><div class="os10" style="background: #00d56b;"></div><p>win10旗舰(64)</p></li>
+		</ul>
+	</div>
+</script>
+<!--拓扑图新增部门信息-->
+<script type="text/ng-template" id="adepartmwnt.html">
+	<div class="modal-header">
+		<h3 class="modal-title">新增部门信息</h3>
+	</div>
+	<div class="modal-body">
+		<section>
+			<h3 style="font-size:16px;color:#7B69B3;">基本信息</h3>
+			<div class="col-sm-12">
+				<div class="form-group has-feedback">
+					<label>名称</label>
+					<input class="form-control input-feedback" type="text" id="departmentName" />
+					<span class="help-block"></span>
+				</div>
+				<div class="form-group">
+					<label>上级部门</label>
+					<select class="form-control" ng-readonly="parent" id="parentId">
+						<option ng-repeat="row in department" value="{{row.id}}">{{row.departmentName}}</option>
+					</select>
+				</div>
+			</div>
+		</section>
+		<section>
+			<h3 style="font-size:16px;color:#7B69B3;">策略</h3>
+			<div class="col-sm-12">
+				<div class="form-group">
+					<label>安全策略</label>
+					<select class="form-control" id="policyId">
+						<option ng-repeat="row in policys" value="{{row.id}}">{{row.name}}</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>继承方式</label>
+					<input type="checkbox" id="inheritUp">&nbsp;
+					<span>阻止从上级继承</span>&nbsp;&nbsp;&nbsp;
+					<input type="checkbox" id="inheritDow">&nbsp;
+					<span>强制下级继承</span>
+				</div>
+			</div>
+		</section>
+		<section>
+			<h3 style="font-size:16px;color:#7B69B3;">其他信息</h3>
+			<div class="col-sm-12">
+				<div class="form-group has-feedback">
+					<label>地址</label>
+					<input class="form-control input-feedback" type="text" id="address" />
+					<span class="help-block"></span>
+				</div>
+				<div class="form-group has-feedback">
+					<label>描述</label>
+					<textarea class="form-control input-feedback" type="text" id="description"></textarea>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div class="modal-footer">
+		<section style="border: none;">
+			<div class="form-group">
+				<label></label>
+				<button class="btn btn-primary" type="button" ng-click="okMerge()">确定</button>
+				<button class="btn btn-warning" type="button" ng-click="cancelMerge()">关闭</button>
+			</div>
+		</section>
+	</div>
+</script>
+
+
+<!--拓扑图修改部门信息-->
+<script type="text/ng-template" id="updepartmwnt.html">
+	<div class="modal-header">
+		<h3 class="modal-title">修改部门信息</h3>
+	</div>
+	<div class="modal-body">
+		<section>
+			<h3 style="font-size:16px;color:#7B69B3;">基本信息</h3>
+			<div class="col-sm-12">
+				<div class="form-group has-feedback" >
+					<label>名称</label>
+					<input class="form-control input-feedback" type="text" id="departmentName" ng-readonly="isreadonly"/>
+					<span class="help-block"></span>
+				</div>
+				<div class="form-group" ng-if="isParent !== true">
+					<label>上级部门</label>
+					<select class="form-control" ng-readonly="parent" id="parentId" >
+						<option ng-repeat="row in department" value="{{row.id}}">{{row.departmentName}}</option></select>
+				</div>
+			</div>
+		</section>
+		<section>
+			<h3 style="font-size:16px;color:#7B69B3;">策略</h3>
+			<div class="col-sm-12">
+				<div class="form-group">
+					<label>安全策略</label>
+					<select class="form-control" id="policyId">
+						<option ng-repeat="row in policys" value="{{row.id}}">{{row.name}}</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>继承方式</label>
+					<input type="checkbox" id="inheritUp">&nbsp;
+					<span>阻止从上级继承</span>&nbsp;&nbsp;&nbsp;
+					<input type="checkbox" id="inheritDow">&nbsp;
+					<span>强制下级继承</span>
+				</div>
+			</div>
+		</section>
+		<section>
+			<h3 style="font-size:16px;color:#7B69B3;">其他信息</h3>
+			<div class="col-sm-12">
+				<div class="form-group has-feedback">
+					<label>地址</label>
+					<input class="form-control input-feedback" type="text" id="address" />
+					<span class="help-block"></span>
+				</div>
+				<div class="form-group has-feedback">
+					<label>描述</label>
+					<textarea class="form-control input-feedback" type="text" id="description"></textarea>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div class="modal-footer">
+		<section style="border: none;">
+			<div class="form-group">
+				<label></label>
+				<button class="btn btn-primary" type="button" ng-click="okMerge()">确定</button>
+				<button class="btn btn-warning" type="button" ng-click="cancelMerge()">关闭</button>
+			</div>
+		</section>
+	</div>
+</script>
+
+
+<!--拓扑图新增终端-->
+<script type="text/ng-template" id="aclient.html">
+	<div class="modal-header">
+		<h3 class="modal-title">新增终端信息</h3>
+	</div>
+	<div class="col-md-12 col-xs-12 content">
+		<section>
+			<h3 style="font-size:16px;color:#7B69B3;">基本信息</h3>
+			<div class="col-sm-12">
+				<form>
+					<div class="form-group">
+						<label>部门</label>
+						<select class="form-control" ng-readonly="parent" id="departmentId">
+							<option ng-repeat="row in department" value="{{row.id}}">{{row.departmentName}}</option>
+						</select>
+					</div>
+					<div class="form-group has-feedback">
+						<label>责任人</label>
+						<input class="form-control input-feedback" type="text" id="liable" />
+						<span class="help-block"></span>
+					</div>
+					<div class="form-group">
+						<label>接入位置</label>
+						<select class="form-control">
+							<option value="">S_vlan</option>
+						</select>
+					</div>
+					<div class="form-group has-feedback">
+						<label>IP地址</label>
+						<input class="form-control input-feedback" type="text" id="ip" />
+						<span class="help-block"></span>
+					</div>
+					<div class="form-group has-feedback">
+						<label>当前使用的物理网卡MAC地址</label>
+						<input class="form-control input-feedback" type="text" id="mac" />
+						<span class="help-block"></span>
+					</div>
+					<div class="form-group has-feedback">
+						<label>序列号</label>
+						<input class="form-control input-feedback" type="text" id="sn" />
+						<span class="help-block"></span>
+					</div>
+					<div class="form-group has-feedback">
+						<label>工控卫士版本号</label>
+						<input class="form-control input-feedback" type="text" id="ver" />
+						<span class="help-block"></span>
+					</div>
+					<div class="form-group has-feedback">
+						<label>设备名称</label>
+						<input class="form-control input-feedback" type="text" id="deviceName" />
+						<span class="help-block"></span>
+					</div>
+					<div class="form-group has-feedback">
+						<label>操作系统</label>
+						<input class="form-control input-feedback" type="text" id="os" />
+						<span class="help-block"></span>
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+	</div>
+	<div class="modal-footer">
+		<section style="border: none;">
+			<div class="form-group">
+				<label></label>
+				<button class="btn btn-primary" type="button" ng-click="okMerge()">确定</button>
+				<button class="btn btn-warning" type="button" ng-click="cancelMerge()">关闭</button>
+			</div>
+		</section>
+	</div>
+</script>
+
+
+<!--拓扑图修改终端信息-->
+<script type="text/ng-template" id="upclient.html">
+	<div class="modal-header">
+		<h3 class="modal-title">修改终端信息</h3>
+	</div>
+	<div class="col-md-12 col-xs-12 content">
+		<div class="main">
+			<!--正文-->
+			<div class="terminal-detail newcreat">
+				<div class="col-md-12 col-xs-12 content">
+					<section>
+						<h3>基本信息</h3>
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label>部门</label>
+								<input class="form-control input-feedback" type="text" id="departmentName" readonly="readonly" />
+							</div>
+							<div class="form-group has-feedback">
+								<label>责任人</label>
+								<input class="form-control input-feedback" type="text" id="liable" />
+								<span class="help-block"></span>
+							</div>
+							<div class="form-group has-feedback">
+								<label>ip地址</label>
+								<input class="form-control input-feedback" type="text" id="ip" />
+								<span class="help-block"></span>
+							</div>
+							<div class="form-group has-feedback">
+								<label>物理MAC地址</label>
+								<input class="form-control input-feedback" type="text" id="mac" />
+								<span class="help-block"></span>
+							</div>
+							<div class="form-group has-feedback">
+								<label>sn码</label>
+								<input class="form-control input-feedback" type="text" id="sn" />
+								<span class="help-block"></span>
+							</div>
+							<div class="form-group has-feedback">
+								<label>操作系统</label>
+								<input class="form-control input-feedback" type="text" id="os" />
+								<span class="help-block"></span>
+							</div>
+							<div class="form-group has-feedback">
+								<label>版本号</label>
+								<input class="form-control input-feedback" type="text" id="ver" />
+								<span class="help-block"></span>
+							</div>
+							<div class="form-group has-feedback">
+								<label>硬盘</label>
+								<input class="form-control input-feedback" type="text" id="hd" />
+								<span class="help-block"></span>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<section style="border: none;">
+			<div class="form-group">
+				<label></label>
+				<button class="btn btn-primary" type="button" ng-click="okMerge()">确定</button>
+				<button class="btn btn-warning" type="button" ng-click="cancelMerge()">关闭</button>
+			</div>
+		</section>
+	</div>
+</script>

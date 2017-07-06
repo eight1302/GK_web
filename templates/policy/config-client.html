@@ -1,0 +1,61 @@
+<div class="main">
+	<!--面包屑导航-->
+	<div ncy-breadcrumb></div>
+	<!--正文-->
+	<div class="main-body">
+		<div class="col-md-12 col-xs-12 stab">
+			<ul>
+				<li class="active"><a ng-href="#" ng-click="stabClient()">客户端</a></li>
+				<li><a ng-href="#" ng-click="stabTerminal()">终端管理</a></li>
+				<li><a ng-href="#" ng-click="stabWhitelist()">白名单管理</a></li>
+			</ul>
+		</div>
+
+		<div class="titel-config">
+			<span>自动快照</span>
+			<span class="btn-on-box">
+		        <input type="checkbox" id="btn-on" class="btn-on" />
+		        <label for="btn-on"></label>
+	        </span>
+			<span>OFF/ON</span>
+			<span class="remark">开启后，当客户端提交资产信息时，会自动生产一份资产快照</span>
+		</div>
+
+		<div class="configaddress">Windows客户端</div>
+
+		<div class="row">
+			<div class="col-md-12 col-xs-12 table-config">
+				<table class="table">
+					<thead>
+					<tr class="tr-title">
+						<th></th>
+						<th>文件名</th>
+						<th>版本</th>
+						<th>文件大小</th>
+						<th>上传时间</th>
+						<th>状态</th>
+						<th>操作</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td><input type="text" placeholder="文件格式必须是zip" class="input-edition" disabled="true"></td>
+						<td><input type="text" placeholder="上传文件请勿超过10M" class="input-edition" disabled="true"></td>
+						<td></td>
+						<td></td>
+						<td>上传新版本：<button class="btn btn-info">选择文件</button></td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="submit-box">
+			<button type="button" class="btn btn-default pull-right">提交</button>
+		</div>
+
+
+	</div>
+</div>

@@ -1,0 +1,203 @@
+<div class="main">
+    <!--面包屑导航-->
+    <div ncy-breadcrumb></div>
+    <!--正文-->
+    <div class="main-body">
+        <div class="col-md-12 col-xs-12 stab">
+            <ul>
+                <li class="active"><a ui-sref="network-edit">网络设置</a></li>
+                <li><a ui-sref="system-timeset">时间设置</a></li>
+                <li><a ui-sref="system-email">邮件设置</a></li>
+            </ul>
+        </div>
+
+        <div class="titel-network">高级TCP/IP设置</div>
+
+        <div class="ipaddress">
+            IP地址
+            <button type="button" class="btn btn-default btn-dns pull-right " ng-click="addIp()"><i class="fa fa-plus"></i>添加</button>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-xs-12 table-network">
+                <table class="table">
+                    <thead>
+                       <tr class="tr-title">
+                          <th>IP地址</th>
+                          <th>子网掩码</th>
+                           <th>网关</th>
+                          <th>上移</th>
+                          <th>下移</th>
+                          <th>操作</th>
+                       </tr>
+                    </thead>
+                    <tbody ip-table-state="ipTable" get-ip-table="getData" edit-ip="editIp">
+                       <!--<tr>
+                           <td>已启用DHCP</td>
+                           <td>255.255.255.0</td>
+                           <td><a class="fa fa-sort-amount-asc" title="上移" href="#"></a></td>
+                           <td><a class="fa fa-sort-amount-asc" title="下移" href="#"></a></td>
+                           <td>
+                               <a class="fa fa-trash-o fa-big" title="删除" href="#"></a>
+                               <a class="fa fa-pencil-square-o fa-big" title="编辑" href="network-edit"></a>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>已启用DHCP</td>
+                           <td>255.255.255.0</td>
+                           <td><a class="fa fa-sort-amount-asc" title="上移" href="#"></a></td>
+                           <td><a class="fa fa-sort-amount-asc" title="下移" href="#"></a></td>
+                           <td>
+                               <a class="fa fa-trash-o fa-big" title="删除" href="#"></a>
+                               <a class="fa fa-pencil-square-o fa-big" title="编辑" href="network-edit"></a>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>已启用DHCP</td>
+                           <td>255.255.255.0</td>
+                           <td><a class="fa fa-sort-amount-asc" title="上移" href="#"></a></td>
+                           <td><a class="fa fa-sort-amount-asc" title="下移" href="#"></a></td>
+                           <td>
+                               <a class="fa fa-trash-o fa-big" title="删除" href="#"></a>
+                               <a class="fa fa-pencil-square-o fa-big" title="编辑" href="network-edit"></a>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>已启用DHCP</td>
+                           <td>255.255.255.0</td>
+                           <td><a class="fa fa-sort-amount-asc" title="上移" href="#"></a></td>
+                           <td><a class="fa fa-sort-amount-asc" title="下移" href="#"></a></td>
+                           <td>
+                               <a class="fa fa-trash-o fa-big" title="删除" href="#"></a>
+                               <a class="fa fa-pencil-square-o fa-big" title="编辑" href="network-edit"></a>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>已启用DHCP</td>
+                           <td>255.255.255.0</td>
+                           <td><a class="fa fa-sort-amount-asc" title="上移" href="#"></a></td>
+                           <td><a class="fa fa-sort-amount-asc" title="下移" href="#"></a></td>
+                           <td>
+                               <a class="fa fa-trash-o fa-big" title="删除" href="#"></a>
+                               <a class="fa fa-pencil-square-o fa-big" title="编辑" href="network-edit"></a>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>已启用DHCP</td>
+                           <td>255.255.255.0</td>
+                           <td><a class="fa fa-sort-amount-asc" title="上移" href="#"></a></td>
+                           <td><a class="fa fa-sort-amount-asc" title="下移" href="#"></a></td>
+                           <td>
+                               <a class="fa fa-trash-o fa-big" title="删除" href="#"></a>
+                               <a class="fa fa-pencil-square-o fa-big" title="编辑" href="network-edit"></a>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>已启用DHCP</td>
+                           <td>255.255.255.0</td>
+                           <td><a class="fa fa-sort-amount-asc" title="上移" href="#"></a></td>
+                           <td><a class="fa fa-sort-amount-asc" title="下移" href="#"></a></td>
+                           <td>
+                               <a class="fa fa-trash-o fa-big" title="删除" href="#"></a>
+                               <a class="fa fa-pencil-square-o fa-big" title="编辑" href="network-edit"></a>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>已启用DHCP</td>
+                           <td>255.255.255.0</td>
+                           <td><a class="fa fa-sort-amount-asc" title="上移" href="#"></a></td>
+                           <td><a class="fa fa-sort-amount-asc" title="下移" href="#"></a></td>
+                           <td>
+                               <a class="fa fa-trash-o fa-big" title="删除" href="#"></a>
+                               <a class="fa fa-pencil-square-o fa-big" title="编辑" href="network-edit"></a>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>已启用DHCP</td>
+                           <td>255.255.255.0</td>
+                           <td><a class="fa fa-sort-amount-asc" title="上移" href="#"></a></td>
+                           <td><a class="fa fa-sort-amount-asc" title="下移" href="#"></a></td>
+                           <td>
+                               <a class="fa fa-trash-o fa-big" title="删除" href="#"></a>
+                               <a class="fa fa-pencil-square-o fa-big" title="编辑" href="network-edit"></a>
+                           </td>
+                       </tr>-->
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script id="system_add_Ip_Address" type="text/ng-template">
+            <form name="addIpForm">
+                <div class="network-popup-title">
+                    <a href="#" class="fa fa-times" ng-click="cancel()"></a>
+                    <span >添加TCP/IP地址</span>
+                </div>
+                <div class="row network-popup-content">
+                    <div class="form-group has-feedback">
+                        <label>ip地址:</label>
+                        <input class="form-control input-feedback" type="text" name="ip" validation-ip="checkIp" ng-model="dialogIp" ng-model-options="{updateOn:'blur'}" />
+                        <span class="help-block" ng-show="addIpForm.ip.$error.checkIp">* 请输入正确格式的ip</span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label>子网掩码:</label>
+                        <input class="form-control input-feedback" type="text" name="mask" validation-ip="checkMask" ng-model="dialogMask" ng-model-options="{updateOn:'blur'}" />
+                        <span class="help-block" ng-show="addIpForm.mask.$error.checkMask">* 请输入正确格式的掩码</span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label>网关:</label>
+                        <input class="form-control input-feedback" type="text" name="gateway" validation-ip="checkGateway" ng-model="dialogGateway" ng-model-options="{updateOn:'blur'}" />
+                        <span class="help-block" ng-show="addIpForm.gateway.$error.checkGateway">* 请输入正确格式的网关</span>
+                    </div>
+                    <div class="form-group">
+                        <label></label>
+                        <button type="button" class="btn btn-default submit" ng-click="ok(!addIpForm.ip.$error.checkIp&&!addIpForm.mask.$error.checkMask&&!addIpForm.gateway.$error.checkGateway&&addIpForm.ip.$dirty&&addIpForm.mask.$dirty&&addIpForm.gateway.$dirty)">提交</button>
+                        <button type="reset" class="btn btn-default" ng-click="cancel()">取消</button>
+                        <span class="help-block" ng-show="addIpTip">* 请输入正确格式的配置参数</span>
+                    </div>
+                </div>
+            </form>
+        </script>
+
+        <script id="system_edit_Ip_Address" type="text/ng-template">
+            <form name="addIpForm">
+                <div class="network-popup-title">
+                    <a href="#" class="fa fa-times" ng-click="cancel()"></a>
+                    <span>编辑TCP/IP地址</span>
+                </div>
+                <div class="row network-popup-content">
+                    <div class="form-group has-feedback">
+                        <label>ip地址:</label>
+                        <input class="form-control input-feedback" type="text" name="editip" validation-ip="checkIp" ng-model="ownValue.ip" ng-model-options="{updateOn:'blur'}" />
+                        <span class="help-block" ng-show="addIpForm.ip.$error.checkIp">* 请输入正确格式的ip</span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label>子网掩码:</label>
+                        <input class="form-control input-feedback" type="text" name="editmask" validation-ip="checkMask" ng-model="ownValue.mask" ng-model-options="{updateOn:'blur'}" />
+                        <span class="help-block" ng-show="addIpForm.mask.$error.checkMask">* 请输入正确格式的掩码</span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label>网关:</label>
+                        <input class="form-control input-feedback" type="text" name="editgateway" validation-ip="checkGateway" ng-model="ownValue.gateway" ng-model-options="{updateOn:'blur'}" />
+                        <span class="help-block" ng-show="addIpForm.gateway.$error.checkGateway">* 请输入正确格式的网关</span>
+                    </div>
+                    <div class="form-group">
+                        <label></label>
+                        <button type="button" class="btn btn-default submit" ng-click="ok(!addIpForm.editip.$error.checkIp&&!addIpForm.editmask.$error.checkMask&&!addIpForm.editgateway.$error.checkGateway)">提交</button>
+                        <button type="reset" class="btn btn-default" ng-click="cancel()">取消</button>
+                        <span class="help-block" ng-show="addIpTip">* 请输入正确格式的配置参数</span>
+                    </div>
+                </div>
+            </form>
+
+        </script>
+        <div class="submit-box">
+            <button type="button" class="btn btn-default pull-right" ng-click="submitSettings()">提交</button>
+        </div>
+
+
+    </div>
+</div>
+
+
+

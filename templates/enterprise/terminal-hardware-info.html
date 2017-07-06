@@ -1,0 +1,530 @@
+<div class="col-md-12 col-xs-12 lab">
+    <ul>
+        <li class="active" ng-click="hardwareHref($event,1)">概述</li>
+        <li ng-click="hardwareHref($event,2)">主板</li>
+        <li ng-click="hardwareHref($event,3)">处理器</li>
+        <li ng-click="hardwareHref($event,4)">硬盘</li>
+        <li ng-click="hardwareHref($event,5)">內存</li>
+        <li ng-click="hardwareHref($event,6)">显卡</li>
+        <li ng-click="hardwareHref($event,7)">显示器</li>
+        <li ng-click="hardwareHref($event,8)">其他设备</li>
+        <li ng-click="hardwareHref($event,9)">PCI设备</li>
+        <li ng-click="hardwareHref($event,10)">USB设备</li>
+    </ul>
+</div>
+<div class="col-md-12 col-xs-12 content">
+	<article ng-if="hardwareType === 1">
+		<h5>概述</h5>
+        <div class="inf">
+            <div class="col-md-2 col-xs-2 lt">
+	            <i class="fa fa-cogs"></i>
+            </div>
+            <div class="col-md-10 col-xs-10 rt" ng-init="row=hardwareData.summary">
+            	<p>
+            		<em>电脑型号</em>
+            		<span id="summaryType" ng-click="hardwareInputShow($event)">{{row.type}}</span>
+            		<input type="text" ng-model="row.type" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>操作系统</em>
+            		<span id="summaryOs" ng-click="hardwareInputShow($event)">{{row.os}}</span>
+            		<input type="text" ng-mod7el="row.os" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>处理器</em>
+            		<span id="summaryCpu" ng-click="hardwareInputShow($event)">{{row.cpu}}</span>
+            		<input type="text" ng-model="row.cpu" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>主板</em>
+            		<span id="summaryMainboard" ng-click="hardwareInputShow($event)">{{row.mainboard}}</span>
+            		<input type="text" ng-model="row.mainboard" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>显卡</em>
+            		<span id="summaryVideo" ng-click="hardwareInputShow($event)">{{row.video}}</span>
+            		<input type="text" ng-model="row.video" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>内存</em>
+            		<span id="summaryMemory" ng-click="hardwareInputShow($event)">{{row.memory}}</span>
+            		<input type="text" ng-model="row.memory" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>主硬盘</em>
+            		<span id="summaryHard" ng-click="hardwareInputShow($event)">{{row.hard}}</span>
+            		<input type="text" ng-model="row.hard" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>光驱</em>
+            		<span id="summaryCdrom" ng-click="hardwareInputShow($event)">{{row.cdrom}}</span>
+            		<input type="text" ng-model="row.cdrom" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>声卡</em>
+            		<span id="summaryAudio" ng-click="hardwareInputShow($event)">{{row.audio}}</span>
+            		<input type="text" ng-model="row.audio" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>网卡</em>
+            		<span id="summaryNetcard" ng-click="hardwareInputShow($event)">{{row.netcard}}</span>
+            		<input type="text" ng-model="row.netcard" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            </div>
+        </div>
+	</article>
+	<article ng-if="hardwareType === 2">
+		<h5>主板</h5>
+        <div class="inf">
+            <div class="col-md-2 col-xs-2 lt">
+	            <i class="fa fa-cogs"></i>
+            </div>
+            <div class="col-md-10 col-xs-10 rt" ng-init="row=hardwareData.mainboard">
+            	<p>
+            		<em>主板型号</em>
+            		<span id="mainboardBoardType" ng-click="hardwareInputShow($event)">{{row.boardType}}</span>
+            		<input type="text" ng-model="row.boardType" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>芯片组</em>
+            		<span id="mainboardChips" ng-click="hardwareInputShow($event)">{{row.chips}}</span>
+            		<input type="text" ng-model="row.chips" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>序列号</em>
+            		<span id="mainboardSn" ng-click="hardwareInputShow($event)">{{row.sn}}</span>
+            		<input type="text" ng-model="row.sn" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>主板版本</em>
+            		<span id="mainboardVer" ng-click="hardwareInputShow($event)">{{row.ver}}</span>
+            		<input type="text" ng-model="row.ver" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>BIOS</em>
+            		<span id="mainboardBios" ng-click="hardwareInputShow($event)">{{row.bios}}</span>
+            		<input type="text" ng-model="row.bios" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            </div>
+        </div>
+	</article>
+	<article ng-if="hardwareType === 3">
+		<h5>处理器</h5>
+        <div class="inf">
+            <div class="col-md-2 col-xs-2 lt">
+	            <i class="fa fa-cogs"></i>
+            </div>
+            <div class="col-md-10 col-xs-10 rt" ng-init="row=hardwareData.cpu">
+            	<p>
+            		<em>处理器</em>
+            		<span id="cpuName" ng-click="hardwareInputShow($event)">{{row.name}}</span>
+            		<input type="text" ng-model="row.name" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>速度</em>
+            		<span id="cpuSpeed" ng-click="hardwareInputShow($event)">{{row.speed}}</span>
+            		<input type="text" ng-model="row.speed" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>处理器数量</em>
+            		<span id="cpuNum" ng-click="hardwareInputShow($event)">{{row.num}}</span>
+            		<input type="text" ng-model="row.num" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>生产工艺</em>
+            		<span id="cpuArt" ng-click="hardwareInputShow($event)">{{row.art}}</span>
+            		<input type="text" ng-model="row.art" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>插槽/插座</em>
+            		<span id="cpuSlotSocket" ng-click="hardwareInputShow($event)">{{row.slotSocket}}</span>
+            		<input type="text" ng-model="row.slotSocket" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>一级数据缓存</em>
+            		<span id="cpuL1cache" ng-click="hardwareInputShow($event)">{{row.l1cache}}</span>
+            		<input type="text" ng-model="row.l1cache" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>二级缓存</em>
+            		<span id="cpuL2cache" ng-click="hardwareInputShow($event)">{{row.l2cache}}</span>
+            		<input type="text" ng-model="row.l2cache" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>三级缓存</em>
+            		<span id="cpuL3cache" ng-click="hardwareInputShow($event)">{{row.l3cache}}</span>
+            		<input type="text" ng-model="row.l3cache" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            	<p>
+            		<em>特征</em>
+            		<span id="cpuSign" ng-click="hardwareInputShow($event)">{{row.sign}}</span>
+            		<input type="text" ng-model="row.sign" ng-blur="hardwareInputHide($event)" />
+            	</p>
+            </div>
+        </div>
+	</article>
+	<article ng-if="hardwareType === 4">
+		<h5>硬盘</h5>
+        <div class="inf">
+            <div class="col-md-2 col-xs-2 lt">
+	            <i class="fa fa-cogs"></i>
+            </div>
+            <div class="col-md-10 col-xs-10 rt" id="hardDisk">
+            	<div class="info-group" ng-repeat="row in hardwareData.hardDisk">
+            		<h4>硬盘{{$index+1}}</h4>
+            		<p>
+	            		<em>产品</em>
+	            		<span class="hardDiskProduct" ng-click="hardwareInputShow($event)">{{row.product}}</span>
+	            		<input type="text" ng-model="row.product" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>大小</em>
+	            		<span class="hardDiskSize" ng-click="hardwareInputShow($event)">{{row.size}}</span>
+	            		<input type="text" ng-model="row.size" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>转速</em>
+	            		<span class="hardDiskSpeed" ng-click="hardwareInputShow($event)">{{row.speed}}</span>
+	            		<input type="text" ng-model="row.speed" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>缓存</em>
+	            		<span class="hardDiskCache" ng-click="hardwareInputShow($event)">{{row.cache}}</span>
+	            		<input type="text" ng-model="row.cache" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>硬盘已使用</em>
+	            		<span class="hardDiskUsedInfo" ng-click="hardwareInputShow($event)">{{row.usedInfo}}</span>
+	            		<input type="text" ng-model="row.usedInfo" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>固件</em>
+	            		<span class="hardDiskFirmware" ng-click="hardwareInputShow($event)">{{row.firmware}}</span>
+	            		<input type="text" ng-model="row.firmware" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>接口</em>
+	            		<span class="hardDiskHInterface" ng-click="hardwareInputShow($event)">{{row.hInterface}}</span>
+	            		<input type="text" ng-model="row.hInterface" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>数据传输率</em>
+	            		<span class="hardDiskDataRate" ng-click="hardwareInputShow($event)">{{row.dataRate}}</span>
+	            		<input type="text" ng-model="row.dataRate" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>特征</em>
+	            		<span class="hardDiskFeature" ng-click="hardwareInputShow($event)">{{row.feature}}</span>
+	            		<input type="text" ng-model="row.feature" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>序列号</em>
+	            		<span class="hardDiskSn" ng-click="hardwareInputShow($event)">{{row.sn}}</span>
+	            		<input type="text" ng-model="row.sn" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+            	</div>	
+            </div>
+        </div>
+	</article>
+	<article ng-if="hardwareType === 5">
+		<h5>内存</h5>
+        <div class="inf">
+            <div class="col-md-2 col-xs-2 lt">
+	            <i class="fa fa-cogs"></i>
+            </div>
+            <div class="col-md-10 col-xs-10 rt" id="memory">
+            	<div class="info-group" ng-repeat="row in hardwareData.memory">
+            		<h4>内存{{$index+1}}</h4>
+            		<p>
+	            		<em>DIMM</em>
+	            		<span class="memoryDIMM" ng-click="hardwareInputShow($event)">{{row.dimm}}</span>
+	            		<input type="text" ng-model="row.dimm" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>制造日期</em>
+	            		<span class="memoryProductionDate" ng-click="hardwareInputShow($event)">{{row.productionDate}}</span>
+	            		<input type="text" ng-model="row.productionDate" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>型号</em>
+	            		<span class="memoryModel" ng-click="hardwareInputShow($event)">{{row.model}}</span>
+	            		<input type="text" ng-model="row.model" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>序列号</em>
+	            		<span class="memorySn" ng-click="hardwareInputShow($event)">{{row.sn}}</span>
+	            		<input type="text" ng-model="row.sn" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>厂商</em>
+	            		<span class="memoryManufacturer" ng-click="hardwareInputShow($event)">{{row.manufacturer}}</span>
+	            		<input type="text" ng-model="row.manufacturer" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>模块位宽</em>
+	            		<span class="memoryModuleWidth" ng-click="hardwareInputShow($event)">{{row.moduleWidth}}</span>
+	            		<input type="text" ng-model="row.moduleWidth" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>模块电压</em>
+	            		<span class="memoryModuleVoltage" ng-click="hardwareInputShow($event)">{{row.moduleVoltage}}</span>
+	            		<input type="text" ng-model="row.moduleVoltage" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+            	</div>	
+            </div>
+        </div>
+	</article>
+	<article ng-if="hardwareType === 6">
+		<h5>显卡</h5>
+        <div class="inf">
+            <div class="col-md-2 col-xs-2 lt">
+	            <i class="fa fa-cogs"></i>
+            </div>
+            <div class="col-md-10 col-xs-10 rt" id="videocard">
+            	<div class="info-group" ng-repeat="row in hardwareData.videocard">
+            		<h4>显卡{{$index+1}}</h4>
+            		<p>
+	            		<em>显卡</em>
+	            		<span class="videocardVideoCard" ng-click="hardwareInputShow($event)">{{row.videoCard}}</span>
+	            		<input type="text" ng-model="row.videoCard" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>显存</em>
+	            		<span class="videocardVideoMemory" ng-click="hardwareInputShow($event)">{{row.videoMemory}}</span>
+	            		<input type="text" ng-model="row.videoMemory" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>芯片供应商</em>
+	            		<span class="videocardManufacturer" ng-click="hardwareInputShow($event)">{{row.manufacturer}}</span>
+	            		<input type="text" ng-model="row.manufacturer" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>驱动版本</em>
+	            		<span class="videocardDriveVersion" ng-click="hardwareInputShow($event)">{{row.driveVersion}}</span>
+	            		<input type="text" ng-model="row.driveVersion" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>驱动日期</em>
+	            		<span class="videocardDriveDate" ng-click="hardwareInputShow($event)">{{row.driveDate}}</span>
+	            		<input type="text" ng-model="row.driveDate" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+            	</div>	
+            </div>
+        </div>
+	</article>
+	<article ng-if="hardwareType === 7">
+		<h5>显示器</h5>
+        <div class="inf">
+            <div class="col-md-2 col-xs-2 lt">
+	            <i class="fa fa-cogs"></i>
+            </div>
+            <div class="col-md-10 col-xs-10 rt" id="screen">
+            	<div class="info-group" ng-repeat="row in hardwareData.screen">
+            		<h4>显示器{{$index+1}}</h4>
+            		<p>
+	            		<em>产品</em>
+	            		<span class="screenProduct" ng-click="hardwareInputShow($event)">{{row.product}}</span>
+	            		<input type="text" ng-model="row.product" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>厂商</em>
+	            		<span class="screenManufacturer" ng-click="hardwareInputShow($event)">{{row.manufacturer}}</span>
+	            		<input type="text" ng-model="row.manufacturer" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>固件日期</em>
+	            		<span class="screenFirmwareDate" ng-click="hardwareInputShow($event)">{{row.firmwareDate}}</span>
+	            		<input type="text" ng-model="row.firmwareDate" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>屏幕尺寸</em>
+	            		<span class="screenScreenSize" ng-click="hardwareInputShow($event)">{{row.screenSize}}</span>
+	            		<input type="text" ng-model="row.screenSize" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>显示比例</em>
+	            		<span class="screenDisplayScale" ng-click="hardwareInputShow($event)">{{row.displayScale}}</span>
+	            		<input type="text" ng-model="row.displayScale" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>当前分辨率</em>
+	            		<span class="screenResolution" ng-click="hardwareInputShow($event)">{{row.resolution}}</span>
+	            		<input type="text" ng-model="row.resolution" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>Gamma</em>
+	            		<span class="screenGamma" ng-click="hardwareInputShow($event)">{{row.gamma}}</span>
+	            		<input type="text" ng-model="row.gamma" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>电源管理</em>
+	            		<span class="screenPowerManagement" ng-click="hardwareInputShow($event)">{{row.powerManagement}}</span>
+	            		<input type="text" ng-model="row.powerManagement" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>最佳分辨率</em>
+	            		<span class="screenMaxResolution" ng-click="hardwareInputShow($event)">{{row.maxResolution}}</span>
+	            		<input type="text" ng-model="row.maxResolution" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+            	</div>
+            </div>
+        </div>
+	</article>
+	<article ng-if="hardwareType === 8">
+		<h5>其他设备</h5>
+        <div class="inf">
+            <div class="col-md-2 col-xs-2 lt">
+	            <i class="fa fa-cogs"></i>
+            </div>
+            <div class="col-md-10 col-xs-10 rt" id="otherDevice">
+            	<div class="info-group" ng-repeat="row in hardwareData.otherDevice">
+            		<h4>其他设备{{$index+1}}</h4>
+            		<p>
+	            		<em>产品</em>
+	            		<span class="otherDeviceProduct" ng-click="hardwareInputShow($event)">{{row.product}}</span>
+	            		<input type="text" ng-model="row.product" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>缓存/固件</em>
+	            		<span class="otherDeviceCache" ng-click="hardwareInputShow($event)">{{row.cache}}</span>
+	            		<input type="text" ng-model="row.cache" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>网卡</em>
+	            		<span class="otherDeviceNetcard" ng-click="hardwareInputShow($event)">{{row.netcard}}</span>
+	            		<input type="text" ng-model="row.netcard" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>制造商</em>
+	            		<span class="otherDeviceManufacturer" ng-click="hardwareInputShow($event)">{{row.manufacturer}}</span>
+	            		<input type="text" ng-model="row.manufacturer" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>无线网卡</em>
+	            		<span class="otherDeviceWirelessNetcard" ng-click="hardwareInputShow($event)">{{row.wirelessNetcard}}</span>
+	            		<input type="text" ng-model="row.wirelessNetcard" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>声卡</em>
+	            		<span class="otherDeviceSoundCard" ng-click="hardwareInputShow($event)">{{row.soundCard}}</span>
+	            		<input type="text" ng-model="row.soundCard" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>键盘</em>
+	            		<span class="otherDeviceKeyboard" ng-click="hardwareInputShow($event)">{{row.keyboard}}</span>
+	            		<input type="text" ng-model="row.keyboard" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>鼠标</em>
+	            		<span class="otherDeviceMouse" ng-click="hardwareInputShow($event)">{{row.mouse}}</span>
+	            		<input type="text" ng-model="row.mouse" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>摄像头</em>
+	            		<span class="otherDeviceCamera" ng-click="hardwareInputShow($event)">{{row.camera}}</span>
+	            		<input type="text" ng-model="row.camera" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+            	</div>
+            </div>
+        </div>
+	</article>
+	<article ng-if="hardwareType === 9">
+		<h5>PCI设备</h5>
+        <div class="inf">
+            <div class="col-md-2 col-xs-2 lt">
+	            <i class="fa fa-cogs"></i>
+            </div>
+            <div class="col-md-10 col-xs-10 rt" id="pci">
+            	<div class="info-group" ng-repeat="row in hardwareData.pci">
+            		<h4>PCI设备{{$index+1}}</h4>
+            		<p>
+	            		<em>设备</em>
+	            		<span class="pciDevice" ng-click="hardwareInputShow($event)">{{row.device}}</span>
+	            		<input type="text" ng-model="row.device" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>设备ID</em>
+	            		<span class="pciDeviceId" ng-click="hardwareInputShow($event)">{{row. deviceId}}</span>
+	            		<input type="text" ng-model="row.deviceId" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>制造商</em>
+	            		<span class="pciManufacturer" ng-click="hardwareInputShow($event)">{{row.manufacturer}}</span>
+	            		<input type="text" ng-model="row.manufacturer" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>制造商ID</em>
+	            		<span class="pciManufacturerId" ng-click="hardwareInputShow($event)">{{row.manufacturerId}}</span>
+	            		<input type="text" ng-model="row.manufacturerId" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>类别</em>
+	            		<span class="pciCategory" ng-click="hardwareInputShow($event)">{{row.category}}</span>
+	            		<input type="text" ng-model="row.category" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>子系统制造商</em>
+	            		<span class="pciSubManufacturer" ng-click="hardwareInputShow($event)">{{row.subManufacturer}}</span>
+	            		<input type="text" ng-model="row.subManufacturer" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>子系统ID</em>
+	            		<span class="pciSubSystemId" ng-click="hardwareInputShow($event)">{{row.subSystemId}}</span>
+	            		<input type="text" ng-model="row.subSystemId" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+            	</div>
+            </div>
+        </div>
+	</article>
+	<article ng-if="hardwareType === 10">
+		<h5>USB设备</h5>
+        <div class="inf">
+            <div class="col-md-2 col-xs-2 lt">
+	            <i class="fa fa-cogs"></i>
+            </div>
+            <div class="col-md-10 col-xs-10 rt" id="usb">
+            	<div class="info-group" ng-repeat="row in hardwareData.usb">
+            		<h4>USB设备{{$index+1}}</h4>
+            		<p>
+	            		<em>描述</em>
+	            		<span class="usbDescription" ng-click="hardwareInputShow($event)">{{row.description}}</span>
+	            		<input type="text" ng-model="row.description" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>制造商ID</em>
+	            		<span class="usbManufacturerId" ng-click="hardwareInputShow($event)">{{row.manufacturerId}}</span>
+	            		<input type="text" ng-model="row.manufacturerId" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>产品ID</em>
+	            		<span class="usbDeviceCode" ng-click="hardwareInputShow($event)">{{row.deviceCode}}</span>
+	            		<input type="text" ng-model="row.deviceCode" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>类别</em>
+	            		<span class="usbCategory" ng-click="hardwareInputShow($event)">{{row.category}}</span>
+	            		<input type="text" ng-model="row.category" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>设备</em>
+	            		<span class="usbDevice" ng-click="hardwareInputShow($event)">{{row.device}}</span>
+	            		<input type="text" ng-model="row.device" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>Serial</em>
+	            		<span class="usbSn" ng-click="hardwareInputShow($event)">{{row.sn}}</span>
+	            		<input type="text" ng-model="row.sn" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+	            	<p>
+	            		<em>版本</em>
+	            		<span class="usbVer" ng-click="hardwareInputShow($event)">{{row.ver}}</span>
+	            		<input type="text" ng-model="row.ver" ng-blur="hardwareInputHide($event)" />
+	            	</p>
+            	</div>
+            </div>
+        </div>
+	</article>
+	<div class="row" style="margin-top:20px;">
+		<button class="btn btn-default submit" ng-click="hardwareSubmit()">提交</button>
+	</div>
+</div>

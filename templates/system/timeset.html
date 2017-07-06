@@ -1,0 +1,63 @@
+<div class="timeset">
+    <section>
+        <div class="col-md-12 col-xs-12 networkset">
+            <div class="networklab">
+                <h5>时间设置</h5>
+            </div>
+            <div class="netset">
+                <from>
+                    <div class="col-md-2 col-xs-2 networkset">
+                        <h5>时间设置</h5>
+                    </div>
+                    <div class="col-md-10 col-xs-10 input">
+                        <div class="form-group">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio"  ng-model="formData.chickenEgg">
+                                    手动设置系统时间
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>日期</label>
+                                <input class="form-control input-feedback" type="date" id="days">
+                                <span class="help-block"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>时间</label>
+                                <input class="form-control input-feedback" type="datetime" id="time">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio"  ng-model="formData.chickenEgg">
+                                    使用NTP服务同步时间
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>IP地址</label>
+                                <input class="form-control input-feedback" type="text" id="ip">
+                                <span class="help-block"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>同步时间间隔</label>
+                                <select class="form-control input-feedback" id="datatime">
+                                    <option value="0">每日一次</option>
+                                    <option value="1">每周一次</option>
+                                    <option value="1">每月一次</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label></label>
+                        <button type="button" class="btn btn-default submit" ng-click="submitnetworkinfo()">提交</button>
+                        <button type="reset" class="btn btn-default">重置</button>
+                    </div>
+                </from>
+            </div>
+        </div>
+    </section>
+</div>

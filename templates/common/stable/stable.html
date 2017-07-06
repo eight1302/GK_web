@@ -1,0 +1,13 @@
+<div class="stable">
+    <div st-pipe="stable.getTableData" st-table>
+        <!-- TOOLBAR -->
+        <div ng-if="!stable.disableToolbar" ng-include="'templates/common/stable/toolbar.html'"></div>
+        <!-- FILTER -->
+        <div ng-if="stable.filter" ng-include="'templates/common/stable/filter-stable.html'"></div>
+        <!-- TABLE CONTAINER -->
+        <div ng-transclude>
+        </div>
+        <!-- PAGINATION -->
+        <div ng-if="stable.pagination && stable.tableData && stable.tableData.length > 0" class="text-center" st-pagination="" st-items-by-page="stable.numPerPage"></div>
+    </div>
+</div>

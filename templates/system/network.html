@@ -1,0 +1,14 @@
+<div class="main">
+    <!--面包屑导航-->
+    <div ncy-breadcrumb></div>
+    <!--正文-->
+    <div class="system-detail network">
+        <div class="col-md-12 col-xs-12 stab">
+            <ul>
+                <li class="active"><a ng-href="#" ng-click="network()">网络设置</a></li>
+                <li><a ng-href="#" ng-click="timeset()">时间设置</a></li>
+            </ul>
+        </div>
+        <div ng-include="'templates/system/system-network-info.html'"></div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<div id="terminalList">
+    <table class="table table-hover table-striped stable-list" ng-if="stable.table_view === 'list'">
+        <tr>
+            <th st-sort="id"><input type="checkbox" id="selectAllData" /></th>
+            <th st-sort="name" ng-show="stable.colsVal.name">名称</th>
+            <th st-sort="department" ng-show="stable.colsVal.department">部门</th>
+            <th ng-show="stable.colsVal.liable">责任人</th>
+            <th ng-show="stable.colsVal.type">类型</th>
+            <th ng-show="stable.colsVal.os">操作系统</th>
+            <th ng-show="stable.colsVal.host">主机名</th>
+            <th ng-show="stable.colsVal.client">客户端</th>
+            <th ng-show="stable.colsVal.ip">IP</th>
+            <th ng-show="stable.colsVal.access">接入位置</th>
+            <th ng-show="stable.colsVal.user">使用人</th>
+            <th ng-show="stable.colsVal.operation">操作</th>
+        </tr>
+        <tr ng-repeat="row in stable.tableData">
+            <td><input type="checkbox" value="{{row.id}}" /></td>
+            <td ng-show="stable.colsVal.name">{{row.name}}</td>
+            <td ng-show="stable.colsVal.department">{{row.department}}</td>
+            <td>{{row.liable}}</td>
+            <td>{{row.type}}</td>
+            <td>{{row.os}}</td>
+            <td>{{row.host}}</td>
+            <td>{{row.client}}</td>
+            <td>{{row.ip}}</td>
+            <td>{{row.access}}</td>
+            <td>{{row.user}}</td>
+            <td>{{row.operation}}</td>
+        </tr>
+    </table>
+    <div class="table stable-plain" ng-if="stable.table_view === 'plain'">
+        <input type="checkbox" id="selectAllData" class="selectAllData" />
+        <div class="stable-plain-child" ng-repeat="row in stable.tableData">
+            <dl class="current">
+                <dt>
+                    <i class="fa fa-tv"></i>
+                    <input type="checkbox" value="{{row.id}}" />
+                </dt>
+                <dd>
+                    <h5>{{row.name}}</h5>
+                    <p>
+                        部门：<span>{{row.department}}</span>
+                    </p>
+                    <p>
+                        负责人：<span>{{row.liable}}</span>
+                    </p>
+                    <p>
+                        类型：<span>{{row.type}}</span>
+                    </p>
+                    <p>
+                        操作系统：<span>{{row.os}}</span>
+                    </p>
+                    <p>
+                        主机名：<span>{{row.host}}</span>
+                    </p>
+                    <p>
+                        客户端：<span>{{row.client}}</span>
+                    </p>
+                    <p>
+                        IP：<span>{{row.ip}}</span>
+                    </p>
+                    <p>
+                        接入位置：<span>{{row.access}}</span>
+                    </p>
+                    <p>
+                        使用人：<span>{{row.user}}</span>
+                    </p>
+                    <p>
+                        操作：<span>{{row.operation}}</span>
+                    </p>
+                    <div class="dl-btn">
+                        <a href="" class="fa fa-edit"></a>
+                        <a href="" class="fa fa-trash"></a>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>

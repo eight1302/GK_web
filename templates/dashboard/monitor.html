@@ -1,0 +1,91 @@
+<div class="main">
+    <div class="dashboard-index">
+        <div class="index-row">
+            <!--系统信息-->
+            <div class="col-sm-12 col-md-6 row-left">
+                <section>
+                    <h5>基本信息</h5>
+                    <div class="one">
+                        <ul>
+                            <li>产品名称：<span>{{baseInfo.name}}</span></li>
+                            <li>运行时间：<span>{{runningTime}}</span></li>
+                            <li>型号：<span>{{baseInfo.type}}</span></li>
+                            <li>开发系统：<span>{{baseInfo.progressCount}}个</span></li>
+                            <li>软件版本：<span>{{baseInfo.version}}</span></li>
+                            <li>PC链接：<span>{{baseInfo.connectedCount}}个</span></li>
+                        </ul>
+                    </div>
+                    <div class="two">
+                        <div class="two-child col-xs-4 col-sm-4 col-md-4 two-child-1">
+                            <em>CPU</em>
+                            <chart-canvas-gauge value="gauge_data_cpu" color="green"></chart-canvas-gauge>
+                        </div>
+                        <div class="two-child col-xs-4 col-sm-4 col-md-4 two-child-2">
+                            <em>内存</em>
+                            <chart-canvas-gauge value="gauge_data_mem" color="blue"></chart-canvas-gauge>
+                        </div>
+                        <div class="two-child col-xs-4 col-sm-4 col-md-4 two-child-3">
+                            <em>磁盘</em>
+                            <chart-canvas-gauge value="gauge_data_disk" color="red"></chart-canvas-gauge>
+
+                        </div>
+                    </div>
+                    <div class="three">
+                        <p><span>调试进程</span><em ng-if="testProgress!=undefined" class="em1"></em></p>
+                        <p><span>客户端</span><em ng-if="clientProgress!=undefined" class="em2"></em></p>
+                    </div>
+                </section>
+            </div>
+            <!--系统信息-->
+            <!--安全事件-->
+            <div class="col-sm-12 col-md-6 row-right">
+                <section>
+                    <h5>安全事件</h5>
+                    <div class="one">
+                        <ul>
+                            <li>告警：<span class="general" ng-bind="secEvtCount.WARNING?secEvtCount.WARNING:0">200</span>个</li>
+                            <li>登入：<span class="suspicious" ng-bind="secEvtCount.CLIENT_LOGIN?secEvtCount.CLIENT_LOGIN:0">2</span>个</li>
+                            <li>登出：<span class="suspicious" ng-bind="secEvtCount.CLIENT_LOGOUT?secEvtCount.CLIENT_LOGOUT:0">200</span>个</li>
+                            <li>其它：<span class="suspicious" ng-bind="secEvtCount.OTHER?secEvtCount.OTHER:0">200</span>个</li>
+                        </ul>
+                    </div>
+                    <div class="two">
+                        <div security-evt="secEvtList"></div>
+                    </div>
+                </section>
+            </div>
+            <!--安全事件-->
+        </div>
+
+        <div class="index-row">
+            <!--在线终端统计-->
+            <div class="col-sm-12 col-md-3 row-four">
+                <section>
+                    <div doughnut-chart="blueRound" ></div>
+                </section>
+            </div>
+            <!--终端类型统计-->
+            <div class="col-sm-12 col-md-3 row-four">
+                <section>
+                    <div doughnut-chart="greenRound" ></div>
+                </section>
+            </div>
+            <!--安全事件统计-->
+            <div class="col-sm-12 col-md-3 row-four">
+                <section>
+                    <div doughnut-chart="purpleRound" ></div>
+                </section>
+            </div>
+            <!--风险评估统计-->
+            <div class="col-sm-12 col-md-3 row-four">
+                <section>
+                    <div doughnut-chart="redRound" ></div>
+                </section>
+            </div>
+        </div>
+
+        <div class="index-row" nav-cards="navMenu">
+          
+        </div>
+    </div>   
+</div>

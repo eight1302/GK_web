@@ -1,0 +1,66 @@
+<div class="main" xmlns="http://www.w3.org/1999/html">
+    <!--面包屑导航-->
+    <div ncy-breadcrumb></div>
+    <!--正文-->
+    <div class="main-body">
+        <div class="col-md-12 col-xs-12 stab">
+            <ul>
+                <li><a ui-sref="network-edit">网络设置</a></li>
+                <li><a ui-sref="system-timeset">时间设置</a></li>
+                <li class="active"><a ng-href="#">邮件设置</a></li>
+            </ul>
+        </div>
+
+        <div class="network-edit">
+            <div class="col-md-12 col-xs-12 content">
+                <section>
+                    <h3>邮件设置</h3>
+                    <div class="row">
+                        <div class="col-sm-1 sed-title"></div>
+                        <form name="system_email">
+                            <div class="col-sm-11">
+                                <div class="form-group has-feedback">
+                                    <label>邮箱名</label>
+                                    <input class="form-control input-feedback" name="emailName" type="email" ng-model="emailName" required />
+                                    <span class="help-block" ng-show="system_email.emailName.$dirty && system_email.emailName.$invalid">
+                                        <span ng-show="system_email.emailName.$error.required">邮箱名不能为空</span>
+                                        <span ng-show="system_email.emailName.$error.email">请输入有效的邮箱名</span>
+                                    </span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <label>邮箱密码</label>
+                                    <input class="form-control input-feedback" name="emailPwd" type="password" ng-model="emailPwd" validation-email-pwd="emailPwd" required />
+                                    <span class="help-block" ng-show="system_email.emailPwd.$dirty && system_email.emailPwd.$invalid">
+                                        <span ng-show="system_email.emailPwd.$error.required">密码不能为空</span>
+                                        <span ng-show="system_email.emailPwd.$error.emailPwd">密码不得小于六位</span>
+                                    </span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <label>SMTP地址</label>
+                                    <input class="form-control input-feedback" name="emailSmtp" type="text" ng-model="emailSmtp" required />
+                                    <span class="help-block" ng-show="system_email.emailSmtp.$dirty && system_email.emailSmtp.$invalid">
+                                        <span ng-show="system_email.emailSmtp.$error.required">SMTP不能为空</span>
+                                    </span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <label>端口</label>
+                                    <input class="form-control input-feedback" name="emailPort" type="text" ng-model="emailPort" validation-integer="emailPort" required />
+                                    <span class="help-block" ng-show="system_email.emailPort.$dirty && system_email.emailPort.$invalid">
+                                        <span ng-show="system_email.emailPort.$error.required">端口不能为空</span>
+                                        <span ng-show="system_email.emailPort.$error.emailPort">请输入有效的端口</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <div class="submit-box">
+                <button type="button" class="btn btn-default pull-right" ng-click="submitData()">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

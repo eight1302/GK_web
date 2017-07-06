@@ -1,0 +1,26 @@
+<div id="safeTable">
+    <input type="hidden" id="pageCurrent" />
+    <input type="hidden" id="pageNumber" />
+    <input type="hidden" id="pageSearch" />
+    <div class="table stable-plain">
+        <input type="checkbox" id="selectAllData" class="selectAllData" />
+        <div id="stable-{{row.id}}" class="stable-plain-child" ng-repeat="row in stable.tableData">
+            <div class="child-box">
+                <input type="hidden" value="{{dontDetele}}" name="dontDetele" ng-init="dontDetele=row.dontDetele?1:0" />
+                <input type="checkbox" value="{{row.id}}" name="sign" />
+                <i class="fa fa-shield"></i>
+                <span class="title">{{row.name}}</span>
+                <div class="box-btn">
+                    <a ng-href="#" class="fa fa-edit" title="编辑" ng-click="stable.toolbar_edit(row.id)"></a>
+                    <a ng-href="#" class="fa fa-trash" title="删除" ng-click="stable.toolbar_delete(row.id)"></a>
+                </div>
+                <div class="box-cover {{boxStatus}}" ng-init="boxStatus=(row.status===1)?'box-show':'box-hide'">
+                    <div class="box-cover-center">
+                        <strong>正在部署<span class="dotting"></span></strong>
+                        <progress></progress>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

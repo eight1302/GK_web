@@ -1,0 +1,97 @@
+<div id="networkList">
+    <table class="table table-hover table-striped stable-list" ng-if="stable.table_view === 'list'">
+        <tr>
+            <th st-sort="id"><input type="checkbox" id="selectAllData" /></th>
+            <th ng-show="stable.colsVal.state">状态</th>
+            <th ng-show="stable.colsVal.ID">ID</th>
+            <th ng-show="stable.colsVal.branch">部门</th>
+            <th ng-show="stable.colsVal.Subnet_addresses">网络地址</th>
+            <th ng-show="stable.colsVal.Subnet_mask">子网掩码</th>
+            <th ng-show="stable.colsVal.start_IP">开始IP地址</th>
+            <th ng-show="stable.colsVal.stop_IP">结束IP地址</th>
+            <th ng-show="stable.colsVal.lease">租约</th>
+            <th ng-show="stable.colsVal.gateway">网关</th>
+            <th ng-show="stable.colsVal.DNS">DNS</th>
+
+            <!--
+            <th ng-show="stable.colsVal.hostname">主机名</th>
+            <th ng-show="stable.colsVal.os">操作系统</th>
+            <th ng-show="stable.colsVal.label">标签</th>
+            <th ng-show="stable.colsVal.responsible">负责人</th>
+            <th ng-show="stable.colsVal.department">部门</th>
+            <th ng-show="stable.colsVal.create">创建时间</th>
+            <th ng-show="stable.colsVal.Update">更新时间</th>
+            <th ng-show="stable.colsVal.application">策略报告</th>
+            -->
+        </tr>
+        <tr ng-repeat="row in stable.tableData">
+            <td><input type="checkbox" value="{{row.id}}" /></td>
+            <td ng-show="stable.colsVal.state">{{row.state}}</td>
+            <td>{{row.ID}}</td>
+            <td>{{row.branch}}</td>
+            <td>{{row.Subnet_addresses}}</td>
+            <td>{{row.Subnet_mask}}</td>
+            <td>{{row.start_IP}}</td>
+            <td>{{row.stop_IP}}</td>
+            <td>{{row.lease}}</td>
+            <td>{{row.gateway}}</td>
+            <td>{{row.DNS}}</td>
+
+            <!--
+             <td>{{row.hostname}}</td>
+             <td>{{row.os}}</td>
+             <td>{{row.label}}</td>
+             <td>{{row.responsible}}</td>
+             <td>{{row.department}}</td>
+             <td>{{row.create}}</td>
+             <td>{{row.Update}}</td>
+             <td>{{row.application}}</td>
+            -->
+         </tr>
+     </table>
+     <div class="table stable-plain" ng-if="stable.table_view === 'plain'">
+         <input type="checkbox" id="selectAllData" class="selectAllData" />
+         <div class="stable-plain-child" ng-repeat="row in stable.tableData">
+             <dl class="current">
+                 <dt>
+                     <i class="fa fa-tv"></i>
+                     <input type="checkbox" value="{{row.id}}" />
+                 </dt>
+                 <dd>
+                     <h5>{{row.state}}</h5>
+                     <p>
+                         ID：<span>{{row.ID}}</span>
+                     </p>
+                     <p>
+                         部门：<span>{{row.branch}}</span>
+                     </p>
+                     <p>
+                         子网地址：<span>{{row.Subnet_addresses}}</span>
+                     </p>
+                     <p>
+                         子网掩码：<span>{{row.Subnet_mask}}</span>
+                     </p>
+                     <p>
+                         开始IP地址：<span>{{row.start_IP}}</span>
+                     </p>
+                     <p>
+                         结束IP地址：<span>{{row.stop_IP}}</span>
+                     </p>
+                     <p>
+                         租约：<span>{{row.lease}}</span>
+                     </p>
+                     <p>
+                         网关：<span>{{row.gateway}}</span>
+                     </p>
+                     <p>
+                         DNS：<span>{{row.DNS}}</span>
+                     </p>
+                     <div class="dl-btn">
+                         <a href="" class="fa fa-edit"></a>
+                         <a href="" class="fa fa-trash"></a>
+                     </div>
+                 </dd>
+             </dl>
+         </div>
+     </div>
+ </div>

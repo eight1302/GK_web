@@ -1,0 +1,21 @@
+<div class="login-container">
+    <div class="login-header">
+        <div class="col-md-3 col-xs-3 text-center"><img src="/resource/images/login-logo.png"></div>
+        <div class="col-md-6 col-xs-6"></div>
+        <div class="col-md-2 col-xs-2 text-center">
+            <!--
+            <a class="btn btn-link" popover-placement="bottom" popover-append-to-body="false" popover-trigger="outsideClick" popover-is-open="true" uib-popover="请下载安装Chrome浏览器，以获得最佳使用体验。">下载Chrome</a>
+            -->
+        </div>
+    </div>
+    <form class="login-main" name="login_form">
+        <div class="input">
+            <input type="text" name="username" ng-model="username" class="form-control" placeholder="用户名"><i class="fa fa-user icon-user"></i>
+            <input type="password" name="password" ng-model="password" class="form-control" placeholder="密码" style="margin-top:1em"><i class="fa fa-unlock-alt icon-password"></i>
+            <button type="button" class="btn btn-default" ng-click="auth.login()"><i class="fa fa-angle-right"></i></button>
+        </div>
+        <div style="position:relative;top:45%;margin:0 auto;color:#ffffff;" ng-show="auth.showError(login_form)">
+            <span>{{error}}</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+<div class="stable-toolbar row">
+    <div class="col-md-10 col-xs-10 left-toolbar">
+        <div class="input-report" ng-if="stable.toolbarDate">
+            <span style="margin-top:0;">
+                <input type="text" uib-datepicker-popup="{{stable.dateInit.format}}" id="starttime" datepicker-append-to-body="true" show-button-bar="false" is-open="stable.dateInit.from" ng-model="stable.fromDate" datepicker-options="stable.dateOpts" class="form-control" st-search="start" type="text" st-input-event="focus">
+                <button type="button" class="btn btn-default input-group-btn" ng-click="stable.dateInit.openFrom()"><i class="glyphicon glyphicon-calendar glyphicon-i"></i></button>
+            </span>
+            <b>至</b>
+            <span style="margin-top:0;">
+                <input type="text" uib-datepicker-popup="{{stable.dateInit.format}}" id="endtime" datepicker-append-to-body="true" show-button-bar="false" is-open="stable.dateInit.to" ng-model="stable.toDate" ng-change="stable.clickSearch()" datepicker-options="stable.dateOpts" class="form-control" st-search="end" type="text" st-input-event="focus">
+                <button type="button" class="btn btn-default input-group-btn" ng-click="stable.dateInit.openTo()"><i class="glyphicon glyphicon-calendar glyphicon-i"></i></button>
+            </span>
+            <button ng-if="stable.dateSaveBtn" type="button" class="btn btn-primary pull-left" style="margin-top:0" ng-click="stable.saveCond({startTime:stable.fromDate,endTime:stable.toDate})">保存</button>
+        </div>
+        <button ng-if="stable.toolbar_selectAll" type="button" class="btn btn-primary" popover-placement="bottom-left" popover-append-to-body="false" popover-trigger="outsideClick" uib-popover-template="'toolbar-selectAll-table.html'">
+            <i class="fa fa-check-circle-o fa-fw"></i>选择</button>
+        <button ng-if="stable.toolbar_operator" type="button" class="btn btn-primary" popover-placement="bottom-left" popover-append-to-body="false" popover-trigger="outsideClick" uib-popover-template="'toolbar-operation-table.html'">
+            <i class="fa fa-pencil-square-o fa-fw"></i>操作</button>
+        <!--event state-->
+        <span ng-repeat="item in stable.toolbarFilters" ng-if="stable.shiftPieChart">
+            <select ng-if="item.name==='allEvents'" st-search="{{item.name}}" st-input-event="change"
+                    class="form-control" ng-model="item.value" style="display:inline-block;width:200px;margin-right:20px;">
+                <option value="">所有事件</option>
+                <option ng-repeat="option in item.options" value="{{option.value}}">{{option.name}}</option>
+            </select>
+            <select ng-if="item.name==='allState'" st-search="{{item.name}}" st-input-event="change"
+                    class="form-control" ng-model="item.value" style="display:inline-block;width:200px;margin-right:20px;">
+                <option value="">所有状态</option>
+                <option ng-repeat="option in item.options" value="{{option.value}}">{{option.name}}</option>
+            </select>
+        </span>
+
+        <!--<select ng-repeat="item in stable.toolbarFilters" st-search="{{item.name}}" st-input-event="change"
+                class="form-control" ng-if="stable.shiftPieChart" ng-options="option.value as option.name for option in item.options"
+                ng-selected="option.value===item.value" ng-model="item.value" style="display:inline-block;width:200px;margin-right:20px;">
+        </select>-->
+        <!--<select class="form-control" ng-if="stable.shiftPieChart" ng-options="" ng-selected="" ng-model="" style="display:inline-block;width:200px;margin-right:20px;">
+                <option value="">全部状态</option>
+        </select>-->
+
+        <!-- SEARCH -->
+        <span class="form-group has-feedback search" ng-if="!stable.listShow">
+            <input id="stable-toolbar_input_search" st-search st-input-event="search" placeholder="搜索"
+                   class="form-control" ng-keyup="stable.keyUpSearch($event.keyCode)"/>
+            <span class="glyphicon glyphicon-search text-muted" aria-hidden="true"
+                  ng-click="stable.clickSearch()"></span>
+        </span>
+        <button type="button" ng-if="stable.shiftPieChart&&!stable.listShow" class="btn btn-primary" style="margin-left:20px;" ng-click="stable.searchBar()">查找</button>
+        <!--<span class="form-group has-feedback search
+            <input id="stable-toolbar_input_search1" st-search st-input-event="search1" placeholder="打开"
+                   class="form-control" ng-keyup="stable.keyUpSearch($event.keyCode)" />
+            <span class="glyphicon glyphicon-search text-muted" aria-hidden="true" ng-click="stable.clickSearch()"></span>
+        </span>-->
+    </div>
+    <div ng-if="!stable.disableToolbarRight" class="col-md-2 col-xs-2 right-toolbar">
+        <button ng-if="stable.toolbar_refresh" type="button" class="btn btn-primary" ng-click="stable.toolbar_refresh()" title="刷新">
+            <i class="fa fa-refresh fa-lg"></i>
+        </button>
+        <button ng-if="stable.toolbar_add" type="button" class="btn btn-primary" ng-click="stable.toolbar_add()" title="添加">
+            <i class="fa fa-file-o fa-plus-overlay fa-fw"></i>
+        </button>
+        <button ng-if="stable.toolbar_import" type="button" class="btn btn-primary" ng-click="stable.toolbar_import()" title="导入">
+            <i class="fa fa-sign-in fa-lg"></i>
+        </button>
+        <button ng-if="stable.toolbar_export" type="button" class="btn btn-primary" ng-click="stable.toolbar_export()" title="导出">
+            <i class="fa fa-sign-out fa-lg"></i>
+        </button>
+        <button type="button" class="btn btn-primary" ng-if="stable.shiftPieChart&&!stable.listShow" ng-click="stable.shiftPieChart()" title="查看饼状图">
+            <i class="fa fa-pie-chart fa-lg"></i>
+        </button>
+        <button type="button" class="btn btn-primary" ng-if="stable.shiftPieChart&&stable.listShow" ng-click="stable.shiftPieChart()" title="查看列表">
+            <i class="fa fa-list fa-lg"></i>
+        </button>
+        <button ng-if="stable.toolbar_topology" type="button" class="btn btn-primary" ng-click="stable.toolbar_topology()" title="拓扑图">
+            <i class="fa fa-sitemap fa-fw"></i>
+        </button>
+        <button type="button" ng-if="!stable.listShow" class="btn btn-primary configuration" popover-placement="bottom-right" title="设置"
+                popover-append-to-body="false" popover-trigger="outsideClick" uib-popover-template="'toolbar-custom-table.html'"><i class="fa fa-gear fa-lg"></i>
+        </button>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<script type="text/ng-template" id="toolbar-selectAll-table.html">
+    <div class="toolbar-operation">
+        <ul>
+            <li ng-repeat="item in stable.selectAllOptions" ng-click="item.function()" id="toolbar-selectAll-{{item.name}}">{{item.display}}</li>
+        </ul>
+    </div>
+</script>
+<script type="text/ng-template" id="toolbar-operation-table.html">
+    <div class="toolbar-operation">
+        <ul>
+            <li ng-repeat="item in stable.operationOptions" ng-click="item.function()" id="toolbar-operation-{{item.name}}">{{item.display}}</li>
+        </ul>
+    </div>
+</script>
+<script type="text/ng-template" id="toolbar-custom-table.html">
+    <div class="toolbar-custom">
+        <div class="row custom-item" ng-if="stable.viewTypes">
+            <h5>视图方式</h5>
+            <div>
+                <label class="btn btn-default" ng-model="stable.table_view" uib-btn-radio="'list'" ng-if="stable.view_list">
+                    <i class="fa fa-th-list"></i></label>
+                <label class="btn btn-default" ng-model="stable.table_view" uib-btn-radio="'plain'" ng-if="stable.view_plain">
+                    <i class="fa fa-th-large"></i></label>
+            </div>
+        </div>
+        <div class="row custom-item">
+            <h5>每页显示数量</h5>
+            <div>
+                <label class="btn btn-default" ng-model="stable.numPerPage" uib-btn-radio="10">10</label>
+                <label class="btn btn-default" ng-model="stable.numPerPage" uib-btn-radio="20">20</label>
+                <label class="btn btn-default" ng-model="stable.numPerPage" uib-btn-radio="30">30</label>
+                <label class="btn btn-default" ng-model="stable.numPerPage" uib-btn-radio="50">50</label>
+                <label class="btn btn-default" ng-model="stable.numPerPage" uib-btn-radio="100">100</label>
+            </div>
+        </div>
+        <div class="row custom-item" ng-if="stable.cols">
+            <h5>显示项目</h5>
+            <div class="row">
+                <div ng-repeat="col in stable.cols" class="col-md-6 col-xs-6">
+                    <div class="toolbar-checkbox">
+                        <input type="checkbox" value="None" id="toolbar_checkbox_{{col.name}}" name="check" checked ng-model="stable.colsVal[col.name]"/>
+                        <label for="toolbar_checkbox_{{col.name}}"></label>
+                        <span class="checkbox-text">{{col.text}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+    

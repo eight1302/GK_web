@@ -1,0 +1,162 @@
+<div class="main">
+    <!--面包屑导航-->
+    <div ncy-breadcrumb></div>
+    <!--正文-->
+    <div class="madecreat">
+        <div class="col-md-12 col-xs-12 content">
+            <section>
+                    <h5>基本信息</h5>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>名称</label>
+                            <input class="form-control" type="text" ng-model="madeName" />
+                        </div>
+                        <div class="form-group">
+                            <label>报告描述</label>
+                            <textarea class="form-control" ng-model="madeDesc"></textarea>
+                        </div>
+                    </div>
+            </section>
+            <div class="clear"></div>
+            <section>
+                <h5>定制设置</h5>
+                <div class="col-sm-12">
+                    <div class="form-group box-event" id="typeBtn">
+                        <label>定制类型</label>
+                        <div class="radio box-event" ng-click="madeTypeTab(1)">
+                            <label>
+                              <input type="radio" id="madeType1" name="madeType" value="1" checked>
+                              资产
+                            </label>
+                        </div>
+                        <div class="radio box-event" ng-click="madeTypeTab(2)">
+                            <label>
+                              <input type="radio" id="madeType2" name="madeType" value="2">
+                              安全
+                            </label>
+                        </div>
+                        <div class="radio box-event" ng-click="madeTypeTab(3)">
+                            <label>
+                              <input type="radio" id="madeType3" name="madeType" value="3">
+                              审计
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row" ng-show="madeType===1">
+                        <div class="form-group" id="assetsType">
+                            <label>资产类型</label>
+                            <div class="checkbox box-event">
+                                <label><input type="checkbox">硬件资产</label>
+                            </div>
+                            <div class="checkbox box-event">
+                                <label><input type="checkbox">软件资产</label>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="row" ng-show="madeType===2">
+                        <div class="input-report" style="margin-bottom:20px;">
+                            <label>时间范围</label>
+                            <span style="margin-top:0;">
+                                <input type="text" uib-datepicker-popup="{{dateInit1.format}}" id="starttime1" datepicker-append-to-body="true" show-button-bar="false" is-open="dateInit1.from" ng-model="fromDate1" datepicker-options="dateOpts" class="form-control">
+                                <button type="button" class="btn btn-default input-group-btn" ng-click="dateInit1.openFrom()"><i class="glyphicon glyphicon-calendar glyphicon-i"></i></button>
+                            </span>
+                            <b>至</b>
+                            <span style="margin-top:0;">
+                                <input type="text" uib-datepicker-popup="{{dateInit1.format}}" id="endtime1" datepicker-append-to-body="true" show-button-bar="false" is-open="dateInit1.to" ng-model="toDate1" ng-change="clickSearch()" datepicker-options="dateOpts" class="form-control">
+                                <button type="button" class="btn btn-default input-group-btn" ng-click="dateInit1.openTo()"><i class="glyphicon glyphicon-calendar glyphicon-i"></i></button>
+                            </span>
+                        </div>
+                        <div class="form-group" id="safeType">
+                            <label>安全类型</label>
+                            <div class="checkbox box-event">
+                                <label><input type="checkbox">告警信息</label>
+                            </div>
+                            <div class="checkbox box-event">
+                                <label><input type="checkbox">客户端登录</label>
+                            </div>
+                            <div class="checkbox box-event">
+                                <label><input type="checkbox">客户端退出</label>
+                            </div>
+                            <div class="checkbox box-event">
+                                <label><input type="checkbox">其他</label>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="row" ng-show="madeType===3">
+                        <div class="input-report" style="margin-bottom:20px;">
+                            <label>时间范围</label>
+                            <span style="margin-top:0;">
+                                <input type="text" uib-datepicker-popup="{{dateInit2.format}}" id="starttime2" datepicker-append-to-body="true" show-button-bar="false" is-open="dateInit2.from" ng-model="fromDate2" datepicker-options="dateOpts" class="form-control">
+                                <button type="button" class="btn btn-default input-group-btn" ng-click="dateInit2.openFrom()"><i class="glyphicon glyphicon-calendar glyphicon-i"></i></button>
+                            </span>
+                            <b>至</b>
+                            <span style="margin-top:0;">
+                                <input type="text" uib-datepicker-popup="{{dateInit2.format}}" id="endtime2" datepicker-append-to-body="true" show-button-bar="false" is-open="dateInit2.to" ng-model="toDate2" ng-change="clickSearch()" datepicker-options="dateOpts" class="form-control">
+                                <button type="button" class="btn btn-default input-group-btn" ng-click="dateInit2.openTo()"><i class="glyphicon glyphicon-calendar glyphicon-i"></i></button>
+                            </span>
+                        </div>
+                        <div class="form-group" id="auditType">
+                            <label>审计类型</label>
+                            <div class="checkbox box-event">
+                                <label><input type="checkbox">企业资源日志</label>
+                            </div>
+                            <div class="checkbox box-event">
+                                <label><input type="checkbox">策略管理日志</label>
+                            </div>
+                            <div class="checkbox box-event">
+                                <label><input type="checkbox">系统操作日志</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>报告模板</label>
+                        <select class="form-control" id="madeTpl">
+                            <option ng-repeat="option in tplOptions" value="{{option.id}}">{{option.title}}</option>
+                        </select>
+                    </div>
+                    <div class="row" ng-show="madeType===1 || madeType===2">
+                        <div class="form-group box-event" style="overflow:hidden;">
+                            <label style="float:left;">对应终端</label>
+                            <ul class="form-control" id="selTerminalList">
+                                
+                            </ul>
+                            <button class="btn btn-info" ng-click="selTerminal()" style="display:block;margin-bottom:5px;">选择</button>
+                            <button class="btn btn-info" ng-click="removeTerminal()">移除</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="clear"></div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label></label>
+                    <button type="button" class="btn btn-default submit" ng-click="submitMade()">提交</button>
+                    <button type="reset" class="btn btn-default">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/ng-template" id="myModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title">请选择终端</h3>
+    </div>
+    <div class="modal-body">
+        <treecontrol class="tree-classic"
+                     tree-model="dataForTheTree" options="treeOptions">
+                <span ng-click="selDepartment($event)">部门: {{node.departmentName}}</span>
+                <ul style="display:none;">
+                    <li class="client-li" ng-repeat="item in node.linkClientList" data-item="{{item}}" data-departmentId="{{node.id}}" ng-click="selClientId($event,item)">
+                        <input type="checkbox" value="{{item.clientId}}" data-deviceName="{{item.deviceName}}" style="margin-right:5px;" ng-if="!item.isCheck" />
+                        <input type="checkbox" value="{{item.clientId}}" data-deviceName="{{item.deviceName}}" style="margin-right:5px;" ng-if="item.isCheck" checked="checked" />
+                        终端: {{item.deviceName}}
+                    </li>
+                </ul>
+        </treecontrol>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="modalOk()" >确认</button>
+        <button class="btn btn-warning" type="button" ng-click="modalCancel()">取消</button>
+    </div>
+</script>

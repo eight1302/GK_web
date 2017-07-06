@@ -1,0 +1,38 @@
+<div class="nav-container">
+    <nav>
+        <ul class="nav nav-pills nav-stacked">
+            <li ng-repeat="nav in navMenus" class="parent-li">
+                <div ng-mouseover="nav.showSecMenus=nav.sec_menus?true:false;iClass=nav.class_current" ng-mouseout="nav.showSecMenus=false;iClass=nav.current?nav.class_current:nav.class" ng-init="iClass=nav.current?nav.class_current:nav.class">
+                    <div class="nav-item-first" ng-if="$index===0" popover-placement="right-top" popover-append-to-body="false"
+                         popover-trigger="none" popover-is-open="nav.showSecMenus" uib-popover-template="'nav-sec-menus.html'">
+                        <a class="{{navClass}}" ng-href="{{nav.href}}" ng-init="navClass=nav.current?'nav-a nav-current':'nav-a'">
+                            <i class="{{iClass}}"></i>
+                        </a>
+                    </div>
+                    <div class="nav-item" ng-if="$index!==0" popover-placement="right-top" popover-append-to-body="false"
+                         popover-trigger="none" popover-is-open="nav.showSecMenus" uib-popover-template="'nav-sec-menus.html'">
+                        <a class="{{navClass}}" ng-href="#" ng-init="navClass=nav.current?'nav-a nav-current':'nav-a'">
+                            <div class="nav-item-center">
+                                <i class="{{iClass}}"></i>
+                                <div>{{nav.title}}</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</div>
+<script type="text/ng-template" id="nav-sec-menus.html">
+    <div class="nav-sec-container">
+        <b></b>
+        <ul class="nav nav-pills nav-stacked">
+            <li ng-repeat="secMenu in nav.sec_menus track by $index">
+                <a class="{{secClass}}" ng-href="{{secMenu.href}}" ng-click="nav.showSecMenus=false" ng-init="secClass=secMenu.current?'sec-a sec-current':'sec-a'"> 
+                    <i class="{{secMenu.class}}"></i>
+                    <span>{{secMenu.title}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</script>

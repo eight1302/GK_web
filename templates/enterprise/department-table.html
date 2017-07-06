@@ -1,0 +1,40 @@
+<div id="departTable">
+    <table class="table table-hover table-striped stable-list" ng-if="stable.table_view === 'list'">
+        <tr>
+            <th st-sort="id"><input type="checkbox" id="selectAllData" /></th>
+            <th>部门名称</th>
+            <th>上级部门</th>
+            <th>策略</th>
+        </tr>
+        <tr id="stable-{{row.id}}" class="stable-plain-child-{{row.clientNode}}" ng-repeat="row in stable.tableData">
+            <td><input type="checkbox" value="{{row.id}}" name="sign" /></td>
+            <td class="stable-departmentName">{{row.departmentName}}</td>
+            <td class="stable-parentId"><input type="hidden" name="sgn" value="{{row.parentId}}" style="width: 35px;">{{row.parenName}}</td>
+            <td class="stable-policy">{{row.policy}}</td>
+        </tr>
+    </table>
+    <div class="table stable-plain" ng-if="stable.table_view === 'plain'">
+        <input type="checkbox" id="selectAllData" class="selectAllData" />
+        <div id="stable-{{row.id}}" class="stable-plain-child stable-plain-child-{{row.clientNode}}" ng-repeat="row in stable.tableData">
+            <dl class="current">
+                <dt>
+                    <i class="fa fa-sitemap"></i>
+                    <input type="checkbox" value="{{row.id}}" name="sign"  />
+                </dt>
+            <dd>
+                <h5>{{row.departmentName}}</h5>
+                <p>
+                    上级部门:<span class="stable-parentId"><input type="hidden" name="sgn" value="{{row.parentId}}" style="width: 35px;">{{row.parenName}}</span>
+                </p>
+                <p>
+                    策略:<span class="stable-policy">{{row.policy}}</span>
+                </p>
+                <div class="dl-btn">
+                    <a ng-href="#" class="fa fa-edit" title="编辑" ng-click="stable.toolbar_edit(row.id)"></a>
+                    <a ng-if="row.parentId !== -1 && row.parentId !== 0" ng-href="#" class="fa fa-trash" title="删除" ng-click="stable.toolbar_delete($event,row.id)"></a>
+                </div>
+            </dd>
+                </dl>
+        </div>
+    </div>
+</div>

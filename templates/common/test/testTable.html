@@ -1,0 +1,44 @@
+<div id="terminalList">
+    <table class="table table-hover table-striped stable-list" ng-if="stable.table_view === 'list'">
+        <tr>
+            <th st-sort="id" ng-show="stable.colsVal.id">id</th>
+            <th st-sort="name" ng-show="stable.colsVal.name">name</th>
+            <th st-sort="age" ng-show="stable.colsVal.age">age</th>
+            <th ng-show="stable.colsVal.saved">saved people</th>
+        </tr>
+        <tr ng-repeat="row in stable.tableData">
+            <td ng-show="stable.colsVal.id">{{row.id}}</td>
+            <td ng-show="stable.colsVal.name">{{row.name}}</td>
+            <td ng-show="stable.colsVal.age">{{row.age}}</td>
+            <td ng-show="stable.colsVal.saved">{{row.saved}}</td>
+        </tr>
+    </table>
+    <div class="table stable-plain" ng-if="stable.table_view === 'plain'">
+        <!--plain container.-->
+        <input type="checkbox" id="selectAllData" class="selectAllData" />
+        <div class="stable-plain-child" ng-repeat="row in stable.tableData">
+            <dl class="current">
+                <dt>
+                    <i class="fa fa-tv"></i>
+                    <input type="checkbox" value="{{row.id}}" />
+                </dt>
+                <dd>
+                    <h5 ng-show="stable.colsVal.name">{{row.name}}</h5>
+                    <p ng-show="stable.colsVal.id">
+                        id:<span>{{row.id}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.age">
+                        年龄:<span>{{row.age}}</span>
+                    </p>
+                    <p ng-show="stable.colsVal.saved">
+                        saved people:<span>{{row.saved}}</span>
+                    </p>
+                    <div class="dl-btn">
+                        <a href="" class="fa fa-edit"></a>
+                        <a href="" class="fa fa-trash"></a>
+                    </div>
+                </dd>
+            </dl>
+        </div>            
+    </div>
+</div>

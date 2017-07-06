@@ -1,0 +1,70 @@
+<div id="whitelistTable">
+<div class="col-md-12 col-xs-12 content">
+	<article>
+		<table class="table table-striped">
+			<thead>
+				<tr class="tr-title">
+					<th><input type="checkbox" id="selectAllData" ng-click="stable.selectInvert($event)" /></th>
+					<th>文件名</th>
+					<th>描述</th>
+					<th>全路径</th>
+					<th ng-if="stable.disableModify!=='allow'">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+                <tr ng-repeat="row in stable.tableData" id="stable-{{row.id}}">
+                	<td><input type="checkbox" value="{{row.id}}" name="sign" /></td>
+					<td>
+						<span class="fileName" ng-click="stable.inputShow($event)">{{row.fileName}}</span>
+						<input type="text" ng-model="row.fileName" ng-blur="stable.inputHide($event)" />
+					</td>
+					<td>
+						<span class="fileProductName" ng-click="stable.inputShow($event)">{{row.fileProductName}}</span>
+						<input type="text" ng-model="row.fileProductName" ng-blur="stable.inputHide($event)" />
+					</td>
+					<td>
+						<span class="filePath" ng-click="stable.inputShow($event)">{{row.filePath}}</span>
+						<input type="text" ng-model="row.filePath" ng-blur="stable.inputHide($event)" />
+					</td>
+					<td ng-if="stable.disableModify!=='allow'"><a ng-href="#" ng-click="stable.dataUpdate($event,row.id)">修改</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</article>
+</div>
+<script type="text/ng-template" id="myModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title">添加应用程序</h3>
+    </div>
+    <div class="modal-body" id="myModalBody">
+        <div class="form-group">
+        	<label>文件名称</label>
+        	<input class="form-control fileName" type="text" />
+        </div>
+        <div class="form-group">
+        	<label>文件路径</label>
+        	<input class="form-control filePath" type="text" />
+        </div>
+        <div class="form-group">
+        	<label>文件版本</label>
+        	<input class="form-control fileVersion" type="text" />
+        </div>
+        <div class="form-group">
+        	<label>描述</label>
+        	<input class="form-control fileProductName" type="text" />
+        </div>
+        <div class="form-group">
+        	<label>文件认证标识</label>
+        	<input class="form-control fileCertSigner" type="text" />
+        </div>
+        <div class="form-group">
+        	<label>文件加密码</label>
+        	<input class="form-control fileMd5" type="text" />
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="modalOk()">确定</button>
+        <button class="btn btn-warning" type="button" ng-click="modalCancel()">关闭</button>
+    </div>
+</script>
+</div>

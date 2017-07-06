@@ -1,0 +1,78 @@
+<div class="main">
+    <!--面包屑导航-->
+    <div ncy-breadcrumb></div>
+    <!--正文-->
+    <div class="main-body">
+        <div class="network-edit">
+            <div class="col-md-12 col-xs-12 content">
+                <section>
+                    <h3>基本信息</h3>
+                    <div class="col-sm-12">
+                        <div class="form-group has-feedback" id="userName">
+                            <label>用户名</label>
+                            <input class="form-control input-feedback" type="text" placeholder="无" ng-model="userName" />
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="form-group has-feedback" id="userName">
+                            <label>昵称</label>
+                            <input class="form-control input-feedback" type="text" placeholder="无" ng-model="nickName" />
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="form-group has-feedback" id="userPwd">
+                            <label>密码</label>
+                            <input class="form-control input-feedback" type="password" placeholder="请输入密码" ng-model="userPwd" maxlength="20" />
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="form-group has-feedback" id="userPwdConfirm">
+                            <label>确认密码</label>
+                            <input class="form-control input-feedback" type="password" placeholder="请确认密码" ng-model="userPwdConfirm" maxlength="20" />
+                            <span class="help-block"></span>
+                        </div>
+                        <!--
+                        <div class="form-group has-feedback">
+                            <label>状态</label>
+                            <input type="radio" id="userstart-01" class="address-dns" />
+                            <label for="userstart-01" class="dns-label"></label>启用
+                            <input type="radio" id="userstop-01" class="address-dns" />
+                            <label for="userstop-01" class="dns-label"></label>停止
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label>可访问IP</label>
+                            <input class="form-control input-feedback" type="text" placeholder="ip地址"/>
+                            <button class="btn btn-info" style="margin-left:7px;">添加</button>
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label>部门</label>
+                            <select class="form-control">
+                                <option>根部门</option>
+                            </select>
+                            <span class="help-block"></span>
+                        </div>
+                        -->
+                    </div>
+                </section>
+                <!--
+                <section>
+                    <h3>版本</h3>
+                    <div class="col-sm-12">
+                        <div class="form-group has-feedback">
+                            <label>描述</label>
+                            <textarea class="form-control input-feedback" type="text"></textarea>
+                        </div>
+                    </div>
+                </section>
+                -->
+                <section style="border: 0 !important;">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label></label>
+                            <button type="button" class="btn btn-default submit" ng-click="submitUser()">提交</button>
+                            <button type="reset" class="btn btn-default" ng-click="backList()">返回</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

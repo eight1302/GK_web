@@ -1,0 +1,72 @@
+<div class="main">
+	<!--面包屑导航-->
+	<div ncy-breadcrumb></div>
+	<!--正文-->
+	<div class="terminal-detail newcreat">
+		<div class="col-md-12 col-xs-12 content">
+			<section>
+				<h3>基本信息</h3>
+                <div class="col-sm-12">
+                	<form>
+						<div class="form-group">
+							<label>部门</label>
+						    <select class="form-control" id="departmentId">
+								<option ng-repeat="row in department" value="{{row.id}}">{{row.departmentName}}</option>
+						    </select>
+						</div>
+						<div class="form-group has-feedback">
+							<label>责任人</label>
+							<input class="form-control input-feedback" type="text" id="liable" />
+							<span class="help-block"></span>
+						</div>
+						<div class="form-group">
+							<label>接入位置</label>
+							<select class="form-control">
+								<option value="">S_vlan</option>
+							</select>
+						</div>
+						<div class="form-group has-feedback">
+							<label>IP地址</label>
+						    <input class="form-control input-feedback" type="text" id="ip" />
+						    <span class="help-block"></span>
+						</div>
+						<div class="form-group has-feedback">
+							<label>当前使用的物理网卡MAC地址</label>
+						    <input class="form-control input-feedback" type="text" id="mac" />
+						    <span class="help-block"></span>
+						</div>
+						<div class="form-group has-feedback">
+							<label>序列号</label>
+						    <input class="form-control input-feedback" type="text" id="sn" />
+						    <span class="help-block"></span>
+						</div>
+						<div class="form-group has-feedback">
+							<label>工控卫士版本号</label>
+						    <input class="form-control input-feedback" type="text" id="ver" />
+						    <span class="help-block"></span>
+						</div>
+						<div class="form-group has-feedback">
+							<label>设备名称</label>
+						    <input class="form-control input-feedback" type="text" id="deviceName" />
+						    <span class="help-block"></span>
+						</div>
+						<div class="form-group has-feedback">
+							<label>操作系统</label>
+						    <input class="form-control input-feedback" type="text" id="os" />
+						    <span class="help-block"></span>
+						</div>
+						<div class="form-group">
+							<label></label>
+							<button type="button" class="btn btn-default submit" ng-click="submitTerminalInfo()">提交</button>
+							<button type="reset" class="btn btn-default">重置</button>
+						</div>
+                	</form>	
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+
+<script type="text/ng-template" id="alert.html">
+    <div ng-transclude></div>
+</script>

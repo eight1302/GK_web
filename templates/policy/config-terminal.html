@@ -1,0 +1,193 @@
+<div class="main">
+	<!--面包屑导航-->
+	<div ncy-breadcrumb></div>
+	<!--正文-->
+	<div class="main-body">
+		<div class="col-md-12 col-xs-12 stab">
+			<ul>
+				<li><a ng-href="#" ng-click="stabClient()">客户端</a></li>
+				<li class="active"><a ng-href="#" ng-click="stabTerminal()">终端管理</a></li>
+				<li><a ng-href="#" ng-click="stabWhitelist()">白名单管理</a></li>
+			</ul>
+		</div>
+
+		<div class="titel-config">
+			<span>终端注册</span>
+			<span class="btn-on-box">
+		        <input type="checkbox" id="btn-on-01" class="btn-on">
+		        <label for="btn-on-01"></label>
+	        </span>
+			<span>OFF/ON</span>
+		</div>
+
+		<div class="configaddress">上位机终端注册配置</div>
+
+
+		<div class="row">
+			<div class="col-md-12 col-xs-12 table-config">
+				<table class="table">
+					<thead>
+					<tr class="tr-title">
+						<th></th>
+						<th>注册项</th>
+						<th>显示名称</th>
+						<th>是否显示</th>
+						<th>是否必填</th>
+						<th>提示内容</th>
+					</tr>
+					</thead>
+					<tbody>
+					    <tr>
+							<td></td>
+						    <td>名称</td>
+						    <td><input type="text" placeholder="名称"/></td>
+						    <td>
+							    <span class="btn-on-box">
+		                            <input type="checkbox" id="btn-on-02_1" class="btn-on">
+		                            <label for="btn-on-02_1"></label>
+	                            </span>
+						    </td>
+						    <td>
+							    <span class="btn-on-box">
+		                            <input type="checkbox" id="btn-on-02_2" class="btn-on">
+		                            <label for="btn-on-02_2"></label>
+	                            </span>
+						    </td>
+						    <td><input type="text"/></td>
+					    </tr>
+						<tr>
+							<td></td>
+							<td>类型</td>
+							<td><input type="text" placeholder="类型"/></td>
+							<td>
+							    <span class="btn-on-box">
+		                            <input type="checkbox" id="btn-on-03_1" class="btn-on">
+		                            <label for="btn-on-03_1"></label>
+	                            </span>
+							</td>
+							<td>
+							    <span class="btn-on-box">
+		                            <input type="checkbox" id="btn-on-03_2" class="btn-on">
+		                            <label for="btn-on-03_2"></label>
+	                            </span>
+							</td>
+							<td><input type="text"/></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>责任人</td>
+							<td><input type="text" placeholder="责任人"/></td>
+							<td>
+							    <span class="btn-on-box">
+		                            <input type="checkbox" id="btn-on-04_1" class="btn-on">
+		                            <label for="btn-on-04_1"></label>
+	                            </span>
+							</td>
+							<td>
+							    <span class="btn-on-box">
+		                            <input type="checkbox" id="btn-on-04_2" class="btn-on">
+		                            <label for="btn-on-04_2"></label>
+	                            </span>
+							</td>
+							<td><input type="text"/></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>隶属部门</td>
+							<td><input type="text" placeholder="隶属部门"/></td>
+							<td>
+							    <span class="btn-on-box">
+		                            <input type="checkbox" id="btn-on-05_1" class="btn-on">
+		                            <label for="btn-on-05_1"></label>
+	                            </span>
+							</td>
+							<td>
+							    <span class="btn-on-box">
+		                            <input type="checkbox" id="btn-on-05_2" class="btn-on">
+		                            <label for="btn-on-05_2"></label>
+	                            </span>
+							</td>
+							<td><input type="text"/></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>入网方式</td>
+							<td><input type="text" placeholder="入网方式"/></td>
+							<td>
+							    <span class="btn-on-box">
+		                            <input type="checkbox" id="btn-on-06_1" class="btn-on">
+		                            <label for="btn-on-06_1"></label>
+	                            </span>
+							</td>
+							<td>
+							    <span class="btn-on-box">
+		                            <input type="checkbox" id="btn-on-06_2" class="btn-on">
+		                            <label for="btn-on-06_2"></label>
+	                            </span>
+							</td>
+							<td><input type="text"/></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>操作系统</td>
+							<td><input type="text" placeholder="操作系统"/></td>
+							<td>
+							    <span class="btn-on-box">
+		                            <input type="checkbox" id="btn-on-07_1" class="btn-on">
+		                            <label for="btn-on-07_1"></label>
+	                            </span>
+							</td>
+							<td>
+							    <span class="btn-on-box">
+		                            <input type="checkbox" id="btn-on-07_2" class="btn-on">
+		                            <label for="btn-on-07_2"></label>
+	                            </span>
+							</td>
+							<td><input type="text"/></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>操作系统版本</td>
+							<td><input type="text" placeholder="操作系统版本"/></td>
+							<td>
+							    <span class="btn-on-box">
+		                            <input type="checkbox" id="btn-on-08_1" class="btn-on">
+		                            <label for="btn-on-08_1"></label>
+	                            </span>
+							</td>
+							<td>
+							    <span class="btn-on-box">
+		                            <input type="checkbox" id="btn-on-08_2" class="btn-on">
+		                            <label for="btn-on-08_2"></label>
+	                            </span>
+							</td>
+							<td><input type="text"/></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>描述</td>
+							<td><input type="text" placeholder="描述"/></td>
+							<td>
+							    <span class="btn-on-box">
+		                            <input type="checkbox" id="btn-on-09_1" class="btn-on">
+		                            <label for="btn-on-09_1"></label>
+	                            </span>
+							</td>
+							<td>
+							    <span class="btn-on-box">
+		                            <input type="checkbox" id="btn-on-09_2" class="btn-on">
+		                            <label for="btn-on-09_2"></label>
+	                            </span>
+							</td>
+							<td><input type="text"/></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="submit-box">
+			<button type="button" class="btn btn-default pull-right">提交</button>
+		</div>
+	</div>
+</div>

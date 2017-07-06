@@ -1,0 +1,48 @@
+<div id="reportsMadeTable">
+    <table class="table table-hover table-striped stable-list" ng-if="stable.table_view === 'list'">
+        <tr>
+            <th><input type="checkbox" id="selectAllData" ng-click="stable.selectInvert($event)" /></th>
+            <th>名称</th>
+            <th>描述</th>
+            <th>时间</th>
+            <th>管理员</th>
+            <th>操作</th>
+        </tr>
+        <tr id="stable-{{row.id}}" ng-repeat="row in stable.tableData">
+            <td><input type="checkbox" value="{{row.id}}" name="sign" /></td>
+            <td>{{row.name}}</td>
+            <td>{{row.description}}</td>
+            <td>{{row.createAt}}</td>
+            <td>{{row.createUser}}</td>
+            <td>
+                <a ng-href="#" ng-click="stable.toolbar_edit(row.id)">编辑</a>
+            </td>
+        </tr>
+    </table>
+    <div class="table stable-plain" ng-if="stable.table_view === 'plain'">
+        <input type="checkbox" id="selectAllData" class="selectAllData" />
+        <div id="stable-{{row.id}}" class="stable-plain-child" ng-repeat="row in stable.tableData">
+            <dl class="current">
+                <dt>
+                    <i class="fa fa-tv"></i>
+                    <input type="checkbox" value="{{row.id}}" name="sign" />
+                </dt>
+                <dd>
+                    <h5>{{row.name}}</h5>
+                    <p>
+                        描述:<span>{{row.description}}</span>
+                    </p>
+                    <p>
+                        时间:<span>{{row.createAt}}</span>
+                    </p>
+                    <p>
+                        管理员:<span>{{row.createUser}}</span>
+                    </p>
+                    <div class="dl-btn">
+                        <a ng-href="#" class="fa fa-edit" title="编辑" ng-click="stable.toolbar_edit(row.id)"></a>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>

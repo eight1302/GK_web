@@ -1,0 +1,17 @@
+<!-- PAGINATION -->
+<div class="row pagination-ten">
+    <div class="text-center col-xs-12">
+        <uib-pagination ng-model="currentPage"
+                    class="pagination-sm"
+                    boundary-links="true"
+                    total-items="totalItemCount"
+                    items-per-page="stItemsByPage"
+                    max-size="10"
+                    previous-text="&lsaquo;"
+                    next-text="&rsaquo;"
+                    first-text="&laquo;"
+                    last-text="&raquo;"
+                    ng-change="selectPage(currentPage)"
+        ></uib-pagination>
+    </div>
+</div>

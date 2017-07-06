@@ -1,0 +1,88 @@
+<div class="main">
+    <!--面包屑导航-->
+    <div ncy-breadcrumb></div>
+    <!--正文-->
+    <div class="main-body">
+        <div class="network-edit">
+            <div class="col-md-12 col-xs-12 content">
+                <section>
+                    <h3>报告详情</h3>
+                    <div class="col-sm-12">
+                        <div class="form-group has-feedback">
+                            <label>事件发生时间：</label>
+                            <span>{{reportDetail.startTime?reportDetail.startTime:'未知'|date:'yyyy-MM-dd hh:mm:ss'}}</span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label>事件结束时间：</label>
+                            <span>{{reportDetail.entTime?reportDetail.endTime:'未知'|date:'yyyy-MM-dd hh:mm:ss'}}</span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label>事件类型：</label>
+                            <span>{{reportDetail.startTime?reportDetail.startTime:'未知'}}</span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label>事件等级：</label>
+                            <span>{{}}</span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label>终端：</label>
+                            <span>{{}}</span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label>IP：</label>
+                            <span>{{}}</span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label>内容：</label>
+                            <span>{{}}</span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label>部署策略名称：</label>
+                            <span>{{}}</span>
+                        </div>
+                        <div ng-if="reportDetail.command==='request'" class="form-group has-feedback">
+                            <label>应用程序名称：</label>
+                            <span>成功</span>
+                        </div>
+                        <div ng-if="reportDetail.command==='request'" class="form-group has-feedback">
+                            <label>路径：</label>
+                            <span>--</span>
+                        </div>
+                        <div ng-if="reportDetail.command==='request'" class="form-group has-feedback">
+                            <label>程序启动时间：</label>
+                            <span>已读</span>
+                        </div>
+                        <div ng-if="reportDetail.command==='request'" class="form-group has-feedback">
+                            <label>程序拦截时间：</label>
+                            <span>已读</span>
+                        </div>
+                        <div ng-if="reportDetail.command==='request'" class="form-group has-feedback">
+                            <label>拦截响应次数：</label>
+                            <span>已读</span>
+                        </div>
+                        <div ng-if="reportDetail.command==='USBRequest'" class="form-group has-feedback">
+                            <label>硬件ID：</label>
+                            <span>已读</span>
+                        </div>
+                        <div ng-if="reportDetail.command==='USBRequest'" class="form-group has-feedback">
+                            <label>实例ID：</label>
+                            <span>已读</span>
+                        </div>
+                        <div ng-if="reportDetail.command==='USBRequest'" class="form-group has-feedback">
+                            <label>USB设备启动时间：</label>
+                            <span>已读</span>
+                        </div>
+                        <div ng-if="reportDetail.command==='USBRequest'" class="form-group has-feedback">
+                            <label>USB设备拦截时间：</label>
+                            <span>已读</span>
+                        </div>
+                        <div ng-if="reportDetail.command==='USBRequest'" class="form-group has-feedback">
+                            <label>拦截响应次数：</label>
+                            <span>已读</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

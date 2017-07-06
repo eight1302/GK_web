@@ -1,0 +1,77 @@
+<div class="main" xmlns="http://www.w3.org/1999/html">
+    <!--面包屑导航-->
+    <div ncy-breadcrumb></div>
+    <!--正文-->
+    <div class="main-body">
+        <div class="col-md-12 col-xs-12 stab">
+            <ul>
+                <li><a ui-sref="network-edit">网络设置</a></li>
+                <li class="active"><a ng-href="#">时间设置</a></li>
+                <li><a ui-sref="system-email">邮件设置</a></li>
+            </ul>
+        </div>
+
+        <div class="network-edit">
+            <div class="col-md-12 col-xs-12 content">
+                <section>
+                    <h3>时间设置</h3>
+                    <div class="row">
+                        <div class="col-sm-1 sed-title"></div>
+                        <form name="system_time">
+                            <div class="col-sm-11">
+                                <div class="form-group has-feedback">
+                                    <input type="radio" id="timesetting-01" class="address-dns" ng-value="0" ng-model="sysTimeOpt" ng-click="shiftState()"/>
+                                    <label for="timesetting-01" class="dns-label"></label>
+                                    手动设置系统时间
+                                    <span class="help-block"></span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <label>日期</label>
+                                    <input class="form-control input-feedback" type="text" ng-disabled="sysTimeOpt==1" uib-datepicker-popup="{{sysTimeSet.format}}" datepicker-append-to-body="true" show-button-bar="false" is-open="sysTimeSet.openState" ng-model="sysTimeSet.dateInit" ng-click="sysTimeSet.manualSet()" ng-blur="recountTimeNum()"/>
+                                    <span class="help-block"></span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <label>时间</label>
+                                    <select class="form-control input-feedback" ng-options="item.value as item.label for item in hours" ng-selected="item.value===sysSetOpt.sysHour" ng-click="recountTimeNum()" ng-model="sysSetOpt.sysHour" ng-disabled="sysTimeOpt==1"></select>时 <select class="form-control input-feedback"  ng-click="recountTimeNum()" ng-options="item.value as item.label for item in minutes" ng-selected="item.value==sysSetOpt.sysMin" ng-model="sysSetOpt.sysMin" ng-disabled="sysTimeOpt==1"></select>分 <select class="form-control input-feedback" ng-model="sysSetOpt.sysSec"  ng-click="recountTimeNum()" ng-options="item.value as item.label for item in seconds" ng-selected="item.value==sysSetOpt.sec" ng-disabled="sysTimeOpt==1"></select>秒
+                                    <span class="help-block"></span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <input type="radio" id="timesetting-02" class="address-dns" ng-value="1" ng-model="sysTimeOpt" ng-click="shiftState()"/>
+                                    <label for="timesetting-02" class="dns-label"></label>
+                                    使用NTP服务同步时间
+                                    <span class="help-block"></span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <label>IP地址</label>
+                                    <input class="form-control input-feedback" name="ipadd" type="text" ng-model="timeSetIp" ng-model-options="{updateOn:'blur'}" validation-ip="ipadd" ng-disabled="sysTimeOpt==0"/>
+                                    <span class="help-block" ng-show="system_time.ipadd.$error.ipadd">请输入有效的ip地址</span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <label>同步时间间隔</label>
+                                    <select class="form-control" ng-disabled="sysTimeOpt==0" ng-options="item.val as item.label for item in syncCycle" ng-selected="item.val==syncRate" ng-model="syncRate">
+                                    </select>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <div class="submit-box">
+                <button type="button" class="btn btn-default pull-right" ng-click="submitData()">提交</button>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+
+
