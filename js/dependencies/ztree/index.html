@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>angular中指令传值</title>
+  <link rel="stylesheet" href="ztree/css/zTreeStyle.css">
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="angular.min.js"></script>
+  <script type="text/javascript" src="ztree/jquery.ztree.core-3.5.js"></script>
+ </head>
+ <body ng-app="app">
+    <div ng-controller="tree">
+        <input type="text" ng-model="selected.tree"/>
+        <z-tree id="tree" class="ztree" selected-model="selected.tree"></z-tree>
+    </div>
+  
+ </body>
+ <script type="text/javascript">
+    var app = angular.module('app',[]);
+    app.controller('tree',function($scope){
+        $scope.selected = {
+            tree: 'test'
+        };
+        
+    }).directive('zTree',function(){
+        return {
+            restrict: 'EA',
+            scope: {
+                selectedModel: '='
+            },
+            controller: function($scope, $element) {
+                var setting = {
+                    check: {
+                        enable: false,
+                        dblClickExpand: false
+                    },callback: {
+                        onClick : onMouseDown
+                    },
+                    view: {
+                        showLine: false
+                    }
+                };
+                var testList =[{ id:1, pId:0, name:"根部门",
+                    children: [
+                        { "id":11, "name":"修改账户信息"},
+                        { "id":12, "name":"用户管理"},
+                        { "id":13, "name":"Spider管理"},
+                        { "id":14, "name":"Robot管理"},
+                        { "id":15, "name":"合并日志任务管理"}
+                    ],open:true
+                }];
+                    
+                $.fn.zTree.init($($element), setting, testList);
+
+                //点击菜单项
+                function onMouseDown(event, treeId, treeNode) {
+                    $scope.selectedModel = treeNode.name;
+                    if(!$scope.$$phase) {
+                          $scope.$apply();
+                    }
+                }
+            }
+        }
+    });
+ </script>
+</html>

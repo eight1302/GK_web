@@ -1,0 +1,22 @@
+{
+  "status": 1,
+  "sysInfo": {
+    "baseInfo": {
+      "name": "工控卫士",
+      "runningTime": 104400000,
+      "type": "S3022A",
+      "progressCount": 35,
+      "ver": "1.0.5.1",
+      "connectedCount": 66
+    },
+    "graphInfo": {
+      "cpu": 12,
+      "mem": 25,
+      "disk": 33
+    },
+    "otherInfo": {
+      "testProgress": 29,
+      "clientProgress": 66
+    }
+  }
+}
