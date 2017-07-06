@@ -1,0 +1,291 @@
+@import "variable";
+
+.theme-violet{
+	//终端详情
+	.terminal-detail{
+		.lab{
+			padding:20px 15px 10px 20px;
+			ul{
+				list-style: none;
+				padding: 0;
+				overflow:hidden;
+				padding-bottom:10px;
+				border-bottom: 1px solid $gray-deep-light;
+				li{
+					display:inline-block;
+					margin:0 1px;
+					padding:5px 15px;
+					color:$gray-light;
+					&:hover{
+						cursor:pointer;
+						padding:4px 14px;
+						border:1px solid $blue;
+						color: $blue;
+					}
+					&.active{
+						padding:4px 14px;
+						border:1px solid $blue;
+						color: $blue;
+					}
+				}
+			}
+	    }
+	}
+	//硬件信息
+	.hardware{
+		.content{
+	        overflow:hidden;
+	        padding:0 10px 0 20px;
+	        article{
+	        	overflow:hidden;
+		        border: 1px solid $gray-deep-light;
+	        	h5{
+		            margin: 0;
+		            color: $violet;
+		            padding: 10px 15px;
+			        border-bottom: 1px solid $gray-deep-light;
+			        background: $violet-backgroud;
+		        }
+		        .inf {
+					overflow:hidden;
+					padding:10px 20px;
+					min-height:300px;
+					.lt{
+						padding-top:100px;
+						display:table-cell;
+						vertical-align: middle;
+		       			text-align: center;
+						i{
+							color: $violet;
+							font-size:50px;
+						}
+					}
+					.rt{
+						height: auto;
+						p{
+							margin-bottom:10px;
+							font-size:12px;
+							color:$gray;
+							em{
+								font-style:normal;
+								display:inline-block;
+								width:90px;
+								text-align:right;
+							}
+							span{
+								display:inline-block;
+								margin-left:15px;
+								min-width:150px;
+								height:24px;
+								line-height:24px;
+							}
+							input[type="text"]{
+								margin-left:15px;
+								display:none;
+							}
+						}
+						.info-group{
+							width:100%;
+							margin-bottom:20px;
+							h4{
+								margin-bottom:10px;
+								color:$violet;
+							}
+						}
+					}
+			    }
+	        }
+	        button.submit{
+	        	background: $violet;
+				color: $white;
+	        }
+	    }
+	}
+
+
+	//软件信息
+	.software {
+		.content {
+			overflow: auto;
+			padding: 0 10px 0 20px;
+			article {
+				overflow: hidden;
+				border: 1px solid $gray-deep-light;
+				.table{
+					margin:0;
+					.tr-title {
+						border-bottom: 1px solid $gray-deep-light;
+					}
+					span{
+						display:inline-block;
+						min-width:150px;
+						height:24px;
+						line-height:24px;
+					}
+					input[type="text"]{
+						display:none;
+						min-width:150px;
+						height:24px;
+						line-height:24px;
+					}
+					a{
+						display:inline-block;
+						height:24px;
+						line-height:24px;
+					}
+				}
+			}
+		}
+		.stable-toolbar{
+			padding:0 10px 0 20px;
+		}
+	}
+
+	//新建终端
+	.newcreat{
+		overflow:hidden;
+		.content{
+			overflow:hidden;
+			padding:0 10px 0 20px;
+			section{
+				overflow:hidden;
+				padding-bottom:20px;
+				border: 1px solid $gray-deep-light;
+				margin-bottom:20px;
+				h3{
+					margin: 0;
+					color: $violet;
+					padding: 10px 15px;
+					border-bottom: 1px solid $gray-deep-light;
+					background: $violet-backgroud;
+					margin-bottom: 20px;
+					font-size:14px;
+				}
+				.form-group {
+					margin-bottom: 20px;
+					button {
+						width: 100%;
+						margin-bottom: 20px;
+					}
+					.help-block{
+						padding-left:0;
+					}
+					@media (min-width:768px){
+						label {
+							display:inline-block;
+							width:160px;
+							text-align: right;
+							margin-right:20px;
+						}
+						input[type='text'],select,{
+							display:inline-block;
+							width:300px;
+							vertical-align: middle;
+						}
+						textarea {
+							display:inline-block;
+							width:500px;
+							height: 120px;
+							vertical-align: middle;
+						}
+						.help-block{
+							padding-left:185px;
+						}
+						button {
+							width: 100px;
+							margin-right: 20px;
+						}
+					}
+					.submit {
+						background: $violet;
+						color: $white;
+					}
+				}
+			}
+		}
+	}
+
+	//拓扑图
+	.madecreat{
+		.body-terminal{
+			.chart-box{
+				section{
+					margin: 0;
+					padding: 0;
+					padding-left:20px;
+					.os{
+						width:10px;
+						//margin-left:-5px;
+						a{
+							span{
+								padding-top: 5px;
+								font-size: 20px;
+								color: $violet;
+							}
+						}
+
+					}
+					#myDiagramDiv{
+						height:450px;
+						width: 100%;
+						float: left;
+						margin-top: -14px;
+					}
+					.form-group{
+						margin-right:20px;
+						a{
+							font-size: 12px;
+							float: left;
+						}
+						a:hover{
+							.nav-item{
+								display: block;
+							}
+						}
+						button{
+							margin-top: 10px;
+							margin-right:10px;
+							float: right;
+							width:80px;
+							height:30px;
+							background: $violet;
+							color:#fff;
+							margin-bottom: 10px;
+						}
+
+					}
+
+				}
+			}
+		}
+	}
+
+	.os_cog{
+		ul{
+			opacity:0.9;
+			width:270px;
+			li{
+				display: block;
+				float: left;
+				width: 142px;
+				height:30px;
+				list-style: none;
+				margin-left: -30px;
+				.os1,.os2,.os3,.os4,.os5,.os6,.os7,.os8,.os9,.os10{
+					margin-left:-15px;
+					width: 12px;
+					height: 12px;
+				}
+				p{
+					margin-top:-13px;
+					font-size:10px;
+				}
+			}
+			li:hover{
+				p{
+					color: $violet;
+				}
+			}
+		}
+	}
+}

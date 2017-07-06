@@ -1,0 +1,265 @@
+@import "variable";
+
+// 欢迎页(下载)
+// main.page-welcome{
+.welcome {
+  background:url("../../images/welcome-main-bg.png") center repeat-y;
+  height: 100%;
+  width: 100%;
+
+  .welcome-header {
+    background: $welcome-header-color;
+    height: $welcome-header-height;
+    line-height: $welcome-header-height;
+    img {
+      margin-left: 10rem;
+      opacity: 1.0;
+      filter: alpha(opacity=100);
+      max-height: 4rem;
+    }
+    a {
+      margin-right: 10rem;
+    }
+  }
+
+  .welcome-main {
+    border: solid #e6e6e6;
+    border-width: 1px 0 0 0;
+    height: calc(100% - #{$welcome-header-height});
+    background:url("../../images/welcome-banner.png") no-repeat center top;
+    background-size: cover;
+  }
+
+  .btn-default {
+    color: $purple;
+    border-color: $purple;
+    &:hover {
+      color: $white;
+      background-color: $purple;
+      border-color: $purple;
+    };
+    &:focus {
+      @extend .btn-default:hover;
+      outline:0;
+    };
+    &:active, &:active:hover, &:active:focus {
+      color: $white;
+      background-color: $purple;
+      border-color: $purple;
+      outline:0;
+    };
+  }
+
+  .btn-default.active{
+    @extend .btn-default:active;
+    &:hover, &:focus{
+      @extend .btn-default:active;
+    }
+  }
+}
+
+// 下载页面)
+.downloadpage {
+  background:url("../../images/download-main-bg.png") center repeat-y;
+  height: 100%;
+  width: 100%;
+  .download-header {
+    background: $welcome-header-color;
+    height: $welcome-header-height;
+    line-height: $welcome-header-height;
+    img {
+      margin-left: 10rem;
+      opacity: 1.0;
+      filter: alpha(opacity=100);
+      max-height: 4rem;
+    }
+    button {
+      margin-right: 10rem;
+    }
+  }
+
+  .download-main {
+    border: solid #e6e6e6;
+    border-width: 1px 0 0 0;
+    height: calc(100% - #{$welcome-header-height});
+    background:url("../../images/download-banner.png") no-repeat center top;
+    background-size: cover;
+    position: relative;
+    .butdownload {
+      height:4.4rem;
+      position: absolute;
+      right: 18rem;
+      top: 50%;
+      margin-top: -40px;
+      a.download {
+        margin-top:1rem;
+        display:inline-block;
+        border:1px solid #00d56b;
+        font-family:"Microsoft YaHei","微软雅黑",Helvetica,Arial,sans-serif;
+        color: #ffffff;
+        background: #00d56b;
+        height:4.4rem;
+        line-height:4.4rem;
+        text-align:center;
+        width:16rem;
+        text-decoration:none;
+        position:relative;
+        font-size: 22px;
+        i {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  .btn-default {
+    color: $purple;
+    border-color: $purple;
+    &:hover {
+      color: $white;
+      background-color: $purple;
+      border-color: $purple;
+    };
+    &:focus {
+      @extend .btn-default:hover;
+      outline:0;
+    };
+    &:active, &:active:hover, &:active:focus {
+      color: $white;
+      background-color: $purple;
+      border-color: $purple;
+      outline:0;
+    };
+  }
+
+  .btn-default.active{
+    @extend .btn-default:active;
+    &:hover, &:focus{
+      @extend .btn-default:active;
+    }
+  }
+}
+
+/* 登录页面 */
+.login-container{
+  background: -webkit-linear-gradient(top, #172243, #2E80A5); /* Safari 5.1 - 6 */
+  background: -o-linear-gradient(bottom, #172243, #2E80A5); /* Opera 11.1 - 12*/
+  background: -moz-linear-gradient(bottom, #172243, #2E80A5); /* Firefox 3.6 - 15*/
+  background: linear-gradient(#172243, #2E80A5); /* 标准的语法 */
+  height: 100%;
+  width: 100%;
+  color: $login-font-color;
+
+  .login-header {
+    width: 100%;
+    background: $welcome-header-color;
+    height: $login-header-height;
+    line-height: $login-header-height;
+    a {
+      color: $login-font-color;
+    };
+    a + div {
+      color: $black;
+    };
+    .help-doc {
+      margin-left: -3em;
+    };
+  }
+
+  .login-main {
+    width: 100%;
+    height: calc(100% - #{$login-header-height});
+    text-align: center;
+    padding-top: 10rem;
+    overflow: hidden;
+    background:url("../../images/login-bg.jpg") no-repeat top center;
+    background-size: cover;
+    .logo {
+      width: 22rem;
+      margin: 0 auto;
+      background: $white;
+      img {
+        padding: 1rem;
+        max-height: 6rem;
+      }
+    }
+    .input {
+      position:relative;
+      width: 25rem;
+      margin: 0 auto;
+      top: 40%;
+      margin-top: -40px;
+      color: #ffffff;
+      .icon-user {
+        position: absolute;
+        font-size: 20px;
+        color: #fff;
+        top: 8px;
+        left: 14px;
+      }
+      .icon-password {
+        position: absolute;
+        font-size: 20px;
+        color: #fff;
+        top: 60px;
+        left: 14px;
+      }
+      input {
+        border-radius: 1.5rem;
+        background: transparent;
+        color: #fff;
+        border-color: #fff;
+        height: 3rem;
+        padding-left: 38px;
+      }
+      button {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 20px;
+        border-radius: 20px;
+        position: absolute;
+        bottom: 3px;
+        right: 3px;
+        color: #306B8D;
+        background-color: #dce3f7;
+        border-color: #fff;
+        i {
+          position: absolute;
+          top: 4px;
+          left: 12px;
+        }
+        &:hover {
+          background-color: #c5cfec;
+          outline:0;
+        };
+        &:focus, &:active{
+          @extend button:hover;
+          background-color: #c5cfec;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+//企业定制页面
+.customizepage {
+  height: 100%;
+  width: 100%;
+  .customize-title {
+      background: $welcome-header-color;
+      height: $welcome-header-height;
+      line-height: $welcome-header-height;
+      img {
+        margin-left: 10rem;
+        opacity: 1.0;
+        filter: alpha(opacity=100);
+        max-height: 4rem;
+      }
+      button {
+        margin-right: 10rem;
+      }
+  }
+}

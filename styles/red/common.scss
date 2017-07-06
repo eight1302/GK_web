@@ -1,0 +1,482 @@
+@import "variable";
+
+/* ============================ */
+/* P1. global css */
+/* ============================ */
+html,
+body {
+    margin: 0;
+    font-size: 12px;
+    word-break: break-all;
+    word-wrap: break-word;
+    font-family:"Microsoft YaHei","微软雅黑",Helvetica,Arial,sans-serif;
+    height: 100%;
+}
+.view-container {
+    height: 100vh;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+select {
+  position: relative;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  width: 5rem;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.clear {
+  clear: both;
+  margin-top: 15px;
+}
+
+/* ============================ */
+/* P2. bootstrap css */
+/* ============================ */
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+/* pagination css */
+.pagination-ten {
+  .pagination li a {
+    margin: 0px 5px;
+    background: $gray;
+    color: $gray-deep-light;
+    border:0;
+    border-radius:2px;
+    -webkit-border-radius:2px;
+    -moz-border-radius:2px;
+    -o-border-radius:2px;
+  }
+  .pagination li a:hover{
+    background: $gray-dark;
+  }
+  .pagination>.active>a,
+  .pagination>.active>a:focus,
+  .pagination>.active>a:hover,
+  .pagination>.active>span,
+  .pagination>.active>span:focus,
+  .pagination>.active>span:hover {
+    color: $white;background-color: $gray-dark;
+  }
+  .pagination>li>a:focus,
+  .pagination>li>a:hover,
+  .pagination>li>span:focus,
+  .pagination>li>span:hover {
+    color: $white;
+  }
+  .pagination>.disabled>a,
+  .pagination>.disabled>a:hover {
+    background-color: $gray;
+  }
+  .btn:disabled,
+  .pagination > .disabled > a,
+  .pagination > .disabled > a:hover,
+  .pagination > .disabled > a:focus {
+    cursor:default;
+  }
+}
+
+.pagination-custom {
+  .pagination >li  {
+    margin-left: 5px;
+    >a, >span {
+      float: none;
+    }
+    >input {
+      position: relative;
+      padding: 6px 12px;
+      margin-right: 2px;
+      line-height: 1.42857143;
+      width: 5rem;
+      background-color: $white;
+      border: 1px solid $gray-deep-light;
+    }
+    .pagination-goto {
+      border-radius: 4px !important;
+    }
+    .pagination-prev-a {
+      border-top-left-radius: 4px !important;
+      border-bottom-left-radius: 4px !important;
+    }
+  }
+}
+
+/* modal part */
+.modal-sm .modal-content {
+    width: 420px;
+    height: 290px;
+    position: absolute;
+    top: 137px;
+    background: rgba(26, 26, 26, 0.9);
+    color: #D0D0D0;
+    border: 1px #403F3F solid;
+}
+.modal-header-title {
+    font-size: 14px;
+    width: 200px;
+    float: left;
+    color: #ffffff;
+}
+.modal-close {
+    float: right;
+    cursor:pointer
+}
+.modal-header {
+    padding: 0px 15px;
+    border-bottom: 1px solid #403F3F;
+    line-height: 46px;
+}
+.modal-contenttxt {
+    padding: 10px 15px;
+    font-size: 12px;
+    height: 126px;
+}
+.modal-footer {
+    padding: 0px 15px;
+    line-height: 52px;
+    text-align: right;
+    border-top: 1px solid #403F3F;
+}
+.modal-footer .btn-default {
+    width: 88px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    border-radius: 2px;
+    background: #262626;
+    border: 1px #343434 solid;
+    color: #ffffff;
+    cursor: pointer;
+    margin-right: 70px;
+}
+.modal-footer .btn-default:hover,
+.modal-footer .btn-default:active {
+    background: #1c7dfa;
+    border: 1px #141212 solid;
+    color: #ffffff;
+}
+.modal-custom-body {
+    padding-right: 0px !important;      /*防止modal open时向左移动*/
+    padding-left: calc(100vw - 100%);   /*防止右侧滚动条出现时，页面跳动*/
+}
+
+/* button css */
+.btn-link:focus,
+.btn-link:active:focus{
+    outline:none;
+}
+
+/* table css */
+/*
+.table-hover > tbody > tr:hover,
+.table-hover > tbody > tr:hover > td{
+    background-color: #454645;
+}
+*/
+
+/* tooltip css */
+/* Specify styling for tooltip contents */
+.tooltip-inner {
+    width: 260px;
+}
+.tooltip.customClass .tooltip-inner {
+    color: #ffffff;
+    background-color: #262626;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    border:1px #454545 solid;
+    line-height: 24px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+/* Hide arrow */
+.tooltip.customClass .tooltip-arrow {
+    display: none;
+}
+.tooltip-item {
+    text-align: left;
+}
+
+.tooltip-item .star{
+    color: #1c7dfa;
+}
+
+/* alert css */
+.ws-alert {
+    position: absolute;
+    font-size: 13px;
+    top: 75px;
+    right: 0px;
+    width: 300px;
+    z-index: 1;
+    text-align: center;
+}
+.ws-alert .alert-success,
+.ws-alert .alert-error,
+.ws-alert .alert-warning,
+.ws-alert .alert-danger,
+.ws-alert .alert-info {
+    background: linear-gradient(#3e3e3e, #333333) #262626;
+    border: 1px solid;
+    /*box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.5);*/
+    border-radius: 2px;
+    border: 1px #565656 solid;
+    filter: alpha(opacity=80); /*IE滤镜*/
+    -moz-opacity:0.8; /*Firefox私有*/
+    opacity:0.8;
+}
+.ws-alert .close {
+    position: absolute;
+    top: 8px;
+    right: 18px;
+    color: #ffffff;
+    font-size: 14px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    opacity: 1;
+}
+.ws-alert .alert-success {
+    color:#9eea6a;
+}
+.ws-alert .alert-warning {
+    color:#F60;
+}
+.ws-alert .alert-error {
+    color: #ff3b30;
+}
+.ws-alert .alert-danger {
+    color: #cc5353;
+}
+.ws-alert .alert-info {
+    color: #ccc;
+}
+.alert-success:before {
+    content: "\f05d";
+    color:#9eea6a;
+    font-family: FontAwesome;
+    font-size: 24px;
+    position: absolute;
+    top:5px;
+    left: 10px;
+    z-index: 2;
+}
+.alert-warning:before {
+    content: "\f06a";
+    color:#F30;
+    font-family: FontAwesome;
+    font-size: 24px;
+    position: absolute;
+    top:5px;
+    left: 10px;
+    z-index: 2;
+}
+.alert-error:before,
+.alert-danger:before{
+    content: "\f057";
+    color:#ff3b30;
+    font-family: FontAwesome;
+    font-size: 24px;
+    position: absolute;
+    top:5px;
+    left: 10px;
+    z-index: 2;
+}
+.alert-info:before {
+    content: "\f05a";
+    color:#ccc;
+    font-family: FontAwesome;
+    font-size: 24px;
+    position: absolute;
+    top:5px;
+    left: 10px;
+    z-index: 2;
+}
+/* ANGULAR ANIMATE: FADE OUT RIGHT SIDE */
+.fade-out-right {
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+    position: relative;
+}
+.fade-out-right.ng-enter {
+    right: -40px;
+    opacity: 0;
+}
+.fade-out-right.ng-enter.ng-enter-active {
+    right: 0;
+    opacity: 1;
+}
+.fade-out-right.ng-leave {
+    right: 0;
+    opacity: 1;
+}
+.fade-out-right.ng-leave.ng-leave-active {
+    right: -40px;
+    opacity: 0;
+}
+.fade-out-right.ng-move {
+    opacity: 0.5;
+}
+.fade-out-right.ng-move.ng-move-active {
+    opacity: 1;
+}
+
+/* ============================ */
+/* P2. font-awesome additional css */
+/* ============================ */
+.fa-plus-overlay
+{
+  position: relative;
+
+  &:after
+  {
+    position: absolute;
+    font-family: FontAwesome;
+    bottom: -5px;
+    right: -5px;
+    content: "\f067";
+  }
+}
+
+/* ============================ */
+/* P3. smart-table & stable plugin css */
+/* ============================ */
+.st-sort-ascent:before{
+    content: '\25B2';
+}
+.st-sort-descent:before{
+    content: '\25BC';
+}
+.st-selected{
+    background: #216eff !important;
+    color: white !important;
+}
+
+.stable-toolbar {
+  div {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .left-toolbar {
+    button {
+      margin-right: .5em;
+      vertical-align: top;
+    }
+    .search {
+      width: 15em;
+      display: inline-block;
+      span{
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        display: block;
+        width: 34px;
+        height: 34px;
+        line-height: 34px;
+        text-align: center;
+        &:hover{
+          cursor:pointer;
+          color:$black;
+        }
+      }
+    }
+  }
+  .right-toolbar {
+    text-align: right;
+    button {
+      margin-right: .5em;
+    }
+    .configuration {
+      margin-right: 0;
+    }
+  }
+  //覆盖bootstrap样式，实现弹出界面的效果(要用到table的右上角配置控件中)
+  .popover {
+    border-radius: 0px;
+  }
+  .popover.bottom-right,.popover.bottom-left {
+    margin-top:0px;
+    > .arrow{
+      display:none;
+    }
+  }
+}
+
+.stable-filter {
+  padding: 1em;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  >div {
+    padding-left: 0;
+  }
+  .filter-item {
+    display:inline-block;
+    line-height: 4rem;
+    >div {
+      margin-right: 2rem;
+    }
+    .filter-item-group {
+      display: inline-block;
+      em{
+        font-style:normal;
+        margin:0 10px;
+      }
+    }
+    .filter-item-dropdown {
+      display: inline-block;
+      > select {
+        width: 15rem;
+      }
+      > input[type='text']{
+        border: 1px solid #ddd;
+        width: 15rem;
+        padding: 6px 12px;
+        line-height: 1.42857143;
+      }
+    }
+    .filter-item-date{
+      display: inline-block;
+      width:auto;
+      float:none;
+      > input{
+        border: 1px solid #ddd;
+        width: 15rem;
+        padding: 6px 12px;
+        line-height: 1.42857143;
+      }
+    }
+  }
+}
+
+/* top cog css */
+.top-cog{
+  ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    li{
+      display:inline-block;
+      width:20px;
+      height:20px;
+      margin:0 5px;
+      &:hover{
+        cursor:pointer;
+      }
+      &.purple{
+        background:$purple;
+      }
+      &.red{
+        background:$red;
+      }
+      &.violet{
+        background:$violet;
+      }
+    }
+  }
+}

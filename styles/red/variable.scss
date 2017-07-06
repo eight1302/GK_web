@@ -1,0 +1,46 @@
+//共用
+$white: #FFF;
+$black: #000;
+$gray: #666;
+$gray-light: #999;
+$gray-deep-light: #CCC;
+$gray-dark: darken($gray, 20%);
+$gray-deep-dark: darken($gray, 30%);
+$blue: #65acf2;
+$blue-dark: #1790cf;
+$purple: #ef5b3b;
+$purple-light: lighten($purple, 20%);
+$purple-dark: darken($purple, 20%);
+$purple-deep-dark: darken($purple, 30%);
+$purple-backgroud: #efedf5;
+$purple-breadcrumb:#957BE0;
+$green: #539333;
+$red: #ef5b3b;
+$red-light: lighten($red, 20%);
+$red-dark: darken($red, 20%);
+$red-deep-dark: darken($red, 30%);
+$red-backgroud: #efedf5;
+$red-breadcrumb:$red;
+$violet:#AA42E4;
+$violet-light: lighten($violet, 20%);
+$violet-dark: darken($violet, 20%);
+$violet-deep-dark: darken($violet, 30%);
+$violet-backgroud: #AA42E4;
+$violet-breadcrumb:$violet;
+
+
+
+//欢迎页
+$welcome-bg-color: $gray-light;
+$welcome-header-color: $white;
+$welcome-header-height: 8rem;
+
+//登录页
+$login-font-color: #879CA2;
+$login-header-height: 7rem;
+
+//主体框架
+$dashboard-nav-width: 6rem;
+$dashboard-nav-child-width: 14rem;
+$dashboard-top-height: 6rem;
+$dashboard-nav-menu-height: $dashboard-top-height;

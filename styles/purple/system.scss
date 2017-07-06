@@ -1,0 +1,262 @@
+@import "variable";
+
+
+.theme-purple{
+  //网络设置
+  .titel-network {
+    border-bottom: 1px #ccc solid;
+    padding: 30px 15px 10px 15px;
+    color: #666666;
+    clear: both;
+  }
+  .ipaddress {
+    padding: 15px;
+    color: #443366;
+  }
+  .btn-dns {
+    border:1px $purple solid;
+    color: $purple;
+    &:hover {
+      background: $purple;
+      color: #fff;
+    }
+    i {
+      margin-right: 10px;
+    }
+  }
+
+  .submit-box {
+    button {
+      background: $purple;
+      color: #fff;
+      text-align: center;
+      min-width: 150px;
+      margin: 15px 0px;
+    }
+  }
+
+  .table-network {
+    padding: 0;
+    margin-top: 15px;
+    border: 1px #ebe9f0 solid;
+    table {
+      margin-bottom: 0px;
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            vertical-align: middle;
+          }
+        }
+      }
+      .tr-title {
+        background: #f2f0f6;
+      }
+      tr:nth-child(even) {
+        background: #fafafb;
+      }
+      tr {
+        &:hover {
+          background: #f2f0f6;
+          cursor: pointer;
+        }
+        a {
+          margin: 0px 6px;
+          font-size: 14px;
+          color: #7c69b4;
+          &:hover,&:active {
+            text-decoration: none;
+            color: #666666;
+          }
+        }
+        .fa-big {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  //网络设置_编辑
+  .network-edit{
+    overflow:hidden;
+    clear: both;
+    padding-top: 15px;
+    .content{
+      overflow:hidden;
+      padding: 0px;
+      section{
+        overflow:hidden;
+        padding-bottom:20px;
+        border: 1px solid $gray-deep-light;
+        margin-bottom:20px;
+        h3{
+          margin: 0;
+          color: $purple;
+          padding: 10px 15px;
+          border-bottom: 1px solid $gray-deep-light;
+          background: $purple-backgroud;
+          margin-bottom: 20px;
+          font-size:14px;
+        }
+        .nerwork-hr {
+          border-bottom: 1px solid $gray-deep-light;
+          margin-bottom: 20px;
+        }
+        .form-group {
+          margin-bottom: 20px;
+          .remark-txt {
+            height: 34px;
+            line-height: 34px;
+            padding: 0px 8px;
+            background: #EFEDF5;
+            display: inline-block;
+            vertical-align: middle;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-right: 15px;
+            white-space: nowrap;
+          }
+          .img-box {
+            display: inline-block;
+            width: 450px;
+            height: 120px;
+            overflow: hidden;
+            border: 1px solid $gray-deep-light ;
+          }
+          button {
+            width: 100%;
+          }
+          .help-block{
+            padding-left:0;
+          }
+          @media (min-width:768px){
+            label {
+              display:inline-block;
+              width:160px;
+              text-align: right;
+              margin-right:20px;
+            }
+            input[type='text'],select {
+              display:inline-block;
+              width:300px;
+              vertical-align: middle;
+            }
+            textarea {
+              display:inline-block;
+              width:500px;
+              height: 120px;
+              vertical-align: middle;
+            }
+            input[type='password'],input[type='email'] {
+              display:inline-block;
+              width:300px;
+              vertical-align: middle;
+            }
+            .help-block{
+              padding-left:185px;
+            }
+            button {
+              width: 100px;
+              margin-right: 20px;
+            }
+          }
+          .submit {
+            background: $purple;
+            color: $white;
+          }
+        }
+        .dns-label {
+          width: 16px !important;
+        }
+        .sed-title {
+          line-height: 40px;
+          color: #4C3D79;
+          font-weight: bold;
+        }
+        .address-dns {
+           visibility: hidden;
+           & + label {
+             -webkit-appearance: none;
+             background-color: #fff;
+             border: 1px solid #479ff7;
+             padding: 7px;
+             border-radius: 50px;
+             display: inline-block;
+             position: relative;
+             margin: 0px 6px 0px 25px;
+             vertical-align: middle;
+           }
+           &:checked + label:after {
+             content: ' ';
+             width: 6px;
+             height: 6px;
+             border-radius: 50px;
+             position: absolute;
+             top: 4px;
+             background: #479ff7;
+             left: 4px;
+             font-size: 32px;
+           }
+           &:checked + label {
+             background-color: #fff;
+             color: #99a1a7;
+             border: 1px solid #479ff7;
+           }
+        }
+      }
+    }
+  }
+
+  //网络设置弹窗
+  .network-popup-title {
+    padding: 12px;
+    background: $purple;
+    color: $white;
+    font-size: 14px;
+    a {
+      float: right;
+      color: $white;
+    }
+  }
+  .network-popup-content {
+    padding: 20px;
+    .form-group {
+      button {
+        width: 100%;
+      }
+      .help-block{
+        padding-left:0;
+      }
+      @media (min-width:768px){
+        label {
+          display:inline-block;
+          width:140px;
+          text-align: right;
+          margin-right:20px;
+        }
+        input[type='text'],select,textarea{
+          display:inline-block;
+          width:300px;
+          vertical-align: middle;
+        }
+        .help-block{
+          padding-left:170px;
+          color: #d43f3a;
+          height: 24px;
+          line-height: 24px;
+        }
+        button {
+          width: 139px;
+          margin-right: 20px;
+        }
+      }
+      .submit {
+        background: $purple;
+        color: $white;
+      }
+    }
+  }
+}

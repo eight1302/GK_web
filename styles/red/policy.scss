@@ -1,0 +1,138 @@
+@import "variable";
+
+
+.theme-red{
+  //开关按钮
+  .btn-on-box {
+    display: inline-block;
+    margin: 0px 5px;
+    vertical-align: middle;
+    input[type=checkbox] {
+      //visibility: hidden;
+      display:none;
+    }
+    label {
+      width: 44px;
+      height: 24px;
+      border-radius: 18px;
+      position: relative;
+      display: inline-block;
+      background: #fff;
+      border:1px $gray-light solid;
+      float: right;
+      margin-top: 6px;
+      cursor: pointer;
+      &:before {
+        content: "";
+        position: absolute;
+        left: 3px;
+        top: 2px;
+        height: 18px;
+        width: 18px;
+        background-color: $gray-light;
+        transition: all 0.5s ease;
+        border-radius: 50%;
+      }
+    }
+    .btn-on:checked + label {
+      border:1px $red solid;
+    }
+    .btn-on:checked + label:before {
+      left: 21px;
+      background-color: $red;
+    }
+  }
+
+  //基本设置--客户端
+  .titel-config{
+    border-bottom: 1px #ccc solid;
+    padding: 20px 15px 5px 15px;
+    color: #666666;
+    clear: both;
+    &:hover{
+      .remark{
+        display:inline-block;
+      }
+    }
+  }
+  .remark {
+    display: none;
+    margin: 0px 15px;
+    background: #fbf6d7;
+    border: 1px #eee7cb solid;
+    padding: 5px 10px;
+    color: #e59626;
+    position: relative;
+    &:before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-right: 6px solid #EEE7CB;
+      position: absolute;
+      top: 7px;
+      left: -6px;
+    }
+  }
+  .configaddress {
+    padding: 15px 15px 5px 15px;
+    color: #666666;
+    font-weight: bold;
+  }
+  .table-config {
+    padding: 0;
+    margin-top: 15px;
+    border: 1px #ebe9f0 solid;
+    table {
+      margin-bottom: 0px;
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            vertical-align: middle;
+          }
+        }
+      }
+      .tr-title {
+        background: #f2f0f6;
+      }
+      tr:nth-child(even) {
+        background: #fafafb;
+      }
+      tr {
+        &:hover {
+          background: #f2f0f6;
+          cursor: pointer;
+        }
+        a {
+          margin: 0px 6px;
+          font-size: 14px;
+          color: #7c69b4;
+          &:hover,&:active {
+            text-decoration: none;
+            color: #666666;
+          }
+        }
+        input[type=text] {
+          padding: 0px 5px;
+        }
+        .input-edition {
+          background: transparent;
+          border: 0px;
+          outline: 0px;
+        }
+      }
+    }
+  }
+
+  .radio,input[type=radio]{
+    margin-top:0;
+  }
+
+}
+
+
+

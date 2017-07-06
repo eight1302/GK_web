@@ -1,0 +1,785 @@
+@import "variable";
+
+.theme-red{
+	/* ============================ */
+	/* P2. bootstrap css */
+	/* ============================ */
+	.btn-primary {
+	  background-color: $red;
+		border:0;
+	}
+
+	/* ============================ */
+	/* P3. smart-table & stable plugin css */
+	/* ============================ */
+	/* pagination css */
+	.pagination>.active>a, 
+	.pagination>.active>a:focus, 
+	.pagination>.active>a:hover, 
+	.pagination>.active>span, 
+	.pagination>.active>span:focus, 
+	.pagination>.active>span:hover{
+		background-color:$red;
+		border-color:$red;
+		color:$white;
+	}
+	.pagination>li>a, 
+	.pagination>li>span{
+		color:$red;
+	}
+
+	/* toolbar css */
+	.toolbar-custom{
+	  width: 23rem;
+	  .custom-item {
+	    padding-left: 12px;
+	    margin-bottom: 12px;
+	    .btn-default {
+	      border-radius: 0;
+	      &:hover {
+	        color: $white;
+	        background-color: $red;
+	      };
+	      &:focus {
+	        @extend .btn-default:hover;
+	        outline:0;
+	      };
+	      &:active, &:active:hover, &:active:focus {
+	        color: $white;
+	        background-color: $red;
+	        outline:0;
+	      };
+	    }
+
+	    .btn-default.active{
+	      @extend .btn-default:active;
+	      &:hover, &:focus{
+	        @extend .btn-default:active;
+	      }
+	    }
+
+	    /* .checkbox */
+	    $toolbar-checkbox-size: 20px;
+	    .toolbar-checkbox {
+	      width: $toolbar-checkbox-size;
+	      height: $toolbar-checkbox-size;
+	      position: relative;
+	      width: 100%;
+	      padding-bottom: 2rem;
+	      label {
+	        width: $toolbar-checkbox-size;
+	        height: $toolbar-checkbox-size;
+	        position: absolute;
+	        cursor: pointer;
+	        left: 0;
+	        background: linear-gradient(top, #222 0%, #45484d 100%);
+	        border: 1px solid #ddd;
+	        &:after {
+	          content: '';
+	          width: $toolbar-checkbox-size - 4;
+	          height: $toolbar-checkbox-size - 4;
+	          position: absolute;
+	          left: 1px;
+	          background: $red;
+	          box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	          opacity: 0;
+	        }
+	        &:hover::after {
+	          opacity: 0.3;
+	        }
+	      }
+	      input[type=checkbox] {
+	        visibility: hidden;
+	        &:checked + label:after {
+	          opacity: 1;
+	        }
+	      }
+	      .checkbox-text {
+	        font-size:14px;
+	        position: absolute;
+	        left: 3rem;
+	      }
+	    }
+	  }
+	}
+
+	.toolbar-operation{
+		ul{
+			width:100%;
+			list-style:none;
+			margin:0;
+			padding:0;
+			overflow:hidden;
+			li{
+				width:100%;
+				text-align:center;
+				font-size:14px;
+				padding:5px 20px;
+				color:$red;
+				&:hover{
+					color:$white;
+					background:$red;
+					cursor:pointer;
+				}
+			}
+		}
+	}
+
+	/* stable css */
+	.stable{
+		button{
+			border-color:$red;
+			&:active{
+				background:$red-dark;
+			}
+		}
+	}
+	.stable-list{
+	  border:1px solid $gray-deep-light;
+	  margin-bottom:0;
+	  th{
+	    color:$gray;
+	    input[type="checkbox"]{
+	      margin:0;
+	    }
+	  }
+	  td{
+	    color:$gray;
+	    input[type="checkbox"]{
+	      margin:0;
+	    }
+	    i{
+	      font-size:16px;
+	      color:$blue;
+	    }
+	  } 
+	} 
+	.stable-plain{
+	  width:100%;
+	  padding:0;
+	  margin-bottom:0;
+	  overflow:hidden;
+	  .selectAllData{
+	    display:none;
+	  }
+	  .stable-plain-child{
+	    float:left;
+	    padding:0 10px;
+	    width:25%;
+	    dl{
+	      position:relative;
+	      border:1px solid $gray-deep-light;
+	      dt{
+	        position:relative;
+	        width:100%;
+	        text-align:center;
+	        background:$gray-light;
+	        i{
+	          font-size:26px;
+	          color:$white;
+	          margin:30px 0;
+	          display:inline-block;
+	        }
+	        input[type="checkbox"]{
+	          position:absolute;
+	          top:5px;
+	          left:5px;
+	        }
+	      }
+	      dd{
+	        padding:10px 10px 30px 10px;
+	        position:relative;
+	        h5{
+	          width:100%;
+	          font-weight:normal;
+	          margin:0 0 10px 0;
+	          color:$red-dark;
+	          font-size:20px;
+	          height:34px;
+	          line-height:34px;
+	        }
+	        p{
+	          width:100%;
+	          font-size:14px;
+	          line-height:24px;
+	          color:$gray;
+	          overflow:hidden;
+	          white-space:nowrap;
+	          text-overflow:ellipsis;
+	        }
+	        .dl-btn{
+	          display:none;
+	          width:100%;
+	          position:absolute;
+	          bottom:10px;
+	          left:0;
+	          padding:0 10px;
+	          text-align:center;
+	          overflow:hidden;
+	          a{
+	            font-size:22px;
+	            color:$red-dark;
+	            margin:0 10px;
+	            text-decoration:none;
+	          }
+	        }
+	      }
+	      &.current{
+	        border:1px solid $red;
+	        dt{
+	          background:$red-dark;
+	        }
+	        dd{
+	        	p{
+	        		color:$red;
+	        	}
+	        }
+	      }
+	      &:hover{
+	      	.dl-btn{
+	      		display:block;
+	      	}
+	      }
+	    }
+	    .child-box{
+	    	position:relative;
+	      	border:1px solid $gray-deep-light;
+	      	background:#f5f5f5;
+	      	padding:40px 40px;
+	      	height:170px;
+	      	overflow:hidden;
+	      	margin-bottom:20px;
+	      	display:-moz-box;display:-webkit-box;display:box;
+	      	-webkit-box-align:center;box-align:center;
+	      	input[type="checkbox"]{
+	          position:absolute;
+	          top:5px;
+	          left:5px;
+	        }
+	      	i{
+	      		display:block;
+	      		font-size:40px;
+	      		color:$blue;
+	      		margin-right:30px;
+	      	}
+	      	span.title{
+	      		display:block;
+	      		width:50%;
+	      		max-height:70px;
+	      		overflow:hidden;
+	      		font-size:16px;
+	      		color:$blue;
+	      		word-break:break-all;
+	      		word-wrap:break-word;
+	      	}
+	      	.box-btn{
+	      		display:none;
+	         	position:absolute;
+		        bottom:10px;
+		        right:0;
+		        z-index:10;
+		        padding:0 10px;
+		        width:100%;
+		        text-align:center;
+		        overflow:hidden;
+		        a{
+		           font-size:22px;
+		           color:$red-dark;
+		           margin:0 10px;
+		           text-decoration:none;
+		        }
+	        }
+	    }
+	    .box-cover{
+        	position:absolute;
+        	left:0;
+        	top:0;
+        	z-index:20;
+        	opacity:0.85;
+        	width:100%;
+        	height:100%;
+        	background:$red-light;
+        	display:-moz-box;display:-webkit-box;display:box;
+        	-webkit-box-align:center;box-align:center;-webkit-box-pack:center;box-pack:center;
+        	.box-cover-center{
+        		width:90%;
+        		height:30px;
+        		progress{
+	        		float:left;
+	        		width:100%;
+	        		height:10px;
+	        	}
+	        	strong{
+	        		float:left;
+	        		width:100%;
+	        		text-align:center;
+	        		font-size:16px;
+	        		color:$black;
+	        		font-weight:normal;
+	        	}
+        	}
+        	&.box-show{
+        		display:-moz-box;display:-webkit-box;display:box;
+        	}
+        	&.box-hide{
+        		display:none;
+        	}
+        }
+        &:hover{
+        	.box-btn{
+        		display:block;
+        	}
+        }
+	  } 
+	  @media (max-width:1200px){
+	  	.stable-plain-child{
+	  		width:50%;
+	  	}
+	  }
+	  @media (max-width:700px){
+	  	.stable-plain-child{
+	  		width:100%;
+	  	}
+	  }
+	}
+
+	/* nav css */
+	/*
+	.dashboard-nav{
+	  position:fixed;
+	  top:0;
+	  left:0;
+	  z-index:1000;
+	  width: $dashboard-nav-width;
+	  height: 100%;
+	  background: $red-dark;
+	  display:inline-block;
+	  .nav-container {
+	     height: 100%;
+	     width: 100%;
+	     .nav-item {
+	       width: $dashboard-nav-width;
+	       height: $dashboard-nav-menu-height;
+	       display:table-cell;
+	       vertical-align: middle;
+	       text-align: center;
+	       .nav-a{
+	        display:table-cell;
+	        width: $dashboard-nav-width;
+	        height: $dashboard-nav-menu-height;
+	        vertical-align: middle;
+	        text-align: center;
+	        color: $white;
+	        font-size: 12px;
+	        text-decoration:none;
+	       }
+	       .nav-current{
+	         background: $white;
+	         cursor:pointer;
+	         color:$red-dark;
+	       }
+	       i {
+	         font-size: 20px;
+	       }
+	     }
+	     //覆盖bootstrap样式，实现弹出界面的效果(要用到table的右上角配置控件中)
+	     .popover {
+	       border-radius: 0px;
+	     }
+	     .popover.right-top {
+	       margin-left:0px;
+	       > .arrow{
+	         display:none;
+	       }
+	     }
+	     .popover-content{
+	       padding:0 0 3.6rem 0;
+	     }
+	     >nav >ul >li {
+	       width: $dashboard-nav-width;
+	       height: $dashboard-nav-menu-height;
+	       margin: 0;
+	       &:first-child{
+	        background: $red-deep-dark;
+	       }
+	       &:hover, &:active {
+	         background: $white;
+	         cursor:pointer;
+	         .nav-a{
+	          color:$red-dark;
+	         }
+	       }
+	      }
+	     .divider {
+	       height: 1px;
+	       margin: 0;
+	       overflow: hidden;
+	       background-color: $red-light;
+	      }
+	    }
+	    .nav-sec-container {
+	     width: $dashboard-nav-child-width;
+	     >ul li {
+	      width:auto;
+	      height:auto;
+	      margin-left:2rem;
+	      border-bottom:1px solid $gray-deep-light;
+	      text-align:left;
+	      .sec-a{
+	        display:inline-block;
+	        padding:1.2rem 0 1.2rem 4rem;
+	        width:$dashboard-nav-child-width;
+	        color:$gray;
+	        font-size:12px;
+	        margin-left:-2rem;
+	        i{
+	          font-size:14px;
+	          margin-right:10px;
+	        }
+	      }
+	      &:hover a{
+	        background:$red-dark;
+	        cursor:pointer;
+	        color:$white;
+	      }
+	      .sec-current{
+	        background:$red-dark;
+	        cursor:pointer;
+	        color:$white;
+	      }
+	    }
+	  }
+	}
+	*/
+	.dashboard-nav{
+	  position:fixed;
+	  top:0;
+	  left:0;
+	  z-index:1000;
+	  width: $dashboard-nav-width;
+	  height: 100%;
+	  background: $red-dark;
+	  display:inline-block;
+	  .nav-container {
+	     height: 100%;
+	     width: 100%;
+	     .nav-item {
+	       width: $dashboard-nav-width;
+	       height: $dashboard-nav-menu-height;
+	       display:-moz-box;display:-webkit-box;display:box;
+	       -webkit-box-align:center;box-align:center;-webkit-box-pack:center;box-pack:center;
+	       .nav-item-center{
+	       	>div{
+	       		margin-top:5px;
+	       	}
+	       }
+	       .nav-a{
+	        width: $dashboard-nav-width;
+	        height: $dashboard-nav-menu-height;
+	        display:-moz-box;display:-webkit-box;display:box;
+	        -webkit-box-align:center;box-align:center;-webkit-box-pack:center;box-pack:center;
+	        color: $white;
+	        font-size: 12px;
+	        text-decoration:none;
+	       }
+	       .nav-current{
+	         background: $white;
+	         color:$red-dark;
+	       }
+	       i {
+	       	 width:20px;
+           height:20px;
+	         display:block;
+	         margin:0 auto;
+	         font-size:20px;
+	       }
+	     }
+	     .nav-item-first{
+	       width: $dashboard-nav-width;
+	       height: $dashboard-nav-menu-height;
+	       display:-moz-box;display:-webkit-box;display:box;
+         -webkit-box-align:center;box-align:center;-webkit-box-pack:center;box-pack:center;
+		     .nav-a{
+		      width: $dashboard-nav-width;
+		      height: $dashboard-nav-menu-height;
+		      display:-moz-box;display:-webkit-box;display:box;
+	          -webkit-box-align:center;box-align:center;-webkit-box-pack:center;box-pack:center;
+	          i{
+	          	width:20px;
+	          	height:20px;
+	          	display:block;
+	          }
+		      }
+	       .nav-current{
+          	background: $red-deep-dark;
+          	cursor:pointer;
+         }
+	     }
+	     //覆盖bootstrap样式，实现弹出界面的效果(要用到table的右上角配置控件中)
+	     .popover {
+	       border-radius: 0px;
+	     }
+	     .popover.right-top {
+	       margin-left:0px;
+	       > .arrow{
+	         display:none;
+	       }
+	     }
+	     .popover-content{
+	       padding:0 0 3.6rem 0;
+	     }
+	     >nav >ul >li {
+	       width: $dashboard-nav-width;
+	       height: $dashboard-nav-menu-height;
+	       margin: 0;
+	       &:hover, &:active {
+	         background: $white;
+	         cursor:pointer;
+	         .nav-a{
+	          color:$red-dark;
+	         }
+	       }
+	       &:first-child{
+	        &:hover, &:active{
+	        	background: $red-deep-dark;
+	        }
+	       }
+	      }
+	     .divider {
+	       height: 1px;
+	       margin: 0;
+	       overflow: hidden;
+	       background-color: $red-light;
+	      }
+	    }
+	    .nav-sec-container {
+	   	 position:fixed;
+	   	 z-index:2000;
+	   	 top:$dashboard-top-height;
+	   	 left:$dashboard-nav-width;
+	     width: $dashboard-nav-child-width;
+	     height:100%;
+	     b{
+	     	display:block;
+	     	width:100%;
+	     	height:100%;
+	     	background:$red-dark;
+	     	opacity:0.95;
+	     }
+	     >ul{
+	     	position:absolute;
+	     	z-index:2002;
+	     	top:0;
+	     	left:0;
+	     	width:100%;
+	     	height:100%;
+	     }
+	     >ul li {
+	      width:auto;
+	      height:auto;
+	      text-align:left;
+	      .sec-a{
+	        display:inline-block;
+	        padding:1.2rem 0 1.2rem 4rem;
+	        width:$dashboard-nav-child-width;
+	        color:$white;
+	        font-size:12px;
+	        border-radius:0;
+	        i{
+	          font-size:14px;
+	          margin-right:10px;
+	        }
+	      }
+	      &:hover a{
+	        background:$white;
+	        cursor:pointer;
+	        color:$red-dark;
+	      }
+	      .sec-current{
+	        background:$white;
+	        cursor:pointer;
+	        color:$red-dark;
+	      }
+	    }
+	  }
+	}
+
+	/* top css */
+	.top-container {
+	  position:fixed;
+	  top:0;
+	  left:$dashboard-nav-width;
+	  z-index:1000;
+	  width: calc(100% - #{$dashboard-nav-width});
+	  height: $dashboard-top-height;
+	  background: $red;
+	  .navbar-inverse{
+	  	background:$red;
+	  	border-color:$red;
+	  	.navbar-header{
+	  		height: $dashboard-top-height;
+	  		button.navbar-toggle{
+	  			margin-top:1.5rem;
+	  			border-color:$red-light;
+	  			background-color:transparent;
+	  			&:hover{
+	  				background-color:$red-light;
+	  			}
+	  		}
+	  	}
+	  	.navbar-collapse{
+	  		border-color:$red-light;
+	  	}
+	  }
+	  img{
+	    float:left;
+	    width: 140px;
+	    height: auto;
+	    margin-top: 20px;
+	    margin-left: 20px;
+	  }
+	  .input-group{
+	    display:inline-block;
+	    margin-top:20px;
+	    .time{
+	      position:relative;
+	    }
+	    .sup{
+			position:absolute;
+			font-size:12px;
+			color:$white;
+			background:#FF0000;
+			top:-15px;
+			right:-15px;
+			font-style:normal;
+			height:20px;
+			line-height:18px;
+			width:20px;
+			text-align:center;
+			display:inline-block;
+			border-radius: 10px;
+			-webkit-border-radius: 10px;
+			-moz-border-radius: 10px;
+	    }
+	    .top-search{
+	      width: 100px;
+	      height: 30px;
+	      border-radius: 15px;
+	      -webkit-border-radius: 15px;
+	      -moz-border-radius: 15px;
+	      filter:alpha(opacity=80);
+	      -moz-opacity:0.8;
+	      -khtml-opacity: 0.8;
+	      opacity: 0.8;
+	      background: #FFFFFF;
+	      background-color: transparent;
+	      color: #FFFFFF;
+	      font-size: 12px;
+	      -webkit-transition: all 0.7s ease 0s;
+	      -moz-transition: all 0.7s ease 0s;
+	      -o-transition: all 0.7s ease 0s;
+	      transition: all 0.7s ease 0s;
+	      &::-webkit-input-placeholder,&:-moz-placeholder,&::-moz-placeholder,&:-ms-input-placeholder {
+	        color:#ffffff !important;
+	      }
+	      &:focus{
+	        width: 200px;
+	      }
+	    }
+	    span{
+	      margin:4px 17px 0 17px;
+	      font-size: 20px;
+	      color: $white;
+	      cursor: pointer;
+	      font-weight:normal;
+	    }
+	    em{
+	    	display:none;
+	    	font-style:normal;
+	    }
+	  } 
+	  @media(max-width:768px){
+	  	.input-group{
+	  		display:block;
+	  		margin:0;
+	  		width:100%;
+	  		padding:5px 0;
+	  		.sup{
+	  			display:none;
+	  		}
+	  		em{
+	  			display:inline;
+	  			font-size:14px;
+	  			color:$white;
+	  			margin:0 10px;
+	  		}
+	  		&:hover,&:active{
+	  			cursor:pointer;
+	  			background-color:$red-light;
+	  		}
+	  		&:first-child{
+	  			cursor:default;
+	  			background:transparent;
+	  		}
+	  	}
+	  }
+	}
+
+
+	/* breadcrumb css */
+	.breadcrumb{
+		background:$white;
+		border-bottom:1px solid $gray-deep-light;
+		> li + li:before{
+		    color: $gray;
+		    content: ">";
+		    padding: 0 10px;
+		    font-size:16px;
+		}
+		> li > a{
+			font-size:14px;
+		    color: $gray;
+		}
+		> li > span{
+			font-size:14px;
+		    color: $red;
+		}
+	}
+
+	/* tab css */
+	.stab{
+	  border-bottom:1px solid $red-light;
+	  padding:0;
+	  ul{
+	    padding:0 0px;
+	    margin:0;
+	    overflow:hidden;
+	    li{
+	      display:inline-block;
+	      a{
+	        display:inline-block;
+	        text-decoration:none;
+	        width:100px;
+	        text-align:center;
+	        padding:5px 0;
+	        color:$red;
+	        border-top:1px solid $red;
+	        border-left:1px solid $red;
+	        border-right:1px solid $red;
+	        border-radius: 3px 3px 0px 0px;
+	        -webkit-border-radius: 3px 3px 0px 0px;
+	        -o-border-radius: 3px 3px 0px 0px;
+	        -moz-border-radius: 3px 3px 0px 0px;
+	      }
+	      &:hover,&.active{
+	      	cursor:pointer;
+	      	a{
+	      		background:$red;
+	          	color:$white;
+	      	}
+	      }
+	    }
+	  }
+	}
+	
+}

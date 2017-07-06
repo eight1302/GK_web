@@ -1,0 +1,35 @@
+//共用
+$white: #FFF;
+$black: #000;
+$gray: #666;
+$gray-light: #999;
+$gray-deep-light: #CCC;
+$snow-white:#ECF0F1;
+$blue: #65acf2;
+$blue1:#B2E2F7;
+$blue-dark: #1790cf;
+$purple: #7B69B3;
+$purple1:#9B59B6;
+$purple-light: lighten($purple, 20%);
+$purple-dark: darken($purple, 20%);
+$purple-deep-dark: darken($purple, 30%);
+$green: #539333;
+$red: #ef5b3b;
+$violet:#AA42E4;
+
+
+
+//欢迎页
+$welcome-bg-color: $gray-light;
+$welcome-header-color: $white;
+$welcome-header-height: 10rem;
+
+//登录页
+$login-font-color: #879CA2;
+$login-header-height: 6rem;
+
+//主体框架
+$dashboard-nav-width: 8rem;
+$dashboard-nav-child-width: 14rem;
+$dashboard-top-height: 7rem;
+$dashboard-nav-menu-height: $dashboard-top-height;

@@ -1,0 +1,185 @@
+@import "variable";
+
+// 欢迎页(下载)
+// main.page-welcome{
+.welcome {
+  background: $welcome-bg-color;
+  height: 100%;
+  width: 100%;
+
+  .welcome-header {
+    background: $welcome-header-color;
+    height: $welcome-header-height;
+    line-height: $welcome-header-height;
+    img {
+      margin-left: 10rem;
+      opacity: 1.0;
+      filter: alpha(opacity=100);
+      max-height: 4rem;
+    };
+    button {
+      margin-right: 10rem;
+    }
+  };
+
+  .welcome-main {
+    border: solid #e6e6e6;
+    border-width: 1px 0 0 0;
+    height: calc(100% - #{$welcome-header-height});
+    div {
+      height: 100%;
+    }
+    .vc-container {
+      display: table;
+    };
+    .vertical-center {
+      width: 50vw;
+      table-layout: fixed;
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+    };
+    h1 {
+      font-family:"微软雅黑";
+      font-weight:bold;
+      color: #14b8f2;
+    };
+    h5 {
+      font-family:"微软雅黑";
+      color: #595454;
+    };
+    a.download {
+      margin-top:1rem;
+      display:inline-block;
+      border:1px solid #5ecbf4;
+      font-family:"微软雅黑";
+      color: #5ecbf4;
+      height:3.4rem;
+      line-height:3.4rem;
+      text-align:center;
+      width:12rem;
+      border-radius: 1.7rem;
+      text-decoration:none;
+      position:relative;
+      i {
+        background:url("../../images/download-a-bg.png") no-repeat;
+        background-size:2rem 2rem;
+        width:2rem;
+        height:2rem;
+        float:left;
+        margin:0.5rem 0 0 3rem;
+      }
+      span {
+        float:left;
+        margin-left:0.5rem;
+        font-size:14px;
+      }
+    };
+  }
+
+  .btn-default {
+    border-radius: 1.25rem;
+    color: #23baf2;
+    border-color: #46b8da;
+    &:hover {
+      color: #23baf2;
+      background-color: #fff;
+      border-color: #269abc;
+    };
+    &:focus {
+      @extend .btn-default:hover;
+      outline:0;
+    };
+    &:active, &:active:hover, &:active:focus {
+      color: #fff;
+      background-color: #19b8f2;
+      border-color: #269abc;
+      outline:0;
+    };
+  }
+
+  .btn-default.active{
+    @extend .btn-default:active;
+    &:hover, &:focus{
+      @extend .btn-default:active;
+    }
+  }
+}
+
+/* 登录页面 */
+.login-container{
+  background: -webkit-linear-gradient(top, #172243, #2E80A5); /* Safari 5.1 - 6 */
+  background: -o-linear-gradient(bottom, #172243, #2E80A5); /* Opera 11.1 - 12*/
+  background: -moz-linear-gradient(bottom, #172243, #2E80A5); /* Firefox 3.6 - 15*/
+  background: linear-gradient(#172243, #2E80A5); /* 标准的语法 */
+  height: 100%;
+  width: 100%;
+  color: $login-font-color;
+
+  .login-header {
+    width: 100%;
+    height: $login-header-height;
+    line-height: $login-header-height;
+    a {
+      color: $login-font-color;
+    };
+    a + div {
+      color: $black;
+    };
+    .help-doc {
+      margin-left: -3em;
+    };
+  }
+
+  .login-main {
+    width: 100%;
+    height: calc(100% - #{$login-header-height});
+    text-align: center;
+    padding-top: 10rem;
+    overflow: hidden;
+    .logo {
+      width: 22rem;
+      margin: 0 auto;
+      background: $white;
+      img {
+        padding: 1rem;
+        max-height: 6rem;
+      }
+    }
+    .input {
+      position:relative;
+      width: 25rem;
+      margin: 0 auto;
+      input {
+        border-radius: 1.25rem;
+        background: #235376;
+        color:#879CA2;
+        border-color: #46b8da;
+        height:2.5rem;
+      }
+      button {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 14px;
+        border-radius: 20px;
+        position:absolute;
+        bottom:0px;
+        right:0px;
+        color: #306B8D;
+        background-color: #6289A2;
+        border-color: #46b8da;
+        &:hover {
+          color: #0F4767;
+          background-color: #507B97;
+          border-color: #46b8da;
+          outline:0;
+        };
+        &:focus, &:active{
+          @extend button:hover;
+          background-color: #4e6e97;
+          border-color: #4ba0da;
+        }
+      }
+    }
+  }
+}

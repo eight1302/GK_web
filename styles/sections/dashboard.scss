@@ -1,0 +1,397 @@
+@import "variable";
+
+/* 主体框架 */
+.dashboard-container {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+
+  //主体右侧样式设计
+  .dashboard-top-main {
+    height: 100%;
+    width: calc(100% - #{$dashboard-nav-width});
+    position: absolute;
+    top: 0;
+    left: $dashboard-nav-width;
+  }
+  .dashboard-main {
+    height: calc(100% - #{$dashboard-top-height});
+    overflow:auto;
+  }
+  .clear-left{
+    clear:left;
+  }
+
+
+  //main页面样式设计
+  .main{
+    width: 100%;
+    padding-top: 10px;
+    background: $white;
+    //首页
+    .dashboard-index{
+      //padding:0 10px;
+      overflow:hidden;
+      .index-row{
+        width:100%;
+        overflow:hidden;
+        section{
+          border:1px solid $gray-deep-light;
+          h5{
+            margin:0;
+            padding:10px 15px;
+            font-size:14px;
+            font-weight:normal;
+            border-bottom:1px solid $gray-deep-light;
+            color:$purple-dark;
+          }
+        }
+        .row-left{
+          padding:0 5px;
+          .one{
+            padding:10px 35px;
+            border-bottom:1px solid $gray-deep-light;
+            overflow:hidden;
+            ul{
+              width:100%;
+              list-style:none;
+              overflow:hidden;
+              padding:0;
+              li{
+                float:left;
+                width:50%;
+                line-height:30px;
+                font-size:12px;
+                color:$gray;
+              }
+            }
+          }
+          .two{
+            padding:10px 20px;
+            border-bottom:1px solid $gray-deep-light;
+            overflow:hidden;
+            .two-child{
+              position:relative;
+              height:10rem;
+              em{
+                position:absolute;
+                top:0;
+                left:15px;
+                font-style:normal;
+                font-size:14px;
+                font-weight:bold;
+              }
+            }
+            .two-child-1{
+              color:$green;
+            }
+            .two-child-2{
+              color:$blue-dark;
+            }
+            .two-child-3{
+              color:$red;
+            }
+          }
+          .three{
+            padding:10px 35px;
+            overflow:hidden;
+            p{
+              width:50%;
+              float:left;
+              margin:0;
+              font-size:12px;
+              color:$gray;
+              span{
+                float:left;
+              }
+              em{
+                float:left;
+                margin-left:5px;
+                height:14px;
+                width:60px;
+              }
+              .em1{
+                background:$red;
+              }
+              .em2{
+                background:$purple;
+              }
+              .em3{
+              background:$violet;
+              }
+            }
+          }
+        }
+        .row-right{
+          padding:0 5px;
+        }
+      }
+    }
+
+    //二级标签
+    .main-tab{
+      border:1px solid #e3e3e3;
+      padding-top:10px;
+      overflow:hidden;
+      ul{
+        margin:0;
+        list-style:none;
+        li{
+          float:left;
+          height:36px;
+          line-height:36px;
+          padding:0 20px;
+          border-bottom:2px solid $white;
+          color:$gray-light;
+          a{
+            text-decoration:none;
+          }
+          &:hover,&.current{
+            border-bottom:2px solid #786d99;
+            color:$gray;
+            cursor:pointer;
+          }
+        }
+      }
+    }
+
+    //正文
+    .main-body{
+      padding:20px;
+    }
+  }
+
+
+
+  //enterplates終端詳情列表樣式條數硬件資源
+  #termhard,#hard,#cpu,#hard_disk,#memory,#gra_card,#pc,#other{
+    .hd{
+      height: 30px;
+      line-height: 30px;
+      background: $snow-white;
+      font-size: 14px;
+      strong{
+        color: $green;
+      }
+    }
+    .assets{
+      margin-top: 10px;
+      height: 25px;
+      border-bottom:1px solid $purple;
+      ul{
+        list-style: none;
+      }
+      li{
+        float: left;
+        width: 80px;
+        height: 25px;
+        line-height: 25px;
+        margin-left: 15px;
+        text-align: center;
+        border: 1px solid $purple;
+      }
+      li:hover{
+        background: $purple;
+
+        color: #FFFFFF;
+      }
+      a{
+        text-decoration:none;
+        color: $purple;
+
+      }
+      a:hover{
+        border: 1px solid $purple;
+        color: $snow-white;
+      }
+    }
+
+    .lab{
+      width: 98%;
+      height: 35px;
+      margin: 10px 0 0 10px;
+      border-bottom: 1px solid $gray-deep-light;
+      ul{
+        list-style: none;
+
+        li{
+          float: left;
+          margin-left: 15px;
+          line-height: 25px;
+          width: 80px;
+          height: 25px;
+          text-align: center;
+        }
+        li:hover{
+          border: 1px solid $blue;
+        }
+        a{
+          text-decoration:none;
+          color: $gray-light
+        }
+        a:hover{
+          color: $blue;
+        }
+      }
+    }
+
+    .data{
+     // margin:10px 0 0 10px;
+      height: 300px;
+      .gs{
+        height: 30px;
+        margin: 10px -4px 0 -4px;
+        padding: 0;
+
+        border: 1px solid $gray-deep-light;
+        background: $snow-white;
+
+        h5{
+          margin: 0;
+          padding: 0;
+          line-height: 30px;
+          margin-left: 20px;
+          color: $purple;
+        }
+      }
+    }
+
+
+    .inf {
+      height: 300px;
+      border: 1px solid $gray-deep-light;
+      border-top: none;
+      margin: 0 -4px;
+      .lt{
+        height: auto;
+        span{
+          margin-top: 120px;
+          margin-left: 40px;
+          color: $purple;
+
+        }
+      }
+
+      .rt{
+        height: auto;
+        margin-top: 10px;
+
+        table{
+          width: 100%;
+          tr{
+            margin-left: 40px;
+            height: 25px;
+            line-height: 20px;
+            font-size: 12px;
+          }
+          tr:hover{
+            background: $blue1;
+          }
+        }
+      }
+    }
+
+
+
+    //hard底部
+  }
+
+  //軟件資產
+  #soft,#service,#insoft,#sypatch{
+  .hd{
+    height: 30px;
+    line-height: 30px;
+    background: $snow-white;
+    font-size: 14px;
+    strong{
+      color: $green;
+    }
+  }
+  .assets{
+    margin-top: 10px;
+    height: 25px;
+    border-bottom:1px solid $purple;
+    ul{
+      list-style: none;
+    }
+    li{
+      float: left;
+      width: 80px;
+      height: 25px;
+      line-height: 25px;
+      margin-left: 15px;
+      text-align: center;
+      border: 1px solid $purple;
+    }
+    li:hover{
+      background: $purple;
+
+      color: #FFFFFF;
+    }
+    a{
+      text-decoration:none;
+      color: $purple;
+
+    }
+    a:hover{
+      border: 1px solid $purple;
+      color: $snow-white;
+    }
+  }
+  .lab{
+    width: 98%;
+    margin: 10px 0 0 10px;
+    height: 40px;
+    border: 1px solid $gray-deep-light;
+    ul{
+      list-style: none;
+      margin-top: 8px;
+      li{
+        float: left;
+        width: 120px;
+        height: 25px;
+        margin-left: 10px;
+        text-align: center;
+        line-height: 25px;
+        a{
+          text-decoration: none;
+          color: $gray-light;
+        }
+        a:hover{
+          color: $blue;
+        }
+      }
+      li:hover{
+        border: 1px solid $blue;
+        border-radius: 3px;
+      }
+    }
+  }
+
+   .runpro{
+     width: 98%;
+     margin-left: 10px;
+     height: auto;
+     border: 1px solid $gray-deep-light;
+     border-top:none;
+
+     table{
+       margin-top: 10px;
+     }
+   }
+
+
+
+
+
+
+
+
+  //hard底部
+}
+
+  //网络信息
+  .network{
+    margin: 10px;
+  }
+}

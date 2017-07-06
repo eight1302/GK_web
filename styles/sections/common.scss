@@ -1,0 +1,748 @@
+@import "variable";
+
+/* ============================ */
+/* P1. global css */
+/* ============================ */
+html,
+body {
+    margin: 0;
+    font-size: 12px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.view-container {
+    height: 100vh;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+select {
+  position: relative;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  width: 5rem;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+/* ============================ */
+/* P2. bootstrap css */
+/* ============================ */
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.btn-primary {
+  background-color: $purple;
+}
+
+/* pagination css */
+.pagination-ten {
+  .pagination li a {
+    margin: 0px 5px;
+    background: #353637;
+    color: #cccccc;
+    border:0px;
+    border-radius: 2px;
+  }
+  .pagination li a:hover{
+    background: #5a5b5c;
+  }
+  .pagination>.active>a,
+  .pagination>.active>a:focus,
+  .pagination>.active>a:hover,
+  .pagination>.active>span,
+  .pagination>.active>span:focus,
+  .pagination>.active>span:hover {
+    color: #fff;background-color: #5a5b5c;
+  }
+  .pagination>li>a:focus,
+  .pagination>li>a:hover,
+  .pagination>li>span:focus,
+  .pagination>li>span:hover {
+    color: #ffffff;
+  }
+  .pagination>.disabled>a,
+  .pagination>.disabled>a:hover {
+    background-color: #353637;
+  }
+  .btn:disabled,
+  .pagination > .disabled > a,
+  .pagination > .disabled > a:hover,
+  .pagination > .disabled > a:focus {
+    cursor:default;
+  }
+}
+
+.pagination-custom {
+  .pagination >li  {
+    margin-left: 5px;
+    >a, >span {
+      float: none;
+    }
+    >input {
+      position: relative;
+      padding: 6px 12px;
+      margin-right: 2px;
+      line-height: 1.42857143;
+      width: 5rem;
+      background-color: #fff;
+      border: 1px solid #ddd;
+    }
+    .pagination-goto {
+      border-radius: 4px !important;
+    }
+    .pagination-prev-a {
+      border-top-left-radius: 4px !important;
+      border-bottom-left-radius: 4px !important;
+    }
+  }
+}
+
+/* modal part */
+.modal-sm .modal-content {
+    width: 420px;
+    height: 290px;
+    position: absolute;
+    top: 137px;
+    background: rgba(26, 26, 26, 0.9);
+    color: #D0D0D0;
+    border: 1px #403F3F solid;
+}
+.modal-header-title {
+    font-size: 14px;
+    width: 200px;
+    float: left;
+    color: #ffffff;
+}
+.modal-close {
+    float: right;
+    cursor:pointer
+}
+.modal-header {
+    padding: 0px 15px;
+    border-bottom: 1px solid #403F3F;
+    line-height: 46px;
+}
+.modal-contenttxt {
+    padding: 10px 15px;
+    font-size: 12px;
+    height: 126px;
+}
+.modal-footer {
+    padding: 0px 15px;
+    line-height: 52px;
+    text-align: right;
+    border-top: 1px solid #403F3F;
+}
+.modal-footer .btn-default {
+    width: 88px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    border-radius: 2px;
+    background: #262626;
+    border: 1px #343434 solid;
+    color: #ffffff;
+    cursor: pointer;
+    margin-right: 70px;
+}
+.modal-footer .btn-default:hover,
+.modal-footer .btn-default:active {
+    background: #1c7dfa;
+    border: 1px #141212 solid;
+    color: #ffffff;
+}
+.modal-custom-body {
+    padding-right: 0px !important;      /*防止modal open时向左移动*/
+    padding-left: calc(100vw - 100%);   /*防止右侧滚动条出现时，页面跳动*/
+}
+
+/* button css */
+.btn-link:focus,
+.btn-link:active:focus{
+    outline:none;
+}
+
+/* table css */
+/*
+.table-hover > tbody > tr:hover,
+.table-hover > tbody > tr:hover > td{
+    background-color: #454645;
+}
+*/
+
+/* tooltip css */
+/* Specify styling for tooltip contents */
+.tooltip-inner {
+    width: 260px;
+}
+.tooltip.customClass .tooltip-inner {
+    color: #ffffff;
+    background-color: #262626;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    border:1px #454545 solid;
+    line-height: 24px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+/* Hide arrow */
+.tooltip.customClass .tooltip-arrow {
+    display: none;
+}
+.tooltip-item {
+    text-align: left;
+}
+
+.tooltip-item .star{
+    color: #1c7dfa;
+}
+
+/* alert css */
+.ws-alert {
+    position: absolute;
+    font-size: 13px;
+    top: 75px;
+    right: 0px;
+    width: 300px;
+    z-index: 1;
+    text-align: center;
+}
+.ws-alert .alert-success,
+.ws-alert .alert-error,
+.ws-alert .alert-warning,
+.ws-alert .alert-danger,
+.ws-alert .alert-info {
+    background: linear-gradient(#3e3e3e, #333333) #262626;
+    border: 1px solid;
+    /*box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.5);*/
+    border-radius: 2px;
+    border: 1px #565656 solid;
+    filter: alpha(opacity=80); /*IE滤镜*/
+    -moz-opacity:0.8; /*Firefox私有*/
+    opacity:0.8;
+}
+.ws-alert .close {
+    position: absolute;
+    top: 8px;
+    right: 18px;
+    color: #ffffff;
+    font-size: 14px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    opacity: 1;
+}
+.ws-alert .alert-success {
+    color:#9eea6a;
+}
+.ws-alert .alert-warning {
+    color:#F60;
+}
+.ws-alert .alert-error {
+    color: #ff3b30;
+}
+.ws-alert .alert-danger {
+    color: #cc5353;
+}
+.ws-alert .alert-info {
+    color: #ccc;
+}
+.alert-success:before {
+    content: "\f05d";
+    color:#9eea6a;
+    font-family: FontAwesome;
+    font-size: 24px;
+    position: absolute;
+    top:5px;
+    left: 10px;
+    z-index: 2;
+}
+.alert-warning:before {
+    content: "\f06a";
+    color:#F30;
+    font-family: FontAwesome;
+    font-size: 24px;
+    position: absolute;
+    top:5px;
+    left: 10px;
+    z-index: 2;
+}
+.alert-error:before,
+.alert-danger:before{
+    content: "\f057";
+    color:#ff3b30;
+    font-family: FontAwesome;
+    font-size: 24px;
+    position: absolute;
+    top:5px;
+    left: 10px;
+    z-index: 2;
+}
+.alert-info:before {
+    content: "\f05a";
+    color:#ccc;
+    font-family: FontAwesome;
+    font-size: 24px;
+    position: absolute;
+    top:5px;
+    left: 10px;
+    z-index: 2;
+}
+/* ANGULAR ANIMATE: FADE OUT RIGHT SIDE */
+.fade-out-right {
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+    position: relative;
+}
+.fade-out-right.ng-enter {
+    right: -40px;
+    opacity: 0;
+}
+.fade-out-right.ng-enter.ng-enter-active {
+    right: 0;
+    opacity: 1;
+}
+.fade-out-right.ng-leave {
+    right: 0;
+    opacity: 1;
+}
+.fade-out-right.ng-leave.ng-leave-active {
+    right: -40px;
+    opacity: 0;
+}
+.fade-out-right.ng-move {
+    opacity: 0.5;
+}
+.fade-out-right.ng-move.ng-move-active {
+    opacity: 1;
+}
+
+/* ============================ */
+/* P2. font-awesome additional css */
+/* ============================ */
+.fa-plus-overlay
+{
+  position: relative;
+
+  &:after
+  {
+    position: absolute;
+    font-family: FontAwesome;
+    bottom: -5px;
+    right: -5px;
+    content: "\f067";
+  }
+}
+
+/* ============================ */
+/* P3. smart-table & stable plugin css */
+/* ============================ */
+.st-sort-ascent:before{
+    content: '\25B2';
+}
+.st-sort-descent:before{
+    content: '\25BC';
+}
+.st-selected{
+    background: #216eff !important;
+    color: white !important;
+}
+
+.stable-toolbar {
+  div {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .left-toolbar {
+    button {
+      margin-right: .5em;
+      vertical-align: top;
+    }
+    .search {
+      width: 15em;
+      display: inline-block;
+    }
+  }
+  .right-toolbar {
+    text-align: right;
+    button {
+      margin-right: .5em;
+    }
+    .configuration {
+      margin-right: 0;
+    }
+    //覆盖bootstrap样式，实现弹出界面的效果(要用到table的右上角配置控件中)
+    .popover {
+      border-radius: 0px;
+    }
+    .popover.bottom-right {
+      margin-top:0px;
+      > .arrow{
+        display:none;
+      }
+    }
+  }
+}
+
+.toolbar-custom{
+  width: 23rem;
+  .custom-item {
+    padding-left: 12px;
+    margin-bottom: 12px;
+    .btn-default {
+      border-radius: 0;
+      &:hover {
+        color: $white;
+        background-color: $purple;
+      };
+      &:focus {
+        @extend .btn-default:hover;
+        outline:0;
+      };
+      &:active, &:active:hover, &:active:focus {
+        color: $white;
+        background-color: $purple;
+        outline:0;
+      };
+    }
+
+    .btn-default.active{
+      @extend .btn-default:active;
+      &:hover, &:focus{
+        @extend .btn-default:active;
+      }
+    }
+
+    /* .checkbox */
+    $toolbar-checkbox-size: 20px;
+    .toolbar-checkbox {
+      width: $toolbar-checkbox-size;
+      height: $toolbar-checkbox-size;
+      position: relative;
+      width: 100%;
+      padding-bottom: 2rem;
+      label {
+        width: $toolbar-checkbox-size;
+        height: $toolbar-checkbox-size;
+        position: absolute;
+        cursor: pointer;
+        left: 0;
+        background: linear-gradient(top, #222 0%, #45484d 100%);
+        border: 1px solid #ddd;
+        &:after {
+          content: '';
+          width: $toolbar-checkbox-size - 4;
+          height: $toolbar-checkbox-size - 4;
+          position: absolute;
+          left: 1px;
+          background: $purple;
+          box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+          opacity: 0;
+        }
+        &:hover::after {
+          opacity: 0.3;
+        }
+      }
+      input[type=checkbox] {
+        visibility: hidden;
+        &:checked + label:after {
+          opacity: 1;
+        }
+      }
+      .checkbox-text {
+        font-size:14px;
+        position: absolute;
+        left: 3rem;
+      }
+    }
+  }
+}
+
+.stable-filter {
+  padding: 1em;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  >div {
+    padding-left: 0;
+  }
+  .filter-item {
+    display:inline-block;
+    line-height: 4rem;
+    >div {
+      margin-right: 2rem;
+    }
+    .filter-item-dropdown {
+      display: inline-block;
+      > select {
+        width: 15rem;
+      }
+    }
+  }
+}
+
+/* stable css */
+.stable-list{
+  border:1px solid $gray-deep-light;
+  th{
+    color:$gray;
+    input[type="checkbox"]{
+      margin:0;
+    }
+  }
+  td{
+    color:$gray;
+    input[type="checkbox"]{
+      margin:0;
+    }
+    i{
+      font-size:16px;
+      color:$blue;
+    }
+  } 
+} 
+.stable-plain{
+  width:100%;
+  padding:0;
+  overflow:hidden;
+  .selectAllData{
+    display:none;
+  }
+  .stable-plain-child{
+    float:left;
+    width:20%;
+    padding:0 10px 30px 10px;
+    dl{
+      border:1px solid $gray-deep-light;
+      dt{
+        position:relative;
+        width:100%;
+        text-align:center;
+        background:$gray-light;
+        i{
+          font-size:26px;
+          color:$white;
+          padding:40px 0;
+        }
+        input[type="checkbox"]{
+          position:absolute;
+          top:5px;
+          left:5px;
+        }
+      }
+      dd{
+        padding:10px;
+        h5{
+          width:100%;
+          font-weight:normal;
+          padding:5px 0;
+          margin:0 0 10px 0;
+          color:$purple-dark;
+          font-size:16px;
+          height:auto;
+          line-height:normal;
+        }
+        p{
+          width:100%;
+          font-size:12px;
+          color:$gray-light;
+        }
+        .dl-btn{
+          width:100%;
+          overflow:hidden;
+          margin-top:40px;
+          a{
+            float:right;
+            font-size:18px;
+            color:$purple-dark;
+            margin-left:10px;
+            text-decoration:none;
+          }
+        }
+      }
+      &.current{
+        border:1px solid $purple;
+        dt{
+          background:$purple-dark;
+        }
+      }
+    }
+  } 
+}
+
+/* nav css */
+.dashboard-nav{
+  width: $dashboard-nav-width;
+  height: 100%;
+  background: $purple-dark;
+  .nav-container {
+     height: 100%;
+     width: 100%;
+     .nav-item {
+       width: $dashboard-nav-width;
+       height: $dashboard-nav-menu-height;
+       display:table-cell;
+       vertical-align: middle;
+       text-align: center;
+       .nav-a{
+        display:table-cell;
+        width: $dashboard-nav-width;
+        height: $dashboard-nav-menu-height;
+        vertical-align: middle;
+        text-align: center;
+        color: $white;
+        font-size: 12px;
+        text-decoration:none;
+       }
+       .nav-current{
+         background: $white;
+         cursor:pointer;
+         color:$purple-dark;
+       }
+       i {
+         font-size: 20px;
+       }
+     }
+     //覆盖bootstrap样式，实现弹出界面的效果(要用到table的右上角配置控件中)
+     .popover {
+       border-radius: 0px;
+     }
+     .popover.right-top {
+       margin-left:0px;
+       > .arrow{
+         display:none;
+       }
+     }
+     .popover-content{
+       padding:0 0 3.6rem 0;
+     }
+     >nav >ul >li {
+       width: $dashboard-nav-width;
+       height: $dashboard-nav-menu-height;
+       margin: 0;
+       &:first-child{
+        background: $purple-deep-dark;
+       }
+       &:hover, &:active {
+         background: $white;
+         cursor:pointer;
+         .nav-a{
+          color:$purple-dark;
+         }
+       }
+      }
+     .divider {
+       height: 1px;
+       margin: 0;
+       overflow: hidden;
+       background-color: $purple-light;
+      }
+    }
+    .nav-sec-container {
+     width: $dashboard-nav-child-width;
+     >ul li {
+      width:auto;
+      height:auto;
+      margin-left:2rem;
+      border-bottom:1px solid $gray-deep-light;
+      text-align:left;
+      .sec-a{
+        display:inline-block;
+        padding:1.2rem 0 1.2rem 4rem;
+        width:$dashboard-nav-child-width;
+        color:$gray;
+        font-size:12px;
+        margin-left:-2rem;
+        i{
+          font-size:14px;
+          margin-right:10px;
+        }
+      }
+      &:hover a{
+        background:$purple-dark;
+        cursor:pointer;
+        color:$white;
+      }
+      .sec-current{
+        background:$purple-dark;
+        cursor:pointer;
+        color:$white;
+      }
+    }
+  }
+}
+
+/* top css */
+.top-container {
+  width: 100%;
+  height: $dashboard-top-height;
+  background: $purple;
+  img{
+    float:left;
+    width: 140px;
+    height: auto;
+    margin-top: 25px;
+    margin-left: 20px;
+  }
+  .top-container-right{
+    float:right;
+  }
+  .input-group{
+    display:inline-block;
+    margin-top:25px;
+    .time{
+      position:relative;
+    }
+    .sup{
+      position:absolute;
+      font-size:12px;
+      color:$white;
+      background:red;
+      top:-15px;
+      right:-15px;
+      font-style:normal;
+      height:20px;
+      line-height:18px;
+      width:20px;
+      text-align:center;
+      display:inline-block;
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+    }
+    .top-search{
+      width: 180px;
+      height: 30px;
+      border-radius: 15px;
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      filter:alpha(opacity=80);
+      -moz-opacity:0.8;
+      -khtml-opacity: 0.8;
+      opacity: 0.8;
+      background: #FFFFFF;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 12px;
+      &::-webkit-input-placeholder,&:-moz-placeholder,&::-moz-placeholder,&:-ms-input-placeholder {
+        color:#ffffff !important;
+      }
+    }
+    span{
+      margin:4px 17px 0 17px;
+      font-size: 20px;
+      color: $white;
+      cursor: pointer;
+      font-weight:normal;
+    }
+  } 
+}
+
+/* breadcrumb css */
+.breadcrumb > li {
+    color: $gray-deep-light;
+    content: "> ";
+    padding: 0 15px;
+    font-size:14px;
+}
